@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :username, :email, :first_name, :last_name, :gender, :birthday :password_digest, presence: true
+  validates :username, :email, :first_name, :last_name, :gender, :birthday, :password_digest, presence: true
   validates :username, uniqueness: true
   after_initialize :ensure_session_token
   attr_reader :password
