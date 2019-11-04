@@ -14,25 +14,54 @@
  *= require_self
  */
 
+
+ body {
+    background-color: rgb(247, 247, 247);
+ }
+ 
  .login-form-div {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 8%;
+    z-index: 2;
+}
+
+.login-form-div header {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(219, 218, 218);
+    margin-top: 15px;
+    background-color: white;
+    font-family: 'Rokkitt', serif;
+
+}
+.login-form-div header div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 60px;
+    padding-left: 60px;
 }
 
 .login-form-div form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid gray;
+    background-color: white;
+    border: 1px solid rgb(219, 218, 218);
   }
 
-  .login-form-div form div {
+  .login-form-div form div h1 {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 35px;
+      padding-top: 20px;
+      padding-right: 80px;
+      padding-left: 80px;
+      font-family: 'Cookie', cursive;
+      font-size: 40px;
   }
 
 
@@ -41,12 +70,31 @@
      margin: 2px;
      display: flex;
      width: 60%;
+     height: 20px;
+     border: 1px solid  rgb(219, 218, 218);
+     background-color: rgb(247, 247, 247);
+     border-radius: 4px;
+     text-align: left;
  }
  
  .login-form-div button {
      padding: 3px;
      margin: 2px;
+     margin-bottom: 20px;
+     width: 65%;
+     height: 25px;
+     display: flex;
+     justify-content: center;
+     background-color: rgb(142, 173, 209);
+     color: white;
+     border-radius: 4px;
+ }
+ /* .login-form-div .active {
+     padding: 3px;
+     margin: 2px;
      width: 60%;
      display: flex;
      justify-content: center;
- }
+     background-color: rgb(34, 63, 97);
+     color: white;
+ } */

@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
     render() {
         const footer = (
                 <div>
-                    <p> Not a user? <Link to="/signup">Sign up</Link>
+                    <p> Don't have an account? <Link to="/signup">Sign up</Link>
                 </p>
                 </div>
         )
@@ -37,18 +37,14 @@ class SessionForm extends React.Component {
         if (this.props.errors) {
             errors = this.props.errors;
         }
-
+        let klass = this.state.user.username && this.state.user.password ? ("active") : ("");
         return (
             <div className="login-form-div">
                 <form>
 
                     <div>
-                        <h1>Backendgram</h1>
+                        <h1>Gramcrackers</h1>
                     </div>
-                    
-
-
-                    
                             <input 
                             type="text"
                             name="user[username]"
@@ -69,17 +65,17 @@ class SessionForm extends React.Component {
 
                             <br/>
                     
-                    <button onClick={this.handleSubmit}>Log In</button>
+                    <button onClick={this.handleSubmit} className={klass}>Log In</button>
 
-                <header>{footer}</header>
                     <ul className='errors'>
                         {
-                           errors.map((error) => {
-                            return <p>{error}</p>;
-                        })}
+                            errors.map((error) => {
+                                return <p>{error}</p>;
+                            })}
                     </ul>
                 </form>
 
+                    <header>{footer}</header>
             </div>
         )
     }
