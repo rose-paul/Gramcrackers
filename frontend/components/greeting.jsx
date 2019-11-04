@@ -16,9 +16,7 @@ class Greeting extends React.Component {
                 <button onClick={this.props.logoutUser}>Logout</button>
             </div>
         ) : (
-                <div>
-                    <p>Sign up to see photos and videos from you friends.</p>
-                </div>
+                null
             )
         return (
             <div>

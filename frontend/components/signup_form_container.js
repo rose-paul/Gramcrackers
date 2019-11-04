@@ -1,16 +1,15 @@
 import { connect } from "react-redux";
-import SessionForm from './session_form';
+import CreateUserForm from './create_user_form';
 import { HashRouter } from "react-router-dom";
 import { createNewUser } from "../actions/session_actions";
 
 
 const mapStateToProps = (state, ownProps) => ({
     errors: Object.values(state.errors),
-    formType: 'signup'
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     processForm: (user) => dispatch(createNewUser(user))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateUserForm);

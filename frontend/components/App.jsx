@@ -8,7 +8,6 @@ import SplashContainer from "./splash_container";
 const App = () => (
     <div>
         <header>
-            <h1>Backendgram</h1>
             <GreetingContainer />
         </header>     
         <Route path="/signup" component={SignupFormContainer} />

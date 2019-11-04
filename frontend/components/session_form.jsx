@@ -27,51 +27,59 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        const header = this.props.formType === "signup" ? (
-            <div>
-                <h1>Sign Up</h1>
-                <Link to="/login">Already have an account?</Link>
-            </div>
-        ) : (
+        const footer = (
                 <div>
-                    <h1>Login</h1>
-                    <Link to="/signup">Not a user?</Link>
+                    <p> Not a user? <Link to="/signup">Sign up</Link>
+                </p>
                 </div>
-            );
+        )
         let errors = [];
         if (this.props.errors) {
             errors = this.props.errors;
         }
 
         return (
-            <div>
+            <div className="login-form-div">
                 <form>
 
-                    <header>{header}</header>
+                    <div>
+                        <h1>Backendgram</h1>
+                    </div>
+                    
 
-                    <ul className='errors'>
-                        {errors.map((error) => {
-                            return <li>{error}</li>;
-                        })}
-                    </ul>
 
-                    <label>Username:
-                <input type="text"
+                    
+                            <input 
+                            type="text"
                             name="user[username]"
                             value={this.state.username}
-                            onChange={this.handleInput('user[username]')} />
-                    </label>
+                            onChange={this.handleInput('user[username]')} 
+                            placeholder="Username"
+                            />
 
-                    <label>Password:
-                <input type="password"
+                            <br/>
+
+                            <input 
+                            type="password"
                             name="user[password]"
                             value={this.state.password}
-                            onChange={this.handleInput('user[password]')} />/>
-              </label>
+                            onChange={this.handleInput('user[password]')} 
+                            placeholder="Password"
+                            />
 
-                    <button onClick={this.handleSubmit}>{this.props.formType}</button>
+                            <br/>
+                    
+                    <button onClick={this.handleSubmit}>Log In</button>
 
+                <header>{footer}</header>
+                    <ul className='errors'>
+                        {
+                           errors.map((error) => {
+                            return <p>{error}</p>;
+                        })}
+                    </ul>
                 </form>
+
             </div>
         )
     }
