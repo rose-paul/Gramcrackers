@@ -18,7 +18,7 @@ const receiveErrors = errors => ({
     errors
 });
 
-export const createNewUser = (formUser) => (dispatch) => signUp(formUser)
+export const createNewUser = (formUser) => (dispatch) => signup(formUser)
     .then(user => dispatch(receiveCurrentUser(user)),
         errors => dispatch(receiveErrors(errors)));
 
