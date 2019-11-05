@@ -8,10 +8,12 @@ import SplashContainer from "./splash_container";
 const App = () => (
     <div>
         <header>
-            <GreetingContainer />
         </header>     
         <Route path="/signup" component={SignupFormContainer} />
         <Route path="/login" component={LoginFormContainer} />
+        <Route exact path="/main" component={GreetingContainer} /> 
+        {/* need greetingcontainer to render in Header when logged in. 
+        This will become main feed. */}
         <Route exact path="/" component={SplashContainer} />
     </div>
 );

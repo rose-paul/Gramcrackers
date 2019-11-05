@@ -20,11 +20,10 @@ const receiveErrors = errors => ({
 
 export const createNewUser = (formUser) => (dispatch) => signup(formUser)
     .then(user => dispatch(receiveCurrentUser(user)),
-        errors => dispatch(receiveErrors(errors)));
+        errors => dispatch(receiveErrors(errors.responseJSON)));
 
 export const loginUser = (formUser) => (dispatch) => login(formUser)
     .then(user => {
-        debugger
         return dispatch(receiveCurrentUser(user))
     },
         errors => {
@@ -34,7 +33,6 @@ export const loginUser = (formUser) => (dispatch) => login(formUser)
 export const logoutUser = () => (dispatch) => logout()
     .then(() => dispatch(logoutCurrentUser()),
         errors => {
-
             return dispatch(receiveErrors(errors))
         });
 

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 class CreateUserForm extends React.Component {
     constructor(props) {
         super(props)
+        
         this.state = { user: {
             email: "",
             first_name: "",
@@ -24,7 +25,7 @@ class CreateUserForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state)
-        this.props.processForm(user).then(() => this.props.history.push('/'))
+        this.props.processForm(user).then(() => this.props.history.push('/main'))
     }
 
     render() {
@@ -34,25 +35,25 @@ class CreateUserForm extends React.Component {
             errors = this.props.errors;
         }
 
-        return (
+        const footer = (
             <div>
+                <p> Have an account? <Link to="/login"> Login </Link>
+                </p>
+            </div>
+        )
+
+        return (
+            <div className="signup-form-div">
                 
-                <h1>Backendgram</h1>
                 
-                <p>Sign up to see photos and videos from you friends.</p>
-                
-                <Link to="/login">Login</Link>
-                    <h4>OR</h4>
                 <form onSubmit={this.handleSubmit}>
 
+                <h1>Gramcrackers</h1>
+                    <span>Sign up to see photos and videos </span>
+                    <span>from your friends.</span>
+                        <br/>
 
 
-                    {/* <ul className='errors'>
-                        {
-                            errors.map((error) => {
-                                return <p>{error}</p>;
-                            })}
-                    </ul> */}
 
 
                     <input 
@@ -91,7 +92,18 @@ class CreateUserForm extends React.Component {
                     />
                     <br/>
                     <input type="submit" value="Sign Up"/>
+
+
+                    <ul className='errors'>
+                        {
+                            errors.map((error) => {
+                                return <li>{error}</li>;
+                            })}
+                    </ul>
+
                 </form>
+
+                <footer>{footer}</footer>
             </div>
         )
     }

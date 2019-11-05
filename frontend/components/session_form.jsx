@@ -23,7 +23,7 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user).then(() => this.props.history.push('/'));
+        this.props.processForm(user).then(() => this.props.history.push('/main'));
     }
 
     render() {
@@ -40,6 +40,9 @@ class SessionForm extends React.Component {
         let klass = this.state.user.username && this.state.user.password ? ("active") : ("");
         return (
             <div className="login-form-div">
+                <img src='/login2.jpg' width="30%" height="40%" />
+                <div className="inner"> 
+
                 <form>
 
                     <div>
@@ -68,14 +71,14 @@ class SessionForm extends React.Component {
                     <button onClick={this.handleSubmit} className={klass}>Log In</button>
 
                     <ul className='errors'>
-                        {
-                            errors.map((error) => {
-                                return <p>{error}</p>;
-                            })}
+                        {errors.map((error) => {
+                            return <li>{error}</li>;
+                        })}
                     </ul>
                 </form>
+                    <footer>{footer}</footer>
+                </div>
 
-                    <header>{footer}</header>
             </div>
         )
     }

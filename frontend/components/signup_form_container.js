@@ -5,7 +5,7 @@ import { createNewUser } from "../actions/session_actions";
 
 
 const mapStateToProps = (state, ownProps) => ({
-    errors: Object.values(state.errors),
+    errors: state.errors.session,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
