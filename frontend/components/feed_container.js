@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
-import SplashPage from "./splash";
+import Feed from "./feed";
 
 const mapStateToProps = state => ({
     currentUser: state.entities.users[state.session.id]
 });
 
-export default connect(mapStateToProps, null)(SplashPage);
+export default connect(mapStateToProps, null)(Feed);

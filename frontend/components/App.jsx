@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SignupFormContainer from "./signup_form_container";
 import LoginFormContainer from "./login_form_container";
-import SplashContainer from "./splash_container";
+import FeedContainer from "./feed_container";
 import ProfileContainer from "./profile_container";
 
 
@@ -19,7 +19,7 @@ const App = (props) => {
         <AuthRoute path="/login" component={LoginFormContainer} /> 
         {/* need greetingcontainer to render in Header when logged in. 
         This / will become main feed and /main will be discarded. */}
-        <ProtectedRoute exact path="/" component={SplashContainer} />
+        <ProtectedRoute exact path="/" component={FeedContainer} />
         {/* make protected route so redirects to login/signup */}
 
         {

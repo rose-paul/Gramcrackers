@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Splash extends React.Component{
+class Feed extends React.Component{
     render() {
         return (
             <h1>FEED</h1>
+            <img src="" alt=""/>
         )
     }
 }
-export default Splash;
+export default Feed;

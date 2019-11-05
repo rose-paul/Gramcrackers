@@ -182,6 +182,65 @@ footer div {
  .nav-bar {
      display: flex;
      flex-direction: row;
-     justify-content: space-around;
+     justify-content: space-between;
+     border-bottom: 1px solid gray;
  }
 
+ .nav-bar .search {
+    display: flex;
+    text-align: center;
+    border-radius: 1px;
+    margin-top: 10px;
+    height: 20px;
+ }
+
+ .home-links-div {
+     display: flex;
+     flex-direction: row;
+     padding-left: 30px;
+     justify-content: center;
+     align-items: center;
+ }
+
+
+ .home-links-div img {
+     height: 50px;
+     padding-right: 20px;
+    }
+    
+.home-links-div .home-link {
+    text-decoration: none;
+    color: black;
+}
+.home-links-div h2 {
+    padding-left: 20px;
+    font-family: 'Cookie', cursive;
+    border-left: 1px solid gray;
+ }
+
+ .right-nav-div {
+    display: flex;
+     flex-direction: row;
+     padding-right: 30px;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .profile-link {
+     padding-right: 20px;
+     height: 50px;
+ }
+
+ .middle-nav-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+ }
+
+ .explore {
+     height: 37px;
+     width: 37px;
+     padding-right: 5px;
+ }
