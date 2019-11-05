@@ -28,8 +28,6 @@ class Greeting extends React.Component {
                 </div>
                 
             </div>
-
-
         ) : (
                 null
             )

@@ -12,6 +12,7 @@ class SessionForm extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
     }
 
     handleInput(type) {
@@ -24,6 +25,17 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user).then(() => this.props.history.push('/'));
+    }
+
+    handleDemo(e) {
+        e.preventDefault();
+        const user = Object.assign({}, {
+            user: {
+                username: "yzerman",
+                password: "password"
+            }
+        })
+        this.props.processForm(user).then(() => this.props.history.push('/'))
     }
 
     render() {
@@ -69,6 +81,8 @@ class SessionForm extends React.Component {
                             <br/>
                     
                     <button onClick={this.handleSubmit} className={klass}>Log In</button>
+
+                    <button onClick={this.handleDemo}>Demo User</button>
 
                     <ul className='errors'>
                         {errors.map((error) => {
