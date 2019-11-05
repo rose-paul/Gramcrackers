@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
     render() {
         const footer = (
                 <div>
-                    <p> Don't have an account? <Link to="/signup">Sign up</Link>
+                    <p> Don't have an account? <Link to="/signup" onClick={this.props.noErrors}>Sign up</Link>
                 </p>
                 </div>
         )

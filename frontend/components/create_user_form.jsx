@@ -37,7 +37,7 @@ class CreateUserForm extends React.Component {
 
         const footer = (
             <div>
-                <p> Have an account? <Link to="/login"> Login </Link>
+                <p> Have an account? <Link to="/login" onClick={this.props.noErrors}> Login </Link>
                 </p>
             </div>
         )
@@ -96,8 +96,8 @@ class CreateUserForm extends React.Component {
 
                     <ul className='errors'>
                         {
-                            errors.map((error) => {
-                                return <li>{error}</li>;
+                            errors.map((error, i) => {
+                                return <li key={i}>{error}</li>;
                             })}
                     </ul>
 

@@ -1,5 +1,14 @@
 <link href="https://fonts.googleapis.com/css?family=Cookie|Dancing+Script|Rokkitt:300&display=swap" rel="stylesheet">
 
+<% if logged_in? %>
+  <script type="text/javascript">
+    window.currentUser = <%= render(
+      "api/users/user.json.jbuilder",
+      user: current_user
+    ).html_safe %>
+  </script>
+<% end %>
+
     <div class="back">
         <main id="root">
             <h1>working?</h1>
