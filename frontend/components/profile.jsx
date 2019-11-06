@@ -25,6 +25,9 @@ class Profile extends React.Component {
                 <p>{this.props.match.params.username}'s profile</p>
             </div>    
         );
+
+        // make extra conditional -- ajax GET request for that user. If success, render one thing, else
+        // redirect
         
         return (
             <div>
