@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import LoginFormContainer from './login_form_container';
 class Greeting extends React.Component {
 
-    constructor({ props }) {
+    constructor(props) {
         super(props);
     }
 
@@ -11,7 +11,7 @@ class Greeting extends React.Component {
     render() {
 
         const searchIcon = <img src="https://img.icons8.com/ios-filled/24/000000/search.png"/>
-        const display = this.props.currentUser ? (
+        let display = this.props.currentUser  ? (
             <div className="nav-bar">
                 <div className="home-links-div">
                     <Link className='home-link' to="/"> <img src="https://img.icons8.com/plasticine/100/000000/camera.png"/></Link>
@@ -29,8 +29,25 @@ class Greeting extends React.Component {
                 
             </div>
         ) : (
-                null
+            
+                    <div className="nav-bar">
+                        <div className="home-links-div">
+                            <Link className='home-link' to="/"> <img src="https://img.icons8.com/plasticine/100/000000/camera.png" /></Link>
+                            <Link className='home-link' to="/"><h2>Gramcrackers</h2></Link>
+                            {/* <p>Welcome, {this.props.currentUser.username} </p> */}
+                        </div>
+                        <div className="middle-nav-div">
+                            <input className='search' type="text" placeholder="Search" />
+                        </div>
+
+                        <div className="right-nav-div">
+                            <Link className='nav-login' to="/login">Log In</Link>
+                            <Link className='nav-signup' to="/signup">Sign Up</Link>
+                        </div>
+                    </div>
             )
+
+         if (this.props.location.pathname === "/login" || this.props.location.pathname === "/signup" ) display = null;
         return (
             <div>
                 {display}
@@ -40,5 +57,5 @@ class Greeting extends React.Component {
 
 }
 
-export default Greeting;
+export default withRouter(Greeting);
 
