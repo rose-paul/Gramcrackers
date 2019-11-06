@@ -18,6 +18,10 @@
  body {
     background-color: rgb(247, 247, 247);
  }
+
+ button {
+    cursor: pointer;
+}
  
  .login-form-div {
     display: flex;
@@ -294,4 +298,26 @@ footer div {
      align-items: center;
      background-color: rgb(247, 247, 247)
  }
+
+
+ //PROFILE
+
+
+.profile-nav  {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout-button {
+    padding: 5px;
+    margin-left: 8px;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+.username-display {
+    font-size: 25px;
+}
 

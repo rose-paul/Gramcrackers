@@ -9,16 +9,17 @@ class Profile extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-        this.props.history.push('/login')
-        this.props.logoutUser()
+        this.props.logoutUser().then(() => this.props.history.push('/login'))
+        
     }
-     // .then(() => this.props.history.push('/login'))
+
 
     render() {
         const display = 
         (this.props.currentUser && this.props.match.params.username === this.props.currentUser.username) ? (
-            <div>
-                <button onClick={this.handleClick}>Logout</button>
+            <div className="profile-nav">
+                <p className="username-display">{this.props.match.params.username}</p>
+                <button className="logout-button" onClick={this.handleClick}>Logout</button>
             </div>
         ) : (
             <div>
