@@ -1,0 +1,337 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/* line 19, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+body {
+  background-color: #f7f7f7;
+}
+
+/* line 23, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+button {
+  cursor: pointer;
+}
+
+/* line 27, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.login-form-div {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+}
+
+/* line 36, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.inner {
+  display: flex;
+  flex-direction: column;
+  padding: 60px;
+  height: 300px;
+}
+
+/* line 43, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+footer {
+  display: flex;
+  align-items: center;
+  border: 1px solid #dbdada;
+  margin-top: 15px;
+  background-color: white;
+  font-family: 'Rokkitt', serif;
+}
+
+/* line 52, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+footer div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 60px;
+  padding-left: 60px;
+}
+
+/* line 60, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.signup-form-div footer div {
+  padding-right: 120px;
+  padding-left: 120px;
+}
+
+/* line 65, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.login-form-div form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #dbdada;
+}
+
+/* line 74, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.login-form-div form div h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  padding-right: 80px;
+  padding-left: 80px;
+  font-family: 'Cookie', cursive;
+  font-size: 40px;
+}
+
+/* line 86, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.login-form-div input {
+  padding: 3px;
+  margin: 2px;
+  display: flex;
+  width: 60%;
+  height: 20px;
+  border: 1px solid #dbdada;
+  background-color: #f7f7f7;
+  border-radius: 4px;
+  text-align: left;
+}
+
+/* line 98, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.login-form-div button {
+  padding: 3px;
+  margin: 2px;
+  margin-bottom: 20px;
+  width: 65%;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  background-color: #8eadd1;
+  color: white;
+  border-radius: 4px;
+}
+
+/* .login-form-div .active {
+    padding: 3px;
+    margin: 2px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(34, 63, 97);
+    color: white;
+} */
+/* line 121, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.signup-form-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8%;
+  margin-bottom: 8%;
+}
+
+/* line 130, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.signup-form-div form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #dbdada;
+}
+
+/* line 138, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.signup-form-div form h1 {
+  font-family: 'Cookie', cursive;
+}
+
+/* line 142, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.signup-form-div span {
+  font-family: 'Rokkitt', serif;
+  padding-left: 90px;
+  padding-right: 90px;
+}
+
+/* line 149, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.signup-form-div input {
+  padding: 3px;
+  margin: 2px;
+  display: flex;
+  width: 60%;
+  height: 20px;
+  border: 1px solid #dbdada;
+  background-color: #f7f7f7;
+  border-radius: 4px;
+  text-align: left;
+}
+
+/* line 161, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.signup-form-div input[type="submit"] {
+  padding: 3px;
+  margin: 2px;
+  margin-bottom: 20px;
+  width: 65%;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  background-color: #8eadd1;
+  color: white;
+  border-radius: 4px;
+}
+
+/* line 174, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.errors {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style: none;
+  font-family: 'Rokkitt', serif;
+  margin-right: 32px;
+  color: red;
+}
+
+/* line 187, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 199, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.home-links-div {
+  display: flex;
+  flex-direction: row;
+  padding-left: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 208, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.home-links-div img {
+  height: 50px;
+  padding-right: 20px;
+}
+
+/* line 213, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.home-links-div .home-link {
+  text-decoration: none;
+  color: black;
+}
+
+/* line 217, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.home-links-div h2 {
+  padding-left: 20px;
+  font-family: 'Cookie', cursive;
+  border-left: 1px solid gray;
+}
+
+/* line 223, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.right-nav-div {
+  display: flex;
+  flex-direction: row;
+  padding-right: 30px;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  padding-top: 12px;
+}
+
+/* line 233, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.profile-link {
+  padding-right: 20px;
+  height: 50px;
+}
+
+/* line 238, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.middle-nav-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  margin-right: 50px;
+}
+
+/* line 248, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.nav-bar .search {
+  display: flex;
+  text-align: center;
+  border: 1px solid #dbdada;
+  border-radius: 1px;
+  height: 20px;
+  background-color: #f7f7f7;
+  border-radius: 4px;
+}
+
+/* line 259, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.explore {
+  height: 34px;
+  width: 34px;
+  padding-right: 5px;
+}
+
+/* line 267, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.nav-login {
+  margin-top: 14px;
+  margin-bottom: 8px;
+  width: 65%;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  background-color: #8eadd1;
+  color: white;
+  border-radius: 4px;
+  margin-right: 20px;
+  padding-top: 5px;
+  text-decoration: none;
+}
+
+/* line 282, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.nav-signup {
+  margin-top: 14px;
+  margin-bottom: 8px;
+  width: 65%;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  color: #8eadd1;
+  border-radius: 4px;
+  margin-right: 15px;
+  width: 150px;
+  padding-top: 3px;
+  text-decoration: none;
+}
+
+/* line 299, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.feed-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* line 309, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.profile-nav {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* line 316, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.logout-button {
+  padding: 5px;
+  margin-left: 8px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* line 323, /Users/prose009/Desktop/igclone/app/assets/stylesheets/application.scss */
+.username-display {
+  font-size: 25px;
+}

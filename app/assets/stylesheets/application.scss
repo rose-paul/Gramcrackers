@@ -323,3 +323,11 @@ footer div {
     font-size: 25px;
 }
 
+.profile-feed {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+}
+

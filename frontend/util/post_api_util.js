@@ -1,4 +1,4 @@
-export const fetchPosts = ( username) => (
+export const fetchPosts = username => (
     $.ajax({
         method: 'GET',
         url: '/api/posts',
