@@ -1,6 +1,8 @@
 class Api::PostsController < ApplicationController
     def index
         @posts = Post.all
+        debugger
+        render :index
     end
 
     def create
@@ -25,15 +27,14 @@ class Api::PostsController < ApplicationController
         else
             render json: @post.errors.full_messages, status: 401
         end
-
     end
 
 
-    def destroy
-        @post = current_user.posts.find(params[:id]) 
-        @post.destroy 
-        ## render what here?
-    end
+    # def destroy
+    #     @post = current_user.posts.find(params[:id]) 
+    #     @post.destroy 
+    #     ## render what here?
+    # end
 
 
 end
