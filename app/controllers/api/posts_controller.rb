@@ -1,7 +1,9 @@
 class Api::PostsController < ApplicationController
     def index
-        @posts = Post.all
-        debugger
+        user = User.find_by(username: params[:username])
+        if user
+            @posts = Post.where('user_id = ?', user.id)
+        end
         render :index
     end
 
@@ -35,6 +37,12 @@ class Api::PostsController < ApplicationController
     #     @post.destroy 
     #     ## render what here?
     # end
+
+    private 
+
+    def post_params
+        params.require(:post).permit(:caption)
+    end
 
 
 end

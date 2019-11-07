@@ -14,8 +14,8 @@ const receivePost = post => ({
     post
 })
 
-export const fetchAllPosts = () => dispatch => fetchPosts()
-    .then(posts => dispatch(receiveAllPosts(posts)))
+export const fetchAllPosts = (userId) => dispatch => fetchPosts(userId)
+    .then( posts => dispatch(receiveAllPosts(posts)))
 
 export const fetchOnePost = postId => dispatch => fetchPost(postId)
     .then(post => dispatch(receivePost(post)))
