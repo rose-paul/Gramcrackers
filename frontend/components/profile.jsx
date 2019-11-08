@@ -38,8 +38,16 @@ class Profile extends React.Component {
                 (   
                 <div className="profile-page">
                     <div className="profile-nav">
-                        <p className="username-display">{this.props.match.params.username}</p>
-                        <button className="logout-button" onClick={this.handleLogout}>Logout</button>
+                        <img className="profile-pic" src="https://img.icons8.com/color/48/000000/cheburashka.png"/>
+                        <div className="profile-nav-right">
+                            <div className="username-logout">
+                                <p className="username-display">{this.props.match.params.username}</p>
+                                <button className="logout-button" onClick={this.handleLogout}>Logout</button>
+                            </div>
+                            <div className="profile-info">
+                                <p>profile info here</p>
+                            </div>
+                        </div>
                     </div>
                         <ul className="profile-feed">
                             {
