@@ -6,6 +6,8 @@ import SignupFormContainer from "./signup_form_container";
 import LoginFormContainer from "./login_form_container";
 import FeedContainer from "./feed_container";
 import ProfileContainer from "./profile_container";
+import PostFormContainer from "./post_form_container";
+
 
 
 
@@ -18,6 +20,7 @@ const App = (props) => {
         <Switch>
             <AuthRoute exact path="/signup" component={SignupFormContainer} />
             <AuthRoute exact path="/login" component={LoginFormContainer} /> 
+            <ProtectedRoute exact path="/posts/new" component={PostFormContainer} />
             <ProtectedRoute exact path="/" component={FeedContainer} />
             <Route exact path="/:username" component={ProfileContainer} />
             <Redirect to="/signup"/>

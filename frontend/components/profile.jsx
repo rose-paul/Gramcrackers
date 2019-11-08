@@ -4,11 +4,20 @@ import { Link } from 'react-router-dom';
 class Profile extends React.Component {
     constructor(props) {
         super(props);
+        this.state = this.props.post;
+        // debugger
         this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchUserPosts(this.props.match.params.username)
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.match.params.username !== this.props.match.params.username){
+            this.props.fetchUserPosts(this.props.match.params.username);
+        }
+ 
     }
 
     handleClick(e) {
@@ -21,8 +30,10 @@ class Profile extends React.Component {
     render() {
 
         if (!this.props.posts && !this.props.errors) return null;
+        // if (this.props.errors) {
+        //     return <span className="no-user">{this.props.errors[0]}</span>
+        // }
          if (this.props.currentUser && this.props.match.params.username === this.props.currentUser.username) {
-            // debugger
             let userposts = Object.values(this.props.posts);
             return (
                 (   
@@ -33,8 +44,11 @@ class Profile extends React.Component {
                     </div>
                         <ul className="profile-feed">
                             {
-                                userposts.map( post => (
-                                    <li><img src={post.photoUrl} width="300" height="300"/></li>
+                                userposts.reverse().map( post => (
+                                    <li>
+                                        <img src={post.photoUrl} width="300" height="300"/>
+                                        <span>{post.caption}</span>
+                                    </li>
                                 ))
                             }
                         </ul>
@@ -42,11 +56,23 @@ class Profile extends React.Component {
                 ) 
             ) 
         } else {
+             let userposts = Object.values(this.props.posts);
             return (
-                <div>
-                    <p>{this.props.match.params.username}'s profile</p>
-                    {/* <p>{this.state.errors.posts}</p> */}
-                </div>    
+                <div className="profile-page">
+                    <div className="profile-nav">
+                        <p>{this.props.match.params.username}'s profile</p>
+                    </div>    
+                <ul className="profile-feed">
+                    {
+                        userposts.reverse().map(post => (
+                            <li>
+                                <img src={post.photoUrl} width="300" height="300" />
+                                <span>{post.caption}</span>
+                            </li>
+                        ))
+                    }
+                </ul>
+                </div>
             )
 
         }

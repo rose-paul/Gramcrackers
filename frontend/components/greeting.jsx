@@ -23,7 +23,7 @@ class Greeting extends React.Component {
                 </div>
                 
                 <div className="right-nav-div">
-                    <img className="explore" src="https://img.icons8.com/android/48/000000/compass.png"/>
+                    <Link to="/posts/new"><img className="post-icon" src="https://img.icons8.com/android/48/000000/compass.png" /></Link>
                     <Link className='profile-link' to={`/${this.props.currentUser.username}`}><img src="https://img.icons8.com/material-outlined/48/000000/user.png"/></Link>
                 </div>
                 
