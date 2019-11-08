@@ -8,7 +8,7 @@ class Post < ApplicationRecord
 
     def ensure_photo 
         if !self.photo.attached?
-            self.errors.push("No photo attached")
+            self.errors[:photo].push("must be attached") 
         end
     end
 

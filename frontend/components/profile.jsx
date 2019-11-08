@@ -5,7 +5,7 @@ class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.post;
-        this.handleClick = this.handleClick.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
     }
 
     componentDidMount() {
@@ -19,7 +19,7 @@ class Profile extends React.Component {
  
     }
 
-    handleClick(e) {
+    handleLogout(e) {
         e.preventDefault();
         this.props.logoutUser().then(() => this.props.history.push('/login'))
         
@@ -39,14 +39,15 @@ class Profile extends React.Component {
                 <div className="profile-page">
                     <div className="profile-nav">
                         <p className="username-display">{this.props.match.params.username}</p>
-                        <button className="logout-button" onClick={this.handleClick}>Logout</button>
+                        <button className="logout-button" onClick={this.handleLogout}>Logout</button>
                     </div>
                         <ul className="profile-feed">
                             {
                                 userposts.reverse().map( post => (
-                                    <li>
-                                        <img src={post.photoUrl} width="300" height="300"/>
+                                    <li key={post.id}>
+                                        <img  src={post.photoUrl} width="300" height="300"/>
                                         <span>{post.caption}</span>
+                                        <button onClick={() => this.props.deletePhoto(post.id)}>Delete</button>
                                     </li>
                                 ))
                             }

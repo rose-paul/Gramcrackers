@@ -16,7 +16,7 @@ class Api::PostsController < ApplicationController
         if @post.save 
             render :show ## ideally, it'll put the post on the feed. 
         else
-            render json: @post.errors.full_messages, status: 401
+            render json: @post.errors.full_messages, status: 422
         end
     end
 
@@ -35,15 +35,18 @@ class Api::PostsController < ApplicationController
     end
 
 
-    # def destroy
-    #     @post = current_user.posts.find(params[:id]) 
-    #     @post.destroy 
-    #     ## render what here?
-    # end
+    def destroy
+        @post = current_user.posts.find(params[:id]) 
+        @post.destroy 
+        render :show
+    end
 
     private 
 
     def post_params
+        if params[:post][:photo] == "null"
+            params[:post][:photo] = nil 
+        end
         params.require(:post).permit(:caption, :photo)
     end
 
