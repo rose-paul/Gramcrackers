@@ -62,36 +62,36 @@ class CreateUserForm extends React.Component {
                     onChange={this.handleInput('user[email]')}
                     placeholder="Email"
                     />
-                    <br/>
+                    
                     <input 
                     type="text" 
                     value={this.state.first_name} 
                     onChange={this.handleInput('user[first_name]')}
                     placeholder="First name"
                     />
-                    <br/>
+                    
                     <input 
                     type="text" 
                     value={this.state.last_name} 
                     onChange={this.handleInput('user[last_name]')}
                     placeholder="Last name"
                     />
-                    <br/>
+                    
                     <input 
                     type="text" 
                     value={this.state.username} 
                     onChange={this.handleInput('user[username]')}
                     placeholder="Username"
                     />
-                    <br/>
+                    
                     <input 
                     type="password" 
                     value={this.state.password} 
                     onChange={this.handleInput('user[password]')}
                     placeholder="Password"
                     />
-                    <br/>
-                    <input type="submit" value="Sign Up"/>
+                    
+                    <button>Sign Up</button>
 
 
                     <ul className='errors'>

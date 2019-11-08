@@ -51,8 +51,9 @@ class SessionForm extends React.Component {
         }
         let klass = this.state.user.username && this.state.user.password ? ("active") : ("");
         return (
+            <div className="outer">
             <div className="login-form-div">
-                <img src='/login2.jpg' width="30%" height="40%" />
+                <img className="contain" src='/login2.jpg' />
                 <div className="inner"> 
 
                 <form>
@@ -68,7 +69,6 @@ class SessionForm extends React.Component {
                             placeholder="Username"
                             />
 
-                            <br/>
 
                             <input 
                             type="password"
@@ -78,7 +78,6 @@ class SessionForm extends React.Component {
                             placeholder="Password"
                             />
 
-                            <br/>
                     
                     <button onClick={this.handleSubmit} className={klass}>Log In</button>
 
@@ -90,9 +89,10 @@ class SessionForm extends React.Component {
                         })}
                     </ul>
                 </form>
-                    <footer>{footer}</footer>
+                        <footer>{footer}</footer>
                 </div>
 
+            </div>
             </div>
         )
     }

@@ -23,8 +23,8 @@ class Greeting extends React.Component {
                 </div>
                 
                 <div className="right-nav-div">
-                    <Link to="/posts/new"><img className="post-button" src="https://img.icons8.com/ios/50/000000/plus.png"/></Link>
-                    <Link className='profile-link' to={`/${this.props.currentUser.username}`}><img src="https://img.icons8.com/material-outlined/48/000000/user.png"/></Link>
+                    <Link to="/posts/new"><img className="right-button" src="https://img.icons8.com/ios/50/000000/plus.png"/></Link>
+                    <Link className='profile-link' to={`/${this.props.currentUser.username}`}><img className="right-button-prof"  src="https://img.icons8.com/ios/50/000000/face-id.png"/></Link>
                 </div>
                 
             </div>

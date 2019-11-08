@@ -16,6 +16,7 @@
 
 
  body {
+    margin: 0;
     background-color: rgb(247, 247, 247);
  }
 
@@ -29,6 +30,11 @@
     justify-content: center;
     align-items: center;
     margin-top: 3%;
+}
+
+.login-form-div img {
+    width: 30%;
+    height: 40%;
 }
 
 
@@ -83,28 +89,29 @@ footer div {
 
 
  .login-form-div input {
-     padding: 3px;
-     margin: 2px;
+     margin-bottom: 10px;
      display: flex;
-     width: 60%;
-     height: 20px;
-     border: 1px solid  rgb(219, 218, 218);
+     width: 73%;
+     height: 25px;
+     border: 1px solid  rgb(243, 241, 241);
      background-color: rgb(247, 247, 247);
      border-radius: 4px;
      text-align: left;
+     padding-left: 5px;
  }
  
  .login-form-div button {
      padding: 3px;
      margin: 2px;
-     margin-bottom: 20px;
-     width: 65%;
-     height: 25px;
+     margin-bottom: 10px;
+     width: 75%;
+     height: 30px;
      display: flex;
      justify-content: center;
-     background-color: rgb(142, 173, 209);
+     background-color: rgb(98, 150, 209);
      color: white;
      border-radius: 4px;
+     border: none;
  }
  /* .login-form-div .active {
      padding: 3px;
@@ -146,29 +153,31 @@ footer div {
 
 
  .signup-form-div input {
-     padding: 3px;
-     margin: 2px;
+     margin-bottom: 10px;
      display: flex;
-     width: 60%;
-     height: 20px;
-     border: 1px solid  rgb(219, 218, 218);
+     width: 73%;
+     height: 25px;
+     border: 1px solid  rgb(243, 241, 241);
      background-color: rgb(247, 247, 247);
      border-radius: 4px;
      text-align: left;
+     padding-left: 5px;
  }
 
- .signup-form-div input[type="submit"] {
-    padding: 3px;
+ .signup-form-div button {
+     padding: 3px;
      margin: 2px;
-     margin-bottom: 20px;
-     width: 65%;
-     height: 25px;
+     margin-bottom: 10px;
+     width: 75%;
+     height: 30px;
      display: flex;
      justify-content: center;
-     background-color: rgb(142, 173, 209);
+     background-color: rgb(98, 150, 209);
      color: white;
      border-radius: 4px;
+     border: none;
  }
+
 
   .errors {
     display: flex;
