@@ -30,4 +30,4 @@ export const fetchOnePost = postId => dispatch => fetchPost(postId)
 
 export const postPhoto = formData => dispatch => createPost(formData)
     .then( post => dispatch(receivePost(post)),
-        errors => dispatch(receiveErrors(errors)))
+        errors => dispatch(receiveErrors(errors.responseJSON)))

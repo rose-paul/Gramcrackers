@@ -4,8 +4,7 @@ import PostForm from "./post_form";
 const mapStateToProps = (state) => {
     return {
 
-        currentUser: state.entities.users[state.session.id],
-        posts: state.entities.posts
+        currentUser: state.entities.users[state.session.id]
 
     }
 };

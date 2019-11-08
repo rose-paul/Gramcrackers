@@ -4,7 +4,7 @@ import postErrorsReducer from './post_errors_reducer';
 
 const errorsReducer = combineReducers({
     session: sessionErrorsReducer,
-    posts: postErrorsReducer
+    postErrors: postErrorsReducer
 });
 
 export default errorsReducer;

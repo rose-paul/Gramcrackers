@@ -5,7 +5,6 @@ class Profile extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.post;
-        // debugger
         this.handleClick = this.handleClick.bind(this);
     }
 
