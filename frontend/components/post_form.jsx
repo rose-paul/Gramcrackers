@@ -42,19 +42,32 @@ class PostForm extends React.Component {
     }
 
     render() {
-        console.log(this.state)
         const preview = this.state.photoUrl ? <img src={this.state.photoUrl} height="300" width="300"/> : null;
         return(
-            <form onSubmit={this.handleSubmit}>
-                <input type="file"
-                    onChange={this.handleFile}/>
-                    {preview}
-                <label>
-                    Caption 
-                    <input type="text" value={this.state.caption} onChange={this.handleInput('caption')}/>
-                </label>
-            <button>Click to submit</button>
-            </form>
+            <div className="post-form">
+                <h1>Upload Photo</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <div className="preview">
+                        {preview}
+                    </div>
+                    <div className="upload-btn-wrapper">
+                    <button className="btn">Choose File
+                        </button>
+                        <input type="file"
+                        name="myfile"
+                        onChange={this.handleFile}
+                        />
+                    </div>
+                    <br/>
+                    <label>
+                        Caption 
+                    </label>
+                    <textarea value={this.state.caption} onChange={this.handleInput('caption')}
+                        placeholder="It's lit 🔥🔥🔥 #YoungjunTime "
+                    />
+                <button>Click to submit</button>
+                </form>
+            </div>
         )
     }
 }

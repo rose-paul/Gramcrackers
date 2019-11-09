@@ -46,6 +46,7 @@
 .username-display {
     font-size: 25px;
     font-family: sans-serif;
+    font-weight: bold;
     padding-left: 30px;
     padding-right: 30px;
 }
@@ -55,6 +56,18 @@
     width: 100px;
     height: 100px;
     border-radius: 100px;
+}
+
+.follow-button {
+     padding: 5px;
+     width: 30%;
+     height: 30px;
+     display: flex;
+     justify-content: center;
+     background-color: rgb(98, 150, 209);
+     color: white;
+     border-radius: 4px;
+     border: none;
 }
 
 
