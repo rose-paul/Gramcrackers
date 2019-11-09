@@ -21,7 +21,7 @@ class PostForm extends React.Component {
         const formData = new FormData();
         formData.append('post[caption]', this.state.caption);
         formData.append('post[photo]', this.state.photoFile);
-        this.props.postPhoto(formData).then(() => this.props.history.push(`/${this.props.currentUser.username}`))
+        this.props.postPhoto(formData).then(() => this.props.closeModal())
     }
 
     handleFile(e) {
@@ -45,11 +45,12 @@ class PostForm extends React.Component {
         const preview = this.state.photoUrl ? <img src={this.state.photoUrl} height="300" width="300"/> : null;
         return(
             <div className="post-form">
-                <h1>Upload Photo</h1>
+                <h3>Upload Photo</h3>
                 <form onSubmit={this.handleSubmit}>
                     <div className="preview">
                         {preview}
                     </div>
+                    <div className="upload-outer">
                     <div className="upload-btn-wrapper">
                     <button className="btn">Choose File
                         </button>
@@ -58,14 +59,14 @@ class PostForm extends React.Component {
                         onChange={this.handleFile}
                         />
                     </div>
-                    <br/>
+                    </div>
                     <label>
                         Caption 
                     </label>
                     <textarea value={this.state.caption} onChange={this.handleInput('caption')}
                         placeholder="It's lit 🔥🔥🔥 #YoungjunTime "
                     />
-                <button>Click to submit</button>
+                <button className="post-submit">Click to submit</button>
                 </form>
             </div>
         )

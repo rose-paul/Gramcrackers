@@ -14,7 +14,14 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => ({
     logoutUser: () => dispatch(logoutUser()),
     fetchUserPosts: username => dispatch(fetchAllPosts(username)),
-    deletePhoto: postId => dispatch(deletePhoto(postId)) 
+    deletePhoto: postId => dispatch(deletePhoto(postId)),
+    viewPostModal: (img) => (
+        <div onClick={() => dispatch(openModal('viewpost'))}>
+            <img src={img} width="300" height="300"/>
+        </div>
+    ),
+    closeModal: () => dispatch(closeModal())
+   
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

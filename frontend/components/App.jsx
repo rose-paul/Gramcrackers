@@ -7,6 +7,7 @@ import LoginFormContainer from "./login_form_container";
 import FeedContainer from "./feed_container";
 import ProfileContainer from "./profile_container";
 import PostFormContainer from "./post_form_container";
+import Modal from "./modal";
 
 
 
@@ -14,6 +15,7 @@ import PostFormContainer from "./post_form_container";
 const App = (props) => {
     return (
     <div>
+        <Modal />
         <header>
             <GreetingContainer />
         </header>   

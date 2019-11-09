@@ -54,6 +54,7 @@ class Profile extends React.Component {
                                 userposts.reverse().map( post => (
                                     <li key={post.id}>
                                         <img  src={post.photoUrl} width="300" height="300"/>
+                                        {/* {this.props.viewPostModal(post)} */}
                                         <span>{post.caption}</span>
                                         <button onClick={() => this.props.deletePhoto(post.id)}>Delete</button>
                                     </li>
