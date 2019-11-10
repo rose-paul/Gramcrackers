@@ -16,7 +16,6 @@ class Profile extends React.Component {
         if (prevProps.match.params.username !== this.props.match.params.username){
             this.props.fetchUserPosts(this.props.match.params.username);
         }
- 
     }
 
     handleLogout(e) {
@@ -42,6 +41,7 @@ class Profile extends React.Component {
                         <div className="profile-nav-right">
                             <div className="username-logout">
                                 <p className="username-display">{this.props.match.params.username}</p>
+                                {this.props.editProfileModal}
                                 <button className="logout-button" onClick={this.handleLogout}>Logout</button>
                             </div>
                             <div className="profile-info">
@@ -53,10 +53,8 @@ class Profile extends React.Component {
                             {
                                 userposts.reverse().map( post => (
                                     <li key={post.id}>
-                                        <img  src={post.photoUrl} width="300" height="300"/>
+                                        <Link to={`/posts/${post.id}`}><img src={post.photoUrl} width="300" height="300" /></Link>
                                         {/* {this.props.viewPostModal(post)} */}
-                                        <span>{post.caption}</span>
-                                        <button onClick={() => this.props.deletePhoto(post.id)}>Delete</button>
                                     </li>
                                 ))
                             }
@@ -82,12 +80,16 @@ class Profile extends React.Component {
                     </div>
                 <ul className="profile-feed">
                     {
-                        userposts.reverse().map(post => (
-                            <li>
-                                <img src={post.photoUrl} width="300" height="300" />
-                                <span>{post.caption}</span>
-                            </li>
-                        ))
+                            <ul className="profile-feed">
+                                {
+                                    userposts.reverse().map(post => (
+                                        <li key={post.id}>
+                                            <Link to={`/posts/${post.id}`}><img src={post.photoUrl} width="300" height="300" /></Link>
+                                            {/* {this.props.viewPostModal(post)} */}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
                     }
                 </ul>
                 </div>

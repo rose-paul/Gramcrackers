@@ -27,7 +27,7 @@ class Api::PostsController < ApplicationController
     
     def update 
         @post = current_user.posts.find(params[:id]) 
-        if @post && @post.update(post_params) ## is it update?
+        if @post && @post.update(post_params) 
             render :show 
         else
             render json: @post.errors.full_messages, status: 401

@@ -32,7 +32,8 @@ export const fetchAllPosts = (username) => dispatch => fetchPosts(username)
         errors => dispatch(receiveErrors(errors.responseJSON)))
 
 export const fetchOnePost = postId => dispatch => fetchPost(postId)
-    .then(post => dispatch(receivePost(post)))
+    .then(post => dispatch(receivePost(post)),
+        errors => dispatch(receiveErrors(errors.responseJSON)))
 
 export const postPhoto = formData => dispatch => createPost(formData)
     .then( post => dispatch(receivePost(post)),

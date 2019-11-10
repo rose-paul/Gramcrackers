@@ -6,15 +6,15 @@
 
 .profile-feed {
     list-style: none;
-    width: 75%;
+    // width: 95%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-flow: row wrap;
 }
 
 .profile-feed li {
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     margin-bottom: 20px;
 }
 

@@ -2,6 +2,8 @@ import React from 'react';
 import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
 import PostFormContainer from './post_form_container';
+import EditProfileContainer from './edit_profile_container';
+
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -12,9 +14,11 @@ function Modal({ modal, closeModal }) {
         case 'createpost':
             component = <PostFormContainer />;
             break;
-        // case 'viewpost':
-        //     component = <SignupFormContainer />;
-        //     break;
+        case 'viewpost':
+            return null;
+        case 'editprofile':
+            component = <EditProfileContainer />;
+            break;
         default:
             return null;
     }
