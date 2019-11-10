@@ -21,6 +21,17 @@ export const createPost = (formData) => (
         processData: false
     })
 )
+export const updatePost = formData => {
+    return $.ajax({
+        method: 'PATCH',
+        url: `/api/posts/${formData.get('post[id]')}`,
+        data: formData,
+        contentType: false,
+        processData: false
+    })
+
+}
+
 
 export const deletePost = postId => (
     $.ajax({

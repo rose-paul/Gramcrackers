@@ -9,7 +9,9 @@ class Profile extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUserPosts(this.props.match.params.username)
+        this.props.fetchUserPosts(this.props.match.params.username).then(
+            () => this.props.fetchOwnerByUsername(this.props.match.params.username)
+        )
     }
 
     componentDidUpdate(prevProps) {
@@ -32,16 +34,21 @@ class Profile extends React.Component {
         //     return <span className="no-user">{this.props.errors[0]}</span>
         // }
          if (this.props.currentUser && this.props.match.params.username === this.props.currentUser.username) {
+            
             let userposts = Object.values(this.props.posts);
+             
+            const profilePic = this.props.owner.photoUrl ? <img className="profile-pic" src={this.props.owner.photoUrl} /> 
+             : <img className="profile-pic" src="https://img.icons8.com/color/48/000000/cheburashka.png" />;
+            
             return (
                 (   
                 <div className="profile-page">
                     <div className="profile-nav">
-                        <img className="profile-pic" src="https://img.icons8.com/color/48/000000/cheburashka.png"/>
+                        {profilePic}
                         <div className="profile-nav-right">
                             <div className="username-logout">
                                 <p className="username-display">{this.props.match.params.username}</p>
-                                {this.props.editProfileModal}
+                                {/* {this.props.editProfileModal} */}
                                 <button className="logout-button" onClick={this.handleLogout}>Logout</button>
                             </div>
                             <div className="profile-info">

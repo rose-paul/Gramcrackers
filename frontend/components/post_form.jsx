@@ -4,13 +4,7 @@ class PostForm extends React.Component {
     constructor(props) {
         super(props)
        
-        this.state = {
-            // post: {
-                photoFile: null,
-                photoUrl: null,
-                caption: ""
-            // }
-        }
+        this.state = this.props.post
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
         this.handleInput = this.handleInput.bind(this);
@@ -19,9 +13,16 @@ class PostForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
+        if (this.props.formType === "Update Post") {
+            formData.append('post[id]', this.state.id)
+        }
         formData.append('post[caption]', this.state.caption);
-        formData.append('post[photo]', this.state.photoFile);
-        this.props.postPhoto(formData).then(() => this.props.closeModal())
+        if (this.props.formType === "New Post") {
+            formData.append('post[photo]', this.state.photoFile);
+        }
+        this.props.action(formData).then(
+            () => this.props.closeModal()
+        )
     }
 
     handleFile(e) {
@@ -42,24 +43,28 @@ class PostForm extends React.Component {
     }
 
     render() {
+        const photoUpload = this.props.formType === "New Post" ? (
+            <div className="upload-outer">
+                <div className="upload-btn-wrapper">
+                    <button className="btn">Choose File
+                        </button>
+                    <input type="file"
+                        name="myfile"
+                        onChange={this.handleFile}
+                    />
+                </div>
+            </div>
+        ) : null
+
         const preview = this.state.photoUrl ? <img src={this.state.photoUrl} height="300" width="300"/> : null;
         return(
             <div className="post-form">
-                <h3>Upload Photo</h3>
+                <h3>{this.props.formType}</h3>
                 <form onSubmit={this.handleSubmit}>
                     <div className="preview">
                         {preview}
                     </div>
-                    <div className="upload-outer">
-                    <div className="upload-btn-wrapper">
-                    <button className="btn">Choose File
-                        </button>
-                        <input type="file"
-                        name="myfile"
-                        onChange={this.handleFile}
-                        />
-                    </div>
-                    </div>
+                   {photoUpload}
                     <label>
                         Caption 
                     </label>

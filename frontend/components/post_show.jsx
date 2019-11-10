@@ -21,11 +21,12 @@ class PostShow extends React.Component {
     render () {
         let deleteButton = this.props.currentUser && this.props.currentUser.id 
             === this.props.posts.user_id ? 
-                <button onClick={() => this.props.deletePhoto(this.props.posts.id)}>Delete</button> 
+                <button onClick={() => this.props.deletePhoto(this.props.posts.id)
+                    .then(this.props.history.push(`/${this.props.owner.username}`))}>Delete</button> 
                 : null
 
         if (!this.props.posts) return null;
-
+        ///HERE I HAVE PARAMS
         return (
             <div className="post-show-main">
                 <div className="post-show-row">
@@ -36,6 +37,9 @@ class PostShow extends React.Component {
                                 <img src="https://img.icons8.com/color/48/000000/cheburashka.png" />
                                 <p>{this.props.owner.username} </p>
                                 {deleteButton}
+                                <button onClick={() => this.props.editPostModal
+                                ( 'editpost',  this.props.match.params.id)
+                                    }>Edit Post</button>
                                 </div>
                                 <div className="post-show-comments">
                                     <p>{this.props.posts.caption}</p>

@@ -3,6 +3,7 @@ import PostShow from './post_show';
 import { connect } from "react-redux";
 import { fetchOnePost, deletePhoto } from '../actions/post_actions';
 import { fetchOwner } from '../actions/user_actions';
+import { openModal, closeModal } from '../actions/modal_actions';
 
 
 
@@ -13,11 +14,17 @@ const mapStateToProps = (state) => ({
     errors: state.errors.posts
 })
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch, ownProps) => {
+    
+    return {
     fetchPost: postId => dispatch(fetchOnePost(postId)),
     deletePhoto: postId => dispatch(deletePhoto(postId)),
-    fetchOwner: userId => dispatch(fetchOwner(userId))
-})
+    fetchOwner: userId => dispatch(fetchOwner(userId)),
+    editPostModal: (type, id) => dispatch(openModal(type, id)),
+    closeModal: () => dispatch(closeModal())
+}
+}
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostShow);
 

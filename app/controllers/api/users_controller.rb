@@ -1,6 +1,9 @@
 class Api::UsersController < ApplicationController
   def index 
-    @users = User.all
+    if !params[:username].nil?
+      @user = User.find_by(username: params[:username])
+      render :show
+    end
   end
 
   def create 

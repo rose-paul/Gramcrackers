@@ -1,5 +1,5 @@
 
-import { fetchPosts, fetchPost, createPost, deletePost } from "../util/post_api_util";
+import { fetchPosts, fetchPost, createPost, deletePost, updatePost } from "../util/post_api_util";
 
 export const RECEIVE_ALL_POSTS = 'RECEIVE_ALL_POSTS';
 export const RECEIVE_POST = 'RECEIVE_POST';
@@ -42,3 +42,8 @@ export const postPhoto = formData => dispatch => createPost(formData)
 export const deletePhoto = postId => dispatch => deletePost(postId)
     .then( () => dispatch(removePost(postId)),
         errors => dispatch(receiveErrors(errors.responseJSON))) 
+
+export const updatePhoto = post => dispatch => updatePost(post)
+    .then(post =>  dispatch(receivePost(post)),
+        errors => dispatch(receiveErrors(errors.responseJSON)))
+    
