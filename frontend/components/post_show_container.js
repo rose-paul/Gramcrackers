@@ -21,6 +21,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     deletePhoto: postId => dispatch(deletePhoto(postId)),
     fetchOwner: userId => dispatch(fetchOwner(userId)),
     editPostModal: (type, id) => dispatch(openModal(type, id)),
+    postOptionsModal: (type, id) => dispatch(openModal(type, id)),
     closeModal: () => dispatch(closeModal())
 }
 }

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PostFormContainer from './post_form_container';
 import EditProfileContainer from './edit_profile_container';
 import EditPostFormContainer from './edit_post_form_container';
+import PostOptionsContainer from './post_options_container';
 
 function Modal({ modal, closeModal }) {
     
@@ -18,11 +19,14 @@ function Modal({ modal, closeModal }) {
             break;
         case 'viewpost':
             return null;
-        // case 'editprofile':
-        //     component = <EditProfileContainer />;
-        //     break;
+        case 'editprofile':
+            component = <EditProfileContainer />;
+            break;
         case 'editpost':
             component = <EditPostFormContainer id={modal.id}/>;
+            break;
+        case 'postoptions':
+            component = <PostOptionsContainer id={modal.id} />
             break;
         default:
             return null;

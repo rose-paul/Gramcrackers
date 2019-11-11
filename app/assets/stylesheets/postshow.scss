@@ -13,10 +13,33 @@
     flex-direction: column;
     margin-left: 10px;
     justify-content: space-between;
+    width: 50%;
 }
 
 .post-show-user {
     display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(189, 189, 189);
+}
+
+.post-options {
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.post-show-user > p {
+    font-weight: bold;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.owner-caption {
+    display: flex;
+}
+
+.owner-caption > p:first-child {
+    font-weight: bold;
+    margin-right: 5px;
 }
 
 .post-show-comments {

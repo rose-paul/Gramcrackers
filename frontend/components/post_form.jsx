@@ -56,6 +56,8 @@ class PostForm extends React.Component {
             </div>
         ) : null
 
+        
+
         const preview = this.state.photoUrl ? <img src={this.state.photoUrl} height="300" width="300"/> : null;
         return(
             <div className="post-form">
