@@ -34,14 +34,22 @@
 .username-logout {
     display: flex;
     align-items: center;
+    width: 350px;
 }
 
-.logout-button {
+.profile-user-options {
     padding: 5px;
-    margin-left: 8px;
+    margin-left: 2px;
     border-radius: 3px;
     font-weight: 600;
 }
+
+// .edit-profile-link > button {
+//     padding: 5px;
+//     margin-left: 2px;
+//     border-radius: 3px;
+//     font-weight: 600;
+// }
 
 .username-display {
     font-size: 25px;

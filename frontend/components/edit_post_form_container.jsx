@@ -11,12 +11,11 @@ class EditPostForm extends React.Component {
     }
 
     render() {
-
         if (!this.props.posts) return null;
         return(
             <PostForm
             
-                post={this.props.posts}
+                post={this.props.posts[this.props.id]}
                 formType={this.props.formType}
                 action={this.props.action} 
                 closeModal={this.props.closeModal}/>

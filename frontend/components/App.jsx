@@ -9,6 +9,7 @@ import ProfileContainer from "./profile_container";
 import PostFormContainer from "./post_form_container";
 import Modal from "./modal";
 import PostShowContainer from "./post_show_container";
+import EditProfileContainer from "./edit_profile_container";
 
 
 
@@ -25,6 +26,7 @@ const App = (props) => {
             <AuthRoute exact path="/login" component={LoginFormContainer} /> 
             <ProtectedRoute exact path="/posts/new" component={PostFormContainer} />
             <ProtectedRoute exact path="/posts/:id" component={PostShowContainer} />
+            <ProtectedRoute exact path="/accounts/edit" component={EditProfileContainer} />
             <ProtectedRoute exact path="/" component={FeedContainer} />
             <Route exact path="/:username" component={ProfileContainer} />
             <Redirect to="/signup"/>

@@ -20,10 +20,6 @@ class Profile extends React.Component {
         }
     }
 
-    // shouldComponentUpdate() {
-
-    // }
-
     handleLogout(e) {
         e.preventDefault();
         this.props.logoutUser().then(() => this.props.history.push('/login'))
@@ -53,7 +49,10 @@ class Profile extends React.Component {
                             <div className="username-logout">
                                 <p className="username-display">{this.props.match.params.username}</p>
                                 {/* {this.props.editProfileModal} */}
-                                <button className="logout-button" onClick={this.handleLogout}>Logout</button>
+                                <button className="profile-user-options" onClick={this.handleLogout}>Logout</button>
+                                <Link to="/accounts/edit">
+                                        <button className="profile-user-options">Edit Profile</button>
+                                    </Link>
                             </div>
                             <div className="profile-info">
                                 <p>profile info here</p>
