@@ -31,12 +31,17 @@ function Modal({ modal, closeModal }) {
         default:
             return null;
     }
-    return (
-        <div className="modal-background" onClick={closeModal}>
-            <div className="modal-child" onClick={e => e.stopPropagation()}>
-                {component}
-            </div>
+    const display = modal.modal === "postoptions" ? (<div className="modal-background-options" onClick={closeModal}>
+        <div className="modal-child-options" onClick={e => e.stopPropagation()}>
+            {component}
         </div>
+    </div>) : ( <div className="modal-background" onClick={closeModal}>
+        <div className="modal-child" onClick={e => e.stopPropagation()}>
+            {component}
+        </div>
+    </div> )
+    return (
+        display
     );
 }
 

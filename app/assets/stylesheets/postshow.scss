@@ -28,18 +28,26 @@
 }
 
 .post-show-user > p {
+    
     font-weight: bold;
     margin-right: 10px;
     margin-left: 10px;
 }
 
-.owner-caption {
-    display: flex;
+.post-show-main .username {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-right: 7px;
+    cursor: pointer;
 }
 
-.owner-caption > p:first-child {
-    font-weight: bold;
-    margin-right: 5px;
+.post-show-user > .username {
+    margin-left: 5px;
+}
+
+.owner-caption {
+    display: flex;
 }
 
 .post-show-comments {

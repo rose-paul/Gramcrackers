@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 class PostShow extends React.Component {
     constructor(props) {
@@ -31,7 +31,7 @@ class PostShow extends React.Component {
         if (!this.props.posts) return null;
         ///HERE I HAVE PARAMS
         let ops = this.props.currentUser && this.props.currentUser.id
-            === this.props.posts.user_id ? <div className="post-options" onClick={() => this.props.postOptionsModal('postoptions', this.props.match.params.id)}> <img src="./three-dots-more-indicator.png" /></div>
+            === this.props.posts.user_id ? <div className="post-options" onClick={() => this.props.postOptionsModal('postoptions', this.props.match.params.id)}> <img src="./three-dots-more-indicator.png" width="15" height="15"/></div>
             : null;
 
         return (
@@ -42,13 +42,13 @@ class PostShow extends React.Component {
                         <div>
                                 <div className="post-show-user">
                                     <img src="https://img.icons8.com/color/48/000000/cheburashka.png" />
-                                    <p>{this.props.owner.username} </p>
+                                <Link className="username" to={`/${this.props.owner.username}`}><p>{this.props.owner.username} </p></Link>
                                     {ops}
                                 </div>
                                 <div className="post-show-comments">
                                     <div className="owner-caption">
-                                        <p>{this.props.owner.username}</p>
-                                        <p> {this.props.posts.caption}</p>
+                                    <Link className="username" to={`/${this.props.owner.username}`}><p>{this.props.owner.username} </p></Link>
+                                    <p> {this.props.posts.caption}</p>
                                     </div>
                                     <p>comments go here</p>
                                 </div>
