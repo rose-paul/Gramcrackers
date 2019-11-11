@@ -20,6 +20,10 @@ class Profile extends React.Component {
         }
     }
 
+    // shouldComponentUpdate() {
+
+    // }
+
     handleLogout(e) {
         e.preventDefault();
         this.props.logoutUser().then(() => this.props.history.push('/login'))

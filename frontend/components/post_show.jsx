@@ -7,8 +7,9 @@ class PostShow extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchPost(this.props.match.params.id).then(
-            () => this.props.fetchOwner(this.props.posts.user_id)
+        const postId = this.props.match.params.id;
+        this.props.fetchPost(postId).then(
+            () => this.props.fetchOwner(this.props.posts[postId].user_id)
         )
     }
 
@@ -27,17 +28,17 @@ class PostShow extends React.Component {
         // let editButton = this.props.currentUser && this.props.currentUser.id
         //     === this.props.posts.user_id ? <button onClick={() => this.props.editPostModal
         //         ('editpost', this.props.match.params.id)}>Edit Post</button> : null ;
-
-        if (!this.props.posts) return null;
+        const postId = this.props.match.params.id;
+        if (!this.props.posts[postId]) return null;
         ///HERE I HAVE PARAMS
         let ops = this.props.currentUser && this.props.currentUser.id
-            === this.props.posts.user_id ? <div className="post-options" onClick={() => this.props.postOptionsModal('postoptions', this.props.match.params.id)}> <img src="./three-dots-more-indicator.png" width="15" height="15"/></div>
+            === this.props.posts[postId].user_id ? <div className="post-options" onClick={() => this.props.postOptionsModal('postoptions', this.props.match.params.id)}> <img src="./three-dots-more-indicator.png" width="15" height="15"/></div>
             : null;
 
         return (
             <div className="post-show-main">
                 <div className="post-show-row">
-                <img src={this.props.posts.photoUrl} height="400" width="400"/>
+                <img src={this.props.posts[postId].photoUrl} height="400" width="400"/>
                     <div className="post-show-right">
                         <div>
                                 <div className="post-show-user">
@@ -48,7 +49,7 @@ class PostShow extends React.Component {
                                 <div className="post-show-comments">
                                     <div className="owner-caption">
                                     <Link className="username" to={`/${this.props.owner.username}`}><p>{this.props.owner.username} </p></Link>
-                                    <p> {this.props.posts.caption}</p>
+                                    <p> {this.props.posts[postId].caption}</p>
                                     </div>
                                     <p>comments go here</p>
                                 </div>
