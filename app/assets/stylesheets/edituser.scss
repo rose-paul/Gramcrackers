@@ -1,0 +1,26 @@
+
+
+.edit-user-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color: white;
+    border: 1px solid rgb(219, 218, 218);
+    margin-top: 15px;
+}
+
+.edit-user-form h3 {
+    font-family: serif;
+}
+
+.edit-user-form label {
+    font-weight: bold;
+}
+
+.edit-user-form input {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+

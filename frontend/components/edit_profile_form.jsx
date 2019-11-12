@@ -71,6 +71,7 @@ class EditProfileForm extends React.Component {
                 <EditUserForm 
                 currentUser={this.props.currentUser} 
                 updateUser={this.props.updateUser}
+                history={this.props.history}
                 />
             </div>
         )

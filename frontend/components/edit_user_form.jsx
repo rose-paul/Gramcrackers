@@ -8,7 +8,6 @@ class EditUserForm extends React.Component {
     }
 
     handleInput(field) {
-        console.log(this.state)
         return e => (this.setState({ [field]: e.target.value }));
     }
 
@@ -18,17 +17,18 @@ class EditUserForm extends React.Component {
         formData.append('user[id]', this.state.id)
         formData.append('user[bio]', this.state.bio)
         this.props.updateUser(formData)
+        // .then(() => this.props.history.push(`/${this.props.currentUser.username}`))
     }
 
     render() {
         return(
 
-            <form onSubmit={this.handleSubmit}>
-                <h1>Edit User and Profile Info</h1>
+            <form className="edit-user-form" onSubmit={this.handleSubmit}>
+                <h3>Edit User and Profile Info</h3>
                 <label>Bio
                     <input type="text" value={this.state.bio} onChange={this.handleInput('bio')}/>
                 </label>
-                <input type="submit"/>
+                <input type="submit" value="Update Info"/>
             </form>
         )
     }
