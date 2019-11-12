@@ -18,9 +18,10 @@ export const fetchOwner = userId => dispatch => APIUtil.fetchUser(userId)
     .then( user => dispatch(receiveUser(user)), 
     errors => dispatch(receiveUserErrors(errors.responseJSON)))
 
-export const fetchOwnerByUsername = username => APIUtil.fetchUserByUsername(username) 
-    .then( user => dispatch(receiveUser(user)),
-        errors => dispatch(receiveUserErrors(errors.responseJSON)))
+export const fetchOwnerByUsername = username => dispatch => APIUtil.fetchUserByUsername(username) 
+    .then(user => {
+        return dispatch(receiveUser(user))
+    }, errors => dispatch(receiveUserErrors(errors.responseJSON)))
 
 export const updateUser = user => dispatch => APIUtil.updateUser(user)
     .then( user => dispatch(receiveUser(user)),

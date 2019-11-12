@@ -16,7 +16,6 @@ export const fetchUserByUsername = username => {
 }
 
 export const updateUser = formData => {
-    debugger
     return $.ajax({
         method: 'PATCH',
         url: `/api/users/${formData.get('user[id]')}`,

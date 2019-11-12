@@ -4,37 +4,35 @@ import { Link } from 'react-router-dom';
 class PostShow extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            loaded: false
+        }
     }
 
     componentDidMount() {
         const postId = this.props.match.params.id;
-        this.props.fetchPost(postId).then(
-            () => this.props.fetchOwner(this.props.posts[postId].user_id)
-        )
+        this.props.fetchPost(postId)
+            .then( () => this.props.fetchOwner(this.props.posts[postId].user_id))
+            .then( () => this.setState({loaded: true}))
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.location.pathname !== this.props.location.pathname) {
-            this.props.fetchUserPosts(this.props.match.params.username);
+            this.setState({ loaded: false })
+            this.props.fetchUserPosts(this.props.match.params.username)
+                .then( () => this.setState({ loaded: true }))
         }
     }
 
     render () {
-        // let deleteButton = this.props.currentUser && this.props.currentUser.id 
-        //     === this.props.posts.user_id ? 
-        //         <button onClick={() => this.props.deletePhoto(this.props.posts.id)
-        //             .then(this.props.history.push(`/${this.props.owner.username}`))}>Delete</button> 
-        //         : null
-        // let editButton = this.props.currentUser && this.props.currentUser.id
-        //     === this.props.posts.user_id ? <button onClick={() => this.props.editPostModal
-        //         ('editpost', this.props.match.params.id)}>Edit Post</button> : null ;
+
         const postId = this.props.match.params.id;
         if (!this.props.posts[postId]) return null;
-        ///HERE I HAVE PARAMS
+        if (!this.state.loaded) return <p>loading</p>
         let ops = this.props.currentUser && this.props.currentUser.id
             === this.props.posts[postId].user_id ? <div className="post-options" onClick={() => this.props.postOptionsModal('postoptions', this.props.match.params.id)}> <img src="./three-dots-more-indicator.png" width="15" height="15"/></div>
             : null;
-
+        const profilePic = this.props.owner.photoUrl ? <img className="profile-pic-small" src={this.props.owner.photoUrl}/> : <img src="https://img.icons8.com/color/48/000000/cheburashka.png" />
         return (
             <div className="post-show-main">
                 <div className="post-show-row">
@@ -42,7 +40,8 @@ class PostShow extends React.Component {
                     <div className="post-show-right">
                         <div>
                                 <div className="post-show-user">
-                                    <img src="https://img.icons8.com/color/48/000000/cheburashka.png" />
+                                    {profilePic}
+                                    {/* <img src="https://img.icons8.com/color/48/000000/cheburashka.png" /> */}
                                 <Link className="username" to={`/${this.props.owner.username}`}><p>{this.props.owner.username} </p></Link>
                                     {ops}
                                 </div>

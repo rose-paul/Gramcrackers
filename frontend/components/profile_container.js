@@ -1,11 +1,10 @@
 import React from 'react';
 import { connect } from "react-redux";
 import Profile from "./profile";
-import { logoutUser } from "../actions/session_actions";
+import { logoutUser, receiveLocationChange } from "../actions/session_actions";
 import { fetchAllPosts, deletePhoto } from "../actions/post_actions";
 import { closeModal, openModal } from "../actions/modal_actions";
 import { fetchOwnerByUsername } from '../actions/user_actions';
-
 
 const mapStateToProps = (state) => {
     return {
@@ -13,7 +12,7 @@ const mapStateToProps = (state) => {
     currentUser: state.entities.users[state.session.id],
     owner: state.entities.owner,
     posts: state.entities.posts,
-    errors: state.errors.posts
+    errors: state.errors.postErrors
 
 }};
 const mapDispatchToProps = dispatch => ({
@@ -29,7 +28,8 @@ const mapDispatchToProps = dispatch => ({
     editProfileModal: (
     <button onClick={() => dispatch(openModal('editprofile'))}>Edit Profile</button>
     ),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    // noErrors: () => dispatch(receiveLocationChange())
    
 });
 

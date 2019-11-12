@@ -1,5 +1,5 @@
 import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER, LOCATION_CHANGE } from "../actions/session_actions";
-// import { LOCATION_CHANGE } from 'react-router-redux';
+
 const sessionErrorsReducer = (state = [], action) => {
     Object.freeze(state);
 

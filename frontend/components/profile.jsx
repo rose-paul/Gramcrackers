@@ -4,19 +4,26 @@ import { Link } from 'react-router-dom';
 class Profile extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.post;
+        this.state = {
+            loaded: false
+        };
         this.handleLogout = this.handleLogout.bind(this);
     }
 
-    componentDidMount() {
-        this.props.fetchUserPosts(this.props.match.params.username).then(
-            () => this.props.fetchOwnerByUsername(this.props.match.params.username)
-        )
+     componentDidMount() {
+         this.props.fetchUserPosts(this.props.match.params.username)
+            .then( () => this.props.fetchOwnerByUsername(this.props.match.params.username))
+            .then( () => this.setState({loaded: true}))
+        // Promise.all([this.props.fetchUserPosts(this.props.match.params.username), this.props.fetchOwnerByUsername(this.props.match.params.username)])
     }
 
     componentDidUpdate(prevProps) {
+        
         if (prevProps.match.params.username !== this.props.match.params.username){
-            this.props.fetchUserPosts(this.props.match.params.username);
+            this.setState({loaded: false})
+            this.props.fetchUserPosts(this.props.match.params.username)
+                .then( () => this.props.fetchOwnerByUsername(this.props.match.params.username))
+                .then( () => this.setState({ loaded: true }))
         }
     }
 
@@ -29,32 +36,45 @@ class Profile extends React.Component {
 
     render() {
 
+        let logout;
+        let editprofile;
+        let follow;
+
         if (!this.props.posts && !this.props.errors) return null;
-        // if (this.props.errors) {
-        //     return <span className="no-user">{this.props.errors[0]}</span>
-        // }
-         if (this.props.currentUser && this.props.match.params.username === this.props.currentUser.username) {
+        if (!this.state.loaded) return <p className="loading">loading</p>;
+        if (this.props.errors.length) {
+            return <span className="no-user">{this.props.errors[0]}</span>
+        }
+        if (this.props.currentUser && this.props.match.params.username === this.props.currentUser.username) {
+            logout = <button className="profile-user-options" onClick={this.handleLogout}>Logout</button>
+            editprofile = <Link to="/accounts/edit">
+                <button className="profile-user-options">Edit Profile</button>
+            </Link>
+            follow = null;
+        } else {
+            logout = null;
+            editprofile = null;
+            follow = <button className="follow-button">Follow</button>
+        }
             
-            let userposts = Object.values(this.props.posts);
-             
+            const userposts = Object.values(this.props.posts);  
+            
             const profilePic = this.props.owner.photoUrl ? <img className="profile-pic" src={this.props.owner.photoUrl} /> 
              : <img className="profile-pic" src="https://img.icons8.com/color/48/000000/cheburashka.png" />;
-            
-            return (
-                (   
+
+             return ( 
                 <div className="profile-page">
                     <div className="profile-nav">
                         {profilePic}
                         <div className="profile-nav-right">
                             <div className="username-logout">
                                 <p className="username-display">{this.props.match.params.username}</p>
-                                {/* {this.props.editProfileModal} */}
-                                <button className="profile-user-options" onClick={this.handleLogout}>Logout</button>
-                                <Link to="/accounts/edit">
-                                        <button className="profile-user-options">Edit Profile</button>
-                                    </Link>
+                                {logout}
+                                {editprofile}
+                                {follow}
                             </div>
                             <div className="profile-info">
+                                <p>{userposts.length} posts</p>
                                 <p>profile info here</p>
                             </div>
                         </div>
@@ -64,48 +84,12 @@ class Profile extends React.Component {
                                 userposts.reverse().map( post => (
                                     <li key={post.id}>
                                         <Link to={`/posts/${post.id}`}><img src={post.photoUrl} width="300" height="300" /></Link>
-                                        {/* {this.props.viewPostModal(post)} */}
                                     </li>
                                 ))
                             }
                         </ul>
                 </div>
-                ) 
             ) 
-        } else {
-             let userposts = Object.values(this.props.posts);
-            return (
-                <div className="profile-page">
-                    <div className="profile-nav">
-                        <img className="profile-pic" src="https://img.icons8.com/color/48/000000/cheburashka.png" />
-                        <div className="profile-nav-right">
-                            <div className="username-logout">
-                                <p className="username-display">{this.props.match.params.username}'s profile</p>
-                                <button className="follow-button">Follow</button>
-                            </div>
-                            <div className="profile-info">
-                                <p>profile info here</p>
-                            </div>
-                        </div>
-                    </div>
-                <ul className="profile-feed">
-                    {
-                            <ul className="profile-feed">
-                                {
-                                    userposts.reverse().map(post => (
-                                        <li key={post.id}>
-                                            <Link to={`/posts/${post.id}`}><img src={post.photoUrl} width="300" height="300" /></Link>
-                                            {/* {this.props.viewPostModal(post)} */}
-                                        </li>
-                                    ))
-                                }
-                            </ul>
-                    }
-                </ul>
-                </div>
-            )
-
-        }
     }
 }
 

@@ -13,12 +13,12 @@ class EditProfileForm extends React.Component {
         this.handleFile = this.handleFile.bind(this);
     }
 
-    shouldComponentUpdate(nextProps) {
-        debugger
-        if (nextProps.currentUser.photoUrl !== this.state.photoUrl) {
-            return true;
-        }
-    }
+    // shouldComponentUpdate(nextProps) {
+    //     debugger
+    //     if (this.state.photoUrl) {
+    //         return true;
+    //     }
+    // }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -43,12 +43,14 @@ class EditProfileForm extends React.Component {
         const profilePic = this.props.currentUser.photoUrl ? <img className="profile-pic" src={this.props.currentUser.photoUrl} />
             : <img className="profile-pic" src="https://img.icons8.com/color/48/000000/cheburashka.png" />
 
-        const submit = this.state.photoFile ? <button className="post-submit">Change Photo</button> : null;
+        const displayPic = this.state.photoUrl ? <img className="profile-pic" src={this.state.photoUrl}/> : profilePic
+
+        const submit = this.state.photoFile ? <button className="post-submit">Submit Change</button> : null;
         return (
             <div className="edit-profile-div">
                 <form className='edit-profile-form' onSubmit={this.handleSubmit}>
                 <div className="edit-profile-header">
-                {profilePic}
+                {displayPic}
                     <div className="upload-outer-profile">
                         {this.props.currentUser.username}
                                 <div className="upload-btn-wrapper-profile">
@@ -59,7 +61,7 @@ class EditProfileForm extends React.Component {
                                             />
                                     </label>
                                 </div>
-                            <input className="post-submit" type="submit"/>
+                            {submit}
                     </div>  
                 </div>              
                     
