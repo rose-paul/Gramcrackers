@@ -5,6 +5,7 @@ import configureStore from "./store/store";
 import { loginUser } from "./actions/session_actions";
 import { fetchAllPosts } from "./actions/post_actions";
 import { fetchPosts } from "./util/post_api_util";
+import { fetchAllComments } from "./actions/comment_actions";
 
 
 
@@ -29,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.loginUser = loginUser;
     window.fetchPosts = fetchPosts;
     window.fetchAllPosts = fetchAllPosts;
+    window.fetchAllComments = fetchAllComments;
     //end test
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store} currentUser={window.currentUser}/>, root);

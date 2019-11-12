@@ -2,6 +2,8 @@ class Post < ApplicationRecord
     
     belongs_to :user
 
+    has_many :comments
+
     validate :ensure_photo
 
     has_one_attached :photo

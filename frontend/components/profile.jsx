@@ -66,7 +66,7 @@ class Profile extends React.Component {
             const bio = this.props.owner.bio;
             const name = this.props.owner.display_name;
              return ( 
-                 <div>
+                 <div className="profile-page">
                     <div className="profile-nav">
                         {profilePic}
                         <div className="profile-nav-right">
@@ -84,7 +84,6 @@ class Profile extends React.Component {
                             </div>
                             <div className="profile-info">
                                 <p>{name}</p>
-                                <br/>
                                 <p>{bio}</p>
                             </div>
                         </div>

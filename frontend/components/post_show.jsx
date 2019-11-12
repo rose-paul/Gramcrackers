@@ -13,6 +13,7 @@ class PostShow extends React.Component {
         const postId = this.props.match.params.id;
         this.props.fetchPost(postId)
             .then( () => this.props.fetchOwner(this.props.posts[postId].user_id))
+            .then( () => this.props.fetchComments(postId))
             .then( () => this.setState({loaded: true}))
     }
 
@@ -20,6 +21,7 @@ class PostShow extends React.Component {
         if (prevProps.location.pathname !== this.props.location.pathname) {
             this.setState({ loaded: false })
             this.props.fetchUserPosts(this.props.match.params.username)
+                .then(() => this.props.fetchComments(postId))
                 .then( () => this.setState({ loaded: true }))
         }
     }
@@ -33,6 +35,7 @@ class PostShow extends React.Component {
             === this.props.posts[postId].user_id ? <div className="post-options" onClick={() => this.props.postOptionsModal('postoptions', this.props.match.params.id)}> <img src="./three-dots-more-indicator.png" width="15" height="15"/></div>
             : null;
         const profilePic = this.props.owner.photoUrl ? <img className="profile-pic-small" src={this.props.owner.photoUrl}/> : <img src="https://img.icons8.com/color/48/000000/cheburashka.png" />
+        const comments = Object.values(this.props.comments)
         return (
             <div className="post-show-main">
                 <div className="post-show-row">
@@ -50,7 +53,15 @@ class PostShow extends React.Component {
                                     <Link className="username" to={`/${this.props.owner.username}`}><p>{this.props.owner.username} </p></Link>
                                     <p> {this.props.posts[postId].caption}</p>
                                     </div>
-                                    <p>comments go here</p>
+                                    <ul>
+                                        {
+                                            comments.map ( comment => (
+                                                <li key={comment.id}>
+                                                    {comment.body}
+                                                </li>
+                                            ))
+                                        }
+                                    </ul>
                                 </div>
                         </div>
                             <div className="post-show-interact">

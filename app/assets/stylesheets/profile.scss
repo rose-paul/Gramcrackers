@@ -23,7 +23,7 @@
 .profile-nav  {
     margin-top: 35px;
     margin-bottom: 45px;
-    margin-left: 10%;
+    margin-left: 30%;
     height: 200px;
     width: 540px;
     display: flex;
@@ -37,7 +37,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-left: 15%;
 }
 
 .profile-nav-right > div {
@@ -49,6 +48,8 @@
     align-items: center;
     width: 350px;
     height: 30px;
+    margin-bottom: 5px;
+    padding: 0px !important;
 }
 
 .profile-user-options {
@@ -56,6 +57,7 @@
     margin-left: 2px;
     border-radius: 3px;
     font-weight: 600;
+    margin-bottom: 5px;
 }
 
 .username-display {
@@ -68,10 +70,9 @@
 
 .profile-pic {
     border: 1px solid black;
-    width: 175px;
-    height: 175px;
+    width: 150px;
+    height: 150px;
     border-radius: 100px;
-    margin-left: 40%;
 
 }
 
@@ -97,6 +98,8 @@
     display: flex;
     align-items: flex-start;
     height: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .profile-stats p {
@@ -106,16 +109,18 @@
 
 .profile-info {
     display: flex;
-    flex-direction: row;
-    height: 20px;
-    justify-content: flex-start;
-    margin-top: 8px;
+    flex-direction: column;
+    height: 40px;
+    justify-items: space-evenly;
     align-self: flex-start;
-}
-
-.profile-nav-right > .profile-info {
-    justify-content: flex-start;
+    align-content: flex-start;
     margin-left: 62px;
 }
+
+.profile-info p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
 
 
