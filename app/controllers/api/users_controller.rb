@@ -1,8 +1,12 @@
 class Api::UsersController < ApplicationController
   def index 
-    if !params[:username].nil?
+    if params[:username]
       @user = User.find_by(username: params[:username])
-      render :show
+        if @user 
+          render :show
+        else
+          render json: ["User not found"], status: 404
+        end
     end
   end
 
@@ -33,6 +37,6 @@ class Api::UsersController < ApplicationController
   private 
   def user_params
     params.require(:user).permit(:username, :email, :first_name, 
-      :last_name, :birthday, :gender, :password, :photo, :bio)
+      :last_name, :birthday, :gender, :password, :photo, :bio, :display_name)
   end
 end

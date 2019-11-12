@@ -1,36 +1,47 @@
-.profile-page {
+
+
+.profile-feed-wrapper {
      display: flex;
      flex-direction: column;
      align-items: center;
- }
-
+}
 .profile-feed {
     list-style: none;
     width: 80%;
     display: flex;
     justify-content: flex-start;
     flex-flow: row wrap;
+    align-self: center;
 }
 
 .profile-feed li {
     display: flex;
-    // flex-direction: column;
     margin-bottom: 20px;
     padding: 15px;
 }
 
 .profile-nav  {
-    height: 160px;
+    margin-top: 35px;
+    margin-bottom: 45px;
+    margin-left: 10%;
+    height: 200px;
     width: 540px;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 15px;
+    font-family: sans-serif;
 }
 
 .profile-nav-right {
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-left: 15%;
+}
+
+.profile-nav-right > div {
+    padding-bottom: 30px;
 }
 
 .user-options {
@@ -47,26 +58,21 @@
     font-weight: 600;
 }
 
-// .edit-profile-link > button {
-//     padding: 5px;
-//     margin-left: 2px;
-//     border-radius: 3px;
-//     font-weight: 600;
-// }
-
 .username-display {
     font-size: 25px;
     font-family: sans-serif;
     font-weight: bold;
-    padding-left: 80px;
+    padding-left: 61px;
     padding-right: 15px;
 }
 
 .profile-pic {
     border: 1px solid black;
-    width: 100px;
-    height: 100px;
+    width: 175px;
+    height: 175px;
     border-radius: 100px;
+    margin-left: 40%;
+
 }
 
 .follow-button {
@@ -89,6 +95,7 @@
 
 .profile-stats {
     display: flex;
+    align-items: flex-start;
     height: 20px;
 }
 
@@ -96,15 +103,19 @@
     padding-right: 9px;
 }
 
-.profile-info{
-    display: flex;
-    
-}
 
 .profile-info {
     display: flex;
+    flex-direction: row;
     height: 20px;
-    margin-top: 4px;
+    justify-content: flex-start;
+    margin-top: 8px;
+    align-self: flex-start;
+}
+
+.profile-nav-right > .profile-info {
+    justify-content: flex-start;
+    margin-left: 62px;
 }
 
 

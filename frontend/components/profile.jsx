@@ -11,18 +11,20 @@ class Profile extends React.Component {
     }
 
      componentDidMount() {
-         this.props.fetchUserPosts(this.props.match.params.username)
-            .then( () => this.props.fetchOwnerByUsername(this.props.match.params.username))
+         if (this.props.errors.length) {
+             this.setState({ loaded: true })
+         }
+         this.props.fetchOwnerByUsername(this.props.match.params.username)
+            .then( () => this.props.fetchUserPosts(this.props.match.params.username))
             .then( () => this.setState({loaded: true}))
         // Promise.all([this.props.fetchUserPosts(this.props.match.params.username), this.props.fetchOwnerByUsername(this.props.match.params.username)])
     }
 
     componentDidUpdate(prevProps) {
-        
         if (prevProps.match.params.username !== this.props.match.params.username){
             this.setState({loaded: false})
-            this.props.fetchUserPosts(this.props.match.params.username)
-                .then( () => this.props.fetchOwnerByUsername(this.props.match.params.username))
+            this.props.fetchOwnerByUsername(this.props.match.params.username)
+                .then(() => this.props.fetchUserPosts(this.props.match.params.username))
                 .then( () => this.setState({ loaded: true }))
         }
     }
@@ -41,10 +43,10 @@ class Profile extends React.Component {
         let follow;
 
         if (!this.props.posts && !this.props.errors) return null;
-        if (!this.state.loaded) return <p className="loading">loading</p>;
         if (this.props.errors.length) {
             return <span className="no-user">{this.props.errors[0]}</span>
         }
+        if (!this.state.loaded) return <p className="loading">loading</p>;
         if (this.props.currentUser && this.props.match.params.username === this.props.currentUser.username) {
             logout = <button className="profile-user-options" onClick={this.handleLogout}>Logout</button>
             editprofile = <Link to="/accounts/edit">
@@ -62,8 +64,9 @@ class Profile extends React.Component {
             const profilePic = this.props.owner.photoUrl ? <img className="profile-pic" src={this.props.owner.photoUrl} /> 
              : <img className="profile-pic" src="https://img.icons8.com/color/48/000000/cheburashka.png" />;
             const bio = this.props.owner.bio;
+            const name = this.props.owner.display_name;
              return ( 
-                <div className="profile-page">
+                 <div>
                     <div className="profile-nav">
                         {profilePic}
                         <div className="profile-nav-right">
@@ -75,14 +78,18 @@ class Profile extends React.Component {
                             </div>
                             <div className="profile-stats">
                                  <p>{userposts.length} posts </p>
-                                 <p>x followers</p>
+                                 <p>x followers</p> 
+                                 <br/>
                                  <p>x following</p>
                             </div>
                             <div className="profile-info">
+                                <p>{name}</p>
+                                <br/>
                                 <p>{bio}</p>
                             </div>
                         </div>
                     </div>
+                    <div className="profile-feed-wrapper">
                         <ul className="profile-feed">
                             {
                                 userposts.reverse().map( post => (
@@ -92,7 +99,9 @@ class Profile extends React.Component {
                                 ))
                             }
                         </ul>
-                </div>
+                     </div>
+                     </div>
+
             ) 
     }
 }

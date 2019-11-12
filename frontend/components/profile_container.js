@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
     currentUser: state.entities.users[state.session.id],
     owner: state.entities.owner,
     posts: state.entities.posts,
-    errors: state.errors.postErrors
+    errors: state.errors.userErrors
 
 }};
 const mapDispatchToProps = dispatch => ({

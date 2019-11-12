@@ -41,7 +41,7 @@ class EditProfileForm extends React.Component {
     }
 
     render() {
-        const profilePic = this.props.currentUser.photoUrl ? <img className="profile-pic" src={this.props.currentUser.photoUrl} />
+        const profilePic = this.props.currentUser.photoUrl ? <img className="profile-pic-edit" src={this.props.currentUser.photoUrl} />
             : <img className="profile-pic" src="https://img.icons8.com/color/48/000000/cheburashka.png" />
 
         const displayPic = this.state.photoUrl ? <img className="profile-pic" src={this.state.photoUrl}/> : profilePic
