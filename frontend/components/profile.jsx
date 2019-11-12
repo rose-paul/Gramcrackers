@@ -61,7 +61,7 @@ class Profile extends React.Component {
             
             const profilePic = this.props.owner.photoUrl ? <img className="profile-pic" src={this.props.owner.photoUrl} /> 
              : <img className="profile-pic" src="https://img.icons8.com/color/48/000000/cheburashka.png" />;
-
+            const bio = this.props.owner.bio;
              return ( 
                 <div className="profile-page">
                     <div className="profile-nav">
@@ -75,11 +75,11 @@ class Profile extends React.Component {
                             </div>
                             <div className="profile-stats">
                                  <p>{userposts.length} posts </p>
-                                 <p> x followers </p>
-                                 <p> x following</p>
+                                 <p>x followers</p>
+                                 <p>x following</p>
                             </div>
                             <div className="profile-info">
-                                <p>profile info here</p>
+                                <p>{bio}</p>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import EditUserForm from './edit_user_form';
 
 class EditProfileForm extends React.Component {
     constructor(props) {
@@ -66,6 +67,11 @@ class EditProfileForm extends React.Component {
                 </div>              
                     
                 </form>
+
+                <EditUserForm 
+                currentUser={this.props.currentUser} 
+                updateUser={this.props.updateUser}
+                />
             </div>
         )
     }

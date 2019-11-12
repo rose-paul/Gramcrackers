@@ -12,7 +12,8 @@ class CreateUserForm extends React.Component {
             username: "",
             password: "",
             gender: "unspecified",
-            birthday: "unspecified"
+            birthday: "unspecified",
+            bio: ""
         }
         }
         this.handleSubmit = this.handleSubmit.bind(this);
