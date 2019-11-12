@@ -6,9 +6,9 @@
 
 .profile-feed {
     list-style: none;
-    // width: 95%;
+    width: 80%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     flex-flow: row wrap;
 }
 
@@ -16,10 +16,12 @@
     display: flex;
     // flex-direction: column;
     margin-bottom: 20px;
+    padding: 15px;
 }
 
 .profile-nav  {
-    height: 100px;
+    height: 160px;
+    width: 540px;
     display: flex;
     align-items: center;
     padding: 15px;
@@ -31,10 +33,11 @@
     flex-direction: column;
 }
 
-.username-logout {
+.user-options {
     display: flex;
     align-items: center;
     width: 350px;
+    height: 30px;
 }
 
 .profile-user-options {
@@ -55,8 +58,8 @@
     font-size: 25px;
     font-family: sans-serif;
     font-weight: bold;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 80px;
+    padding-right: 15px;
 }
 
 .profile-pic {
@@ -82,6 +85,17 @@
     display: flex;
     justify-content: center;
     margin-top: 10%;
+}
+
+.profile-stats {
+    display: flex;
+    height: 20px;
+}
+
+.profile-info {
+    display: flex;
+    height: 20px;
+    margin-top: 4px;
 }
 
 

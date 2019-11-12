@@ -67,14 +67,18 @@ class Profile extends React.Component {
                     <div className="profile-nav">
                         {profilePic}
                         <div className="profile-nav-right">
-                            <div className="username-logout">
+                            <div className="user-options">
                                 <p className="username-display">{this.props.match.params.username}</p>
                                 {logout}
                                 {editprofile}
                                 {follow}
                             </div>
+                            <div className="profile-stats">
+                                 <p>{userposts.length} posts </p>
+                                 <p> x followers </p>
+                                 <p> x following</p>
+                            </div>
                             <div className="profile-info">
-                                <p>{userposts.length} posts</p>
                                 <p>profile info here</p>
                             </div>
                         </div>

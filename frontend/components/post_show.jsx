@@ -28,7 +28,7 @@ class PostShow extends React.Component {
 
         const postId = this.props.match.params.id;
         if (!this.props.posts[postId]) return null;
-        if (!this.state.loaded) return <p>loading</p>
+        if (!this.state.loaded) return <h1 className="loading">loading</h1>
         let ops = this.props.currentUser && this.props.currentUser.id
             === this.props.posts[postId].user_id ? <div className="post-options" onClick={() => this.props.postOptionsModal('postoptions', this.props.match.params.id)}> <img src="./three-dots-more-indicator.png" width="15" height="15"/></div>
             : null;

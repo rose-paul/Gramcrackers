@@ -8,7 +8,6 @@ class EditProfileForm extends React.Component {
             photoFile: null,
             photoUrl: null
         };
-
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
     }
@@ -21,11 +20,12 @@ class EditProfileForm extends React.Component {
     // }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         const formData = new FormData();
         formData.append('user[id]', this.state.userId)
         formData.append('user[photo]', this.state.photoFile)
-        this.props.updateUser(formData)
+        this.props.updateUser(formData).then(this.props.history.push(`/${this.props.currentUser.username}`))
     }
 
     handleFile(e) {
