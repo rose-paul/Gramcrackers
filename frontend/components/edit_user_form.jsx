@@ -3,7 +3,7 @@ import React from 'react';
 class EditUserForm extends React.Component {
     constructor(props){
         super(props)
-        this.state = this.props.currentUser;
+        this.state = this.props.owner;
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 

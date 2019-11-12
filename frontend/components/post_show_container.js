@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { fetchOnePost, deletePhoto } from '../actions/post_actions';
 import { fetchOwner } from '../actions/user_actions';
 import { openModal, closeModal } from '../actions/modal_actions';
-import { fetchAllComments } from '../actions/comment_actions';
+import { fetchAllComments, addComment } from '../actions/comment_actions';
 
 
 
@@ -25,7 +25,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     editPostModal: (type, id) => dispatch(openModal(type, id)),
     postOptionsModal: (type, id) => dispatch(openModal(type, id)),
     closeModal: () => dispatch(closeModal()),
-    fetchComments: postId => dispatch(fetchAllComments(postId))
+    fetchComments: postId => dispatch(fetchAllComments(postId)),
+    addComment: comment => dispatch(addComment(comment))
 }
 }
 

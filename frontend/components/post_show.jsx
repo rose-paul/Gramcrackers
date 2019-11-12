@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Comment from './comment';
 
 class PostShow extends React.Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class PostShow extends React.Component {
         if (prevProps.location.pathname !== this.props.location.pathname) {
             this.setState({ loaded: false })
             this.props.fetchUserPosts(this.props.match.params.username)
-                .then(() => this.props.fetchComments(postId))
+                .then( () => this.props.fetchComments(postId))
                 .then( () => this.setState({ loaded: true }))
         }
     }
@@ -64,9 +65,12 @@ class PostShow extends React.Component {
                                     </ul>
                                 </div>
                         </div>
-                            <div className="post-show-interact">
-                                <input type="text" placeholder="Add a comment..."/>
-                            </div>
+                        <Comment 
+                        postId={postId} 
+                        currentUser={this.props.currentUser}
+                        addComment={this.props.addComment}
+                        />
+                       
                     </div>
                 </div>
             </div>

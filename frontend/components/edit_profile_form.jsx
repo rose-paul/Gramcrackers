@@ -13,11 +13,12 @@ class EditProfileForm extends React.Component {
         this.handleFile = this.handleFile.bind(this);
     }
 
-    // shouldComponentUpdate(nextProps) {
-    //     debugger
-    //     if (this.state.photoUrl) {
-    //         return true;
-    //     }
+    componentDidMount() {
+        this.props.fetchOwner(this.props.currentUser.id)
+    }
+
+    // componentDidUpdate(prevProps) {
+
     // }
 
     handleSubmit(e) {
@@ -42,11 +43,10 @@ class EditProfileForm extends React.Component {
 
     render() {
         const profilePic = this.props.currentUser.photoUrl ? <img className="profile-pic-edit" src={this.props.currentUser.photoUrl} />
-            : <img className="profile-pic" src="https://img.icons8.com/color/48/000000/cheburashka.png" />
-
+            : <img className="profile-pic" src="/user.png" />
         const displayPic = this.state.photoUrl ? <img className="profile-pic" src={this.state.photoUrl}/> : profilePic
-
         const submit = this.state.photoFile ? <button className="post-submit">Submit Change</button> : null;
+        if (!this.props.owner) return null;
         return (
             <div className="edit-profile-div">
                 <form className='edit-profile-form' onSubmit={this.handleSubmit}>
@@ -72,6 +72,7 @@ class EditProfileForm extends React.Component {
                 currentUser={this.props.currentUser} 
                 updateUser={this.props.updateUser}
                 history={this.props.history}
+                owner={this.props.owner}
                 />
             </div>
         )

@@ -62,7 +62,7 @@ class Profile extends React.Component {
             const userposts = Object.values(this.props.posts);  
             
             const profilePic = this.props.owner.photoUrl ? <img className="profile-pic" src={this.props.owner.photoUrl} /> 
-             : <img className="profile-pic" src="https://img.icons8.com/color/48/000000/cheburashka.png" />;
+                : <img className="profile-pic" src="/user.png"/>;
             const bio = this.props.owner.bio;
             const name = this.props.owner.display_name;
              return ( 
