@@ -19,7 +19,6 @@ class Comment extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         const comment = Object.assign({}, {comment: this.state})
-        debugger
         this.props.addComment(comment)
     }
 

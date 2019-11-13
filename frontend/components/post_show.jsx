@@ -56,11 +56,13 @@ class PostShow extends React.Component {
                                     </div>
                                     <ul>
                                         {
-                                            comments.map ( comment => (
-                                                <li key={comment.id}>
+                                            comments.map ( comment => 
+                                                {debugger
+                                                return (<li key={comment.id}>
                                                     {comment.body}
-                                                </li>
-                                            ))
+                                                    <button onClick={() => this.props.deleteComment(comment)}>Delete</button>
+                                                </li>)
+                                            })
                                         }
                                     </ul>
                                 </div>
