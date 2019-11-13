@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Comment from './comment';
+import Comment from './comments/comment';
+import CommentIndexItem from './comments/comment_index_item';
 
 class PostShow extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class PostShow extends React.Component {
             .then( () => this.setState({loaded: true}))
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps, prevState) {
         if (prevProps.location.pathname !== this.props.location.pathname) {
             this.setState({ loaded: false })
             this.props.fetchUserPosts(this.props.match.params.username)
@@ -54,15 +55,16 @@ class PostShow extends React.Component {
                                     <Link className="username" to={`/${this.props.owner.username}`}><p>{this.props.owner.username} </p></Link>
                                     <p> {this.props.posts[postId].caption}</p>
                                     </div>
-                                    <ul>
+                                    <ul className="comments-ul">
                                         {
-                                            comments.map ( comment => 
-                                                {debugger
-                                                return (<li key={comment.id}>
-                                                    {comment.body}
-                                                    <button onClick={() => this.props.deleteComment(comment)}>Delete</button>
-                                                </li>)
-                                            })
+                                            comments.map ( comment => (
+                                                <CommentIndexItem comment={comment} 
+                                                currentUser={this.props.currentUser} 
+                                                commentOptionsModal={this.props.commentOptionsModal}
+                                                postUser={this.props.posts[postId].user_id}
+                                                key={comment.id}
+                                                />
+                                            ))
                                         }
                                     </ul>
                                 </div>

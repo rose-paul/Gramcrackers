@@ -17,7 +17,6 @@ const receiveComment = comment => ({
 })
 
 const removeComment = comment => {
-    debugger
     return {
     type: REMOVE_COMMENT,
     commentId: comment.id

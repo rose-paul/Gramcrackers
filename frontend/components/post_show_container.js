@@ -24,6 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     fetchOwner: userId => dispatch(fetchOwner(userId)),
     editPostModal: (type, id) => dispatch(openModal(type, id)),
     postOptionsModal: (type, id) => dispatch(openModal(type, id)),
+    commentOptionsModal: (type, comment) => dispatch(openModal(type, comment)),
     closeModal: () => dispatch(closeModal()),
     fetchComments: postId => dispatch(fetchAllComments(postId)),
     addComment: comment => dispatch(addComment(comment)),

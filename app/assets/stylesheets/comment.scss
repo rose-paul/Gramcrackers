@@ -1,0 +1,26 @@
+.comments-ul {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 225px;
+    width: 332px;
+    overflow: scroll;
+
+}
+.comment {
+    display: flex;
+    list-style: none;
+}
+
+.comment > div {
+    margin-left: auto;
+}
+
+.delete-comment {
+    text-align: center;
+    color: red;
+    font-family: sans-serif;
+    font-weight: bold;
+    margin-top: 22px;
+    cursor: pointer;
+}
