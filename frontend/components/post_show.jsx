@@ -40,6 +40,7 @@ class PostShow extends React.Component {
             : <div className="post-options"></div>;
         const profilePic = this.props.owner.photoUrl ? <img className="profile-pic-small" src={this.props.owner.photoUrl}/> : <img src="https://img.icons8.com/color/48/000000/cheburashka.png" />
         const comments = Object.values(this.props.comments)
+        const likeCount = Object.keys(this.props.likes).length;
         return (
             <div className="post-show-main">
                 <div className="post-show-row">
@@ -74,7 +75,7 @@ class PostShow extends React.Component {
                                 </div>
                         </div>
                         <div className="likes-div">
-                            likes and stuff go here
+                            Liked by {likeCount} others
                         </div>
                         <Comment 
                         postId={postId} 
