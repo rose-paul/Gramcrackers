@@ -35,7 +35,7 @@ class PostShow extends React.Component {
         if (!this.state.loaded) return <h1 className="loading">loading</h1>
         let ops = this.props.currentUser && this.props.currentUser.id
             === this.props.posts[postId].user_id ? <div className="post-options" onClick={() => this.props.postOptionsModal('postoptions', this.props.match.params.id)}> <img src="./three-dots-more-indicator.png" width="15" height="15"/></div>
-            : null;
+            : <div className="post-options"></div>;
         const profilePic = this.props.owner.photoUrl ? <img className="profile-pic-small" src={this.props.owner.photoUrl}/> : <img src="https://img.icons8.com/color/48/000000/cheburashka.png" />
         const comments = Object.values(this.props.comments)
         return (
@@ -59,7 +59,8 @@ class PostShow extends React.Component {
                                     </div>
                                         {
                                             comments.map ( comment => (
-                                                <CommentIndexItem comment={comment} 
+                                                <CommentIndexItem 
+                                                comment={comment} 
                                                 currentUser={this.props.currentUser} 
                                                 commentOptionsModal={this.props.commentOptionsModal}
                                                 postUser={this.props.posts[postId].user_id}
