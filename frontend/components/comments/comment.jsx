@@ -25,7 +25,7 @@ class Comment extends React.Component {
     render() {
         return  (
         <div>
-            <form onSubmit={this.handleSubmit} >
+            <form className="add-comment" onSubmit={this.handleSubmit} >
                 <input type="text" placeholder="Add a comment..." onChange={this.handleInput()}/>
                 <input type="submit" value="Post"/>
             </form>

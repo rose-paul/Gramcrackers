@@ -41,7 +41,7 @@ class PostShow extends React.Component {
         return (
             <div className="post-show-main">
                 <div className="post-show-row">
-                <img src={this.props.posts[postId].photoUrl} height="400" width="400"/>
+                <img src={this.props.posts[postId].photoUrl} height="450" width="450"/>
                     <div className="post-show-right">
                         <div>
                                 <div className="post-show-user">
@@ -51,11 +51,12 @@ class PostShow extends React.Component {
                                     {ops}
                                 </div>
                                 <div className="post-show-comments">
-                                    <div className="owner-caption">
-                                    <Link className="username" to={`/${this.props.owner.username}`}><p>{this.props.owner.username} </p></Link>
-                                    <p> {this.props.posts[postId].caption}</p>
-                                    </div>
+                                   
                                     <ul className="comments-ul">
+                                    <div className="owner-caption">
+                                        <Link className="username" to={`/${this.props.owner.username}`}><p>{this.props.owner.username} </p></Link>
+                                        <p> {this.props.posts[postId].caption}</p>
+                                    </div>
                                         {
                                             comments.map ( comment => (
                                                 <CommentIndexItem comment={comment} 
@@ -68,6 +69,9 @@ class PostShow extends React.Component {
                                         }
                                     </ul>
                                 </div>
+                        </div>
+                        <div className="likes-div">
+                            likes and stuff go here
                         </div>
                         <Comment 
                         postId={postId} 
