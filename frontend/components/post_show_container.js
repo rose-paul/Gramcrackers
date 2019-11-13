@@ -5,6 +5,7 @@ import { fetchOnePost, deletePhoto } from '../actions/post_actions';
 import { fetchOwner } from '../actions/user_actions';
 import { openModal, closeModal } from '../actions/modal_actions';
 import { fetchAllComments, addComment, deleteComment } from '../actions/comment_actions';
+import { fetchPostLikes } from '../actions/like_actions';
 
 
 
@@ -20,15 +21,18 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     
     return {
     fetchPost: postId => dispatch(fetchOnePost(postId)),
-    deletePhoto: postId => dispatch(deletePhoto(postId)),
     fetchOwner: userId => dispatch(fetchOwner(userId)),
+    fetchComments: postId => dispatch(fetchAllComments(postId)),
+    fetchLikes: postId => dispatch(fetchPostLikes(postId)),
+
+    addComment: comment => dispatch(addComment(comment)),
+    deletePhoto: postId => dispatch(deletePhoto(postId)),
+    deleteComment: comment => dispatch(deleteComment(comment)),
+
     editPostModal: (type, id) => dispatch(openModal(type, id)),
+    closeModal: () => dispatch(closeModal()),
     postOptionsModal: (type, id) => dispatch(openModal(type, id)),
     commentOptionsModal: (type, comment) => dispatch(openModal(type, comment)),
-    closeModal: () => dispatch(closeModal()),
-    fetchComments: postId => dispatch(fetchAllComments(postId)),
-    addComment: comment => dispatch(addComment(comment)),
-    deleteComment: comment => dispatch(deleteComment(comment))
 }
 }
 

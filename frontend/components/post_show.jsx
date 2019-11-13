@@ -16,6 +16,7 @@ class PostShow extends React.Component {
         this.props.fetchPost(postId)
             .then( () => this.props.fetchOwner(this.props.posts[postId].user_id))
             .then( () => this.props.fetchComments(postId))
+            .then( () => this.props.fetchLikes(postId))
             .then( () => this.setState({loaded: true}))
     }
 
@@ -24,6 +25,7 @@ class PostShow extends React.Component {
             this.setState({ loaded: false })
             this.props.fetchUserPosts(this.props.match.params.username)
                 .then( () => this.props.fetchComments(postId))
+                .then( () => this.props.fetchLikes(postId))
                 .then( () => this.setState({ loaded: true }))
         }
     }
