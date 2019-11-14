@@ -31,7 +31,7 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, {
             user: {
-                username: "testuser",
+                username: "gusa",
                 password: "password"
             }
         })
