@@ -7,7 +7,7 @@
 }
 .profile-feed {
     list-style: none;
-    width: 80%;
+    max-width: 1000px;
     display: flex;
     justify-content: flex-start;
     flex-flow: row wrap;
@@ -20,10 +20,14 @@
     padding: 15px;
 }
 
+.profile-nav-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .profile-nav  {
     margin-top: 35px;
     margin-bottom: 45px;
-    margin-left: 30%;
     height: 200px;
     width: 540px;
     display: flex;
