@@ -52,7 +52,7 @@ class Profile extends React.Component {
             
             )
         }
-        if (!this.state.loaded) return <Loader type="ThreeDots" color="rgb(98, 150, 209)" className="loading" />;
+        if (!this.state.loaded) return <Loader type="Grid" color="rgb(98, 150, 209)" className="loading" />;
         if (this.props.currentUser && this.props.match.params.username === this.props.currentUser.username) {
             logout = <button className="profile-user-options" onClick={this.handleLogout}>Logout</button>
             editprofile = <Link to="/accounts/edit">
