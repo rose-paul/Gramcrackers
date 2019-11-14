@@ -22,6 +22,10 @@
     padding-right: 15px;
 }
 
+.comment > div > img {
+    cursor: pointer;
+}
+
 .delete-comment {
     text-align: center;
     color: red;
@@ -57,6 +61,7 @@
     font-size: 20px;
     color: rgb(60, 120, 189);
     padding-right: 20px;
+    cursor: pointer;
 }
 
 .comments-ul div:first-child {

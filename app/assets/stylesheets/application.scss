@@ -28,12 +28,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 3%;
 }
 
 .login-form-div img {
-    width: 30%;
-    height: 40%;
+    height: 100vh;
+    width: 50%;
+    object-fit: cover;
 }
 
 

@@ -21,7 +21,8 @@ class Api::PostsController < ApplicationController
     end
 
     def show 
-        @post = Post.find(params[:id]) 
+        @post = Post.find(params[:id])
+        @user_likes = @post.find_user_likes  
         render :show
     end
     

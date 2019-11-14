@@ -10,12 +10,19 @@ class Api::LikesController < ApplicationController
     end
 
     def index 
-        @likes = Like.where(likeable_id: params[:post_id])
-        render :index
+        # if params[:type] == "all"
+            @likes = Like.where(likeable_id: params[:post_id])
+            render :index
+        # else
+        #     @like = Like.where(likeable_id: params[:post_id])
+        #                 .where(user_id: current_user.id)
+        #     render :show
+        # end
     end
 
     def destroy 
-        @like = current_user.likes.find(params[:id])
+        @like = Like.where(likeable_id: params[:post_id]).where(user_id: current_user.id) 
+        @like = @like.first
         @like.destroy
         render :show
     end

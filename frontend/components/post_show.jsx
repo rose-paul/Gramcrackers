@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Comment from './comments/comment';
 import CommentIndexItem from './comments/comment_index_item';
-
+import Likes from './likes/likes';
 class PostShow extends React.Component {
     constructor(props) {
         super(props);
@@ -16,7 +16,7 @@ class PostShow extends React.Component {
         this.props.fetchPost(postId)
             .then( () => this.props.fetchOwner(this.props.posts[postId].user_id))
             .then( () => this.props.fetchComments(postId))
-            .then( () => this.props.fetchLikes(postId))
+            .then( () => this.props.fetchLikes(postId, "all"))
             .then( () => this.setState({loaded: true}))
     }
 
@@ -25,7 +25,7 @@ class PostShow extends React.Component {
             this.setState({ loaded: false })
             this.props.fetchUserPosts(this.props.match.params.username)
                 .then( () => this.props.fetchComments(postId))
-                .then( () => this.props.fetchLikes(postId))
+                .then( () => this.props.fetchLikes(postId, "all"))
                 .then( () => this.setState({ loaded: true }))
         }
     }
@@ -40,7 +40,6 @@ class PostShow extends React.Component {
             : <div className="post-options"></div>;
         const profilePic = this.props.owner.photoUrl ? <img className="profile-pic-small" src={this.props.owner.photoUrl}/> : <img src="https://img.icons8.com/color/48/000000/cheburashka.png" />
         const comments = Object.values(this.props.comments)
-        const likeCount = Object.keys(this.props.likes).length;
         return (
             <div className="post-show-main">
                 <div className="post-show-row">
@@ -75,14 +74,22 @@ class PostShow extends React.Component {
                                 </div>
                         </div>
                         <div className="likes-div">
-                            Liked by {likeCount} others
+                            <Likes
+                            postId={postId}
+                            fetchLikes={this.props.fetchLikes}
+                            fetchUserLike={this.props.fetchUserLike}
+                            addLike={this.props.addLike}
+                            removeLike={this.props.removeLike}
+                            likes={this.props.likes}
+                            currentUser={this.props.currentUser}
+                            post={this.props.posts}
+                            />
                         </div>
-                        <Comment 
-                        postId={postId} 
-                        currentUser={this.props.currentUser}
-                        addComment={this.props.addComment}
-                        />
-                       
+                            <Comment 
+                            postId={postId} 
+                            currentUser={this.props.currentUser}
+                            addComment={this.props.addComment}
+                            />
                     </div>
                 </div>
             </div>
