@@ -71,7 +71,7 @@ class PostForm extends React.Component {
                         Caption 
                     </label>
                     <textarea value={this.state.caption} onChange={this.handleInput('caption')}
-                        placeholder="It's lit 🔥🔥🔥 #YoungjunTime "
+                        placeholder="Add a caption... "
                     />
                 <button className="post-submit">Click to submit</button>
                 </form>
