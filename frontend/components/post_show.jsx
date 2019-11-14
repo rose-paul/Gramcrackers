@@ -77,7 +77,6 @@ class PostShow extends React.Component {
                             <Likes
                             postId={postId}
                             fetchLikes={this.props.fetchLikes}
-                            fetchUserLike={this.props.fetchUserLike}
                             addLike={this.props.addLike}
                             removeLike={this.props.removeLike}
                             likes={this.props.likes}

@@ -6,7 +6,6 @@ class Feed extends React.Component{
         return (
             <div className="feed-main">
                 <h2>feed</h2>
-                <img src="https://img.icons8.com/dusk/64/000000/russia-map.png"/>
             </div>
         )
     }

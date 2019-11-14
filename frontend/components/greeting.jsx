@@ -14,9 +14,8 @@ class Greeting extends React.Component {
         let display = this.props.currentUser  ? (
             <div className="nav-bar">
                 <div className="home-links-div">
-                    <Link className='home-link' to="/"> <img src="https://img.icons8.com/plasticine/100/000000/camera.png"/></Link>
+                    <Link className='home-link' to="/"> <img src="/001-camera.png"/></Link>
                     <Link className='home-link' to="/"><h2>Gramcrackers</h2></Link>
-                    {/* <p>Welcome, {this.props.currentUser.username} </p> */}
                 </div>
                 <div className="middle-nav-div">
                     <input className='search' type="text" placeholder="Search"/>
@@ -25,15 +24,15 @@ class Greeting extends React.Component {
                 <div className="right-nav-div">
                     {/* <Link to="/posts/new"><img className="right-button" src="https://img.icons8.com/ios/50/000000/plus.png"/></Link> */}
                     {this.props.createFormModal}
-                    <Link className='profile-link' to={`/${this.props.currentUser.username}`}><img className="right-button-prof"  src="https://img.icons8.com/ios/50/000000/face-id.png"/></Link>
+                    <Link className='profile-link' to={`/${this.props.currentUser.username}`}><img className="right-button-prof" src="/user.png"/></Link>
                 </div>
-                
+
             </div>
         ) : (
             
                     <div className="nav-bar">
                         <div className="home-links-div">
-                            <Link className='home-link' to="/"> <img src="https://img.icons8.com/plasticine/100/000000/camera.png" /></Link>
+                        <Link className='home-link' to="/"> <img src="/001-camera.png" /></Link>
                             <Link className='home-link' to="/"><h2>Gramcrackers</h2></Link>
                             {/* <p>Welcome, {this.props.currentUser.username} </p> */}
                         </div>

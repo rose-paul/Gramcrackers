@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => ({
     logoutUser: () => dispatch(logoutUser()),
     createFormModal: (
         <div onClick={() => dispatch(openModal('createpost'))}>
-            <img className="right-button" src="https://img.icons8.com/ios/50/000000/plus.png" />
+            <img className="right-button" src="/002-upload.png" />
         </div>
     ),
     closeModal: () => dispatch(closeModal())

@@ -26,7 +26,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     fetchOwner: userId => dispatch(fetchOwner(userId)),
     fetchComments: postId => dispatch(fetchAllComments(postId)),
     fetchLikes: (postId) => dispatch(fetchPostLikes(postId)),
-    fetchUserLike: (postId, type) => dispatch(fetchUserLike(postId, type)),
 
     addComment: comment => dispatch(addComment(comment)),
     deletePhoto: postId => dispatch(deletePhoto(postId)),
