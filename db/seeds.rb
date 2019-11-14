@@ -35,7 +35,7 @@ user4.save!
 
 user5 = User.new(email: 'datsyuk@aa.io', first_name: 'Pavel', last_name: 'Datsyuk', username: 'datsyuk', gender: 'unspecified', birthday: 'unspecified', password: 'thepassword')
 profilepic5 = open("https://gramcrackers-seeds.s3-us-west-1.amazonaws.com/yzerman/datsyuk.jpg")
-user5.photo.attach(io: profilepic4, filename: "datsyuk.jpg")
+user5.photo.attach(io: profilepic5, filename: "datsyuk.jpg")
 user5.save!
 
 user6 = User.new(email: 'carmela@aa.io', first_name: 'Carmela', last_name: 'Soprano', username: 'c.soprano', gender: 'unspecified', 
