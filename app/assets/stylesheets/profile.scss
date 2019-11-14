@@ -130,5 +130,16 @@
     font-weight: bold;
 }
 
+.no-user-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.no-user-error p {
+    font-size: 80px;
+    font-family: serif;
+}
+
 
 

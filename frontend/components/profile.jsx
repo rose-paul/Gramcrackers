@@ -44,7 +44,12 @@ class Profile extends React.Component {
 
         if (!this.props.posts && !this.props.errors) return null;
         if (this.props.errors.length) {
-            return <span className="no-user">{this.props.errors[0]}</span>
+            return( 
+            <div className="no-user-error">
+                <p className="no-user">404: {this.props.errors[0]}</p>
+            </div>
+            
+            )
         }
         if (!this.state.loaded) return <p className="loading">loading</p>;
         if (this.props.currentUser && this.props.match.params.username === this.props.currentUser.username) {
