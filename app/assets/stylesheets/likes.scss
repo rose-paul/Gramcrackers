@@ -1,0 +1,15 @@
+.likes-div {
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+
+.likes-div img {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.likes-div p {
+    padding-left: 15px;
+}

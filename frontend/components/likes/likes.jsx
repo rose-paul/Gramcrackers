@@ -50,11 +50,15 @@ class Likes extends React.Component {
     }
 
     render() {
+        let likeIcon = this.state.updated ? 
+            <img onClick={this.updateLikes} src="https://img.icons8.com/color/48/000000/hearts.png"/>
+            : <img onClick={this.updateLikes} src="https://img.icons8.com/ios/48/000000/hearts.png" />
+
         if (!this.props.likes) return null;
         return(
-            <div>
-                <button onClick={this.updateLikes}>Like btn</button>
-                liked by {this.state.likes} others
+            <div className="likes-div">
+                {likeIcon}
+                <p>liked by {this.state.likes} others</p>
             </div>
         )
     }
