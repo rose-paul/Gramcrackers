@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { updateUser, fetchOwner } from "../actions/user_actions";
+import { updateUser, fetchOwner } from "../../actions/user_actions";
 import EditProfileForm from "./edit_profile_form";
 
 
@@ -16,9 +16,3 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditProfileForm);
-    // changeProfilePicModal: (
-    //     <div onClick={() => dispatch(openModal('profilepic'))}>
-    //         <p>Change Profile Photo</p>
-    //     </div>
-    // ),
-    // closeModal: () => dispatch(closeModal())

@@ -39,20 +39,22 @@ class Profile extends React.Component {
 
     render() {
 
-        let logout;
-        let editprofile;
-        let follow;
-
         if (!this.props.posts && !this.props.errors) return null;
+
         if (this.props.errors.length) {
             return( 
             <div className="no-user-error">
                 <p className="no-user">404: {this.props.errors[0]}</p>
             </div>
-            
             )
         }
+
         if (!this.state.loaded) return <Loader type="Grid" color="rgb(98, 150, 209)" className="loading" />;
+
+        let logout;
+        let editprofile;
+        let follow;
+
         if (this.props.currentUser && this.props.match.params.username === this.props.currentUser.username) {
             logout = <button className="profile-user-options" onClick={this.handleLogout}>Logout</button>
             editprofile = <Link to="/accounts/edit">
@@ -69,8 +71,11 @@ class Profile extends React.Component {
             
             const profilePic = this.props.owner.photoUrl ? <img className="profile-pic" src={this.props.owner.photoUrl} /> 
                 : <img className="profile-pic" src="/user.png"/>;
+
             const bio = this.props.owner.bio;
+
             const name = this.props.owner.display_name;
+            
              return ( 
                  <div className="profile-page">
                      <div className="profile-nav-wrapper">

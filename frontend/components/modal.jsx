@@ -1,9 +1,9 @@
 import React from 'react';
 import { closeModal } from '../actions/modal_actions';
 import { connect } from 'react-redux';
-import PostFormContainer from './post_form_container';
-import EditPostFormContainer from './edit_post_form_container';
-import PostOptionsContainer from './post_options_container';
+import PostFormContainer from './posts/post_form_container';
+import EditPostFormContainer from './posts/edit_post_form_container';
+import PostOptionsContainer from './posts/post_options_container';
 import EditCommentContainer from './comments/edit_comment_container';
 
 function Modal({ modal, closeModal }) {

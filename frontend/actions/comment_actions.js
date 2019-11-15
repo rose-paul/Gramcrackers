@@ -16,11 +16,10 @@ const receiveComment = comment => ({
     comment
 })
 
-const removeComment = comment => {
-    return {
+const removeComment = comment => ({
     type: REMOVE_COMMENT,
     commentId: comment.id
-}}
+})
 
 const receiveErrors = errors => ({
     type: RECEIVE_COMMENT_ERRORS,

@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchOnePost, updatePhoto } from '../actions/post_actions';
+import { fetchOnePost, updatePhoto } from '../../actions/post_actions';
 import PostForm from './post_form';
 import { withRouter } from 'react-router-dom';
-import { closeModal } from "../actions/modal_actions";
+import { closeModal } from "../../actions/modal_actions";
 
 class EditPostForm extends React.Component {
     componentDidMount() {

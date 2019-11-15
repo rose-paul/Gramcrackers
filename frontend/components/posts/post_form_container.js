@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
-import { postPhoto, updatePhoto } from "../actions/post_actions";
+import { postPhoto, updatePhoto } from "../../actions/post_actions";
 import PostForm from "./post_form";
-import { closeModal } from "../actions/modal_actions";
+import { closeModal } from "../../actions/modal_actions";
 
 const mapStateToProps = (state) => {
     return {

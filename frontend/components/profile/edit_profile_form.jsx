@@ -17,10 +17,6 @@ class EditProfileForm extends React.Component {
         this.props.fetchOwner(this.props.currentUser.id)
     }
 
-    // componentDidUpdate(prevProps) {
-
-    // }
-
     handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
@@ -41,11 +37,16 @@ class EditProfileForm extends React.Component {
     }
 
     render() {
-        const profilePic = this.props.currentUser.photoUrl ? <img className="profile-pic-edit" src={this.props.currentUser.photoUrl} />
-            : <img className="profile-pic" src="/user.png" />
+        const profilePic = this.props.currentUser.photoUrl ? 
+            <img className="profile-pic-edit" src={this.props.currentUser.photoUrl} /> : 
+            <img className="profile-pic" src="/user.png" />
+
         const displayPic = this.state.photoUrl ? <img className="profile-pic" src={this.state.photoUrl}/> : profilePic
+
         const submit = this.state.photoFile ? <button className="post-submit">Submit Change</button> : null;
+
         if (!this.props.owner) return null;
+        
         return (
             <div className="edit-profile-div">
                 <form className='edit-profile-form' onSubmit={this.handleSubmit}>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Comment from './comments/comment';
-import CommentIndexItem from './comments/comment_index_item';
-import Likes from './likes/likes';
+import Comment from '../comments/comment';
+import CommentIndexItem from '../comments/comment_index_item';
+import Likes from '../likes/likes';
 import Loader from 'react-loader-spinner'
 class PostShow extends React.Component {
     constructor(props) {
@@ -34,25 +34,33 @@ class PostShow extends React.Component {
     render () {
 
         const postId = this.props.match.params.id;
+
         if (!this.props.posts[postId]) return null;
+
         if (!this.state.loaded) return <Loader type="Grid" color="rgb(98, 150, 209)" className="loading" />
-        let ops = this.props.currentUser && this.props.currentUser.id
-            === this.props.posts[postId].user_id ? <div className="post-options" onClick={() => this.props.postOptionsModal('postoptions', this.props.match.params.id)}> <img src="./three-dots-more-indicator.png" width="15" height="15"/></div>
+        let ops = this.props.currentUser && this.props.currentUser.id === this.props.posts[postId].user_id ? 
+            <div className="post-options" onClick={() => this.props.postOptionsModal('postoptions', this.props.match.params.id)}> <img src="./three-dots-more-indicator.png" width="15" height="15"/></div>
             : <div className="post-options"></div>;
-        const profilePic = this.props.owner.photoUrl ? <img className="profile-pic-small" src={this.props.owner.photoUrl}/> : <img src="https://img.icons8.com/color/48/000000/cheburashka.png" />
+
+        const profilePic = this.props.owner.photoUrl ? 
+            <img className="profile-pic-small" src={this.props.owner.photoUrl}/> : 
+            <img className="profile-pic" src="/user.png" />
+
         const comments = Object.values(this.props.comments)
         
+        const postPhoto = this.props.posts[postId].photoUrl;
+
+        const postCaption = this.props.posts[postId].caption
         
         return (
             <div className="post-show-wrap">
             <div className="post-show-main">
                 <div className="post-show-row">
-                <img src={this.props.posts[postId].photoUrl} height="450" width="450"/>
+                <img src={postPhoto} height="450" width="450"/>
                     <div className="post-show-right">
                         <div>
                                 <div className="post-show-user">
                                     {profilePic}
-                                    {/* <img src="https://img.icons8.com/color/48/000000/cheburashka.png" /> */}
                                 <Link className="username" to={`/${this.props.owner.username}`}><p>{this.props.owner.username} </p></Link>
                                     {ops}
                                 </div>
@@ -61,7 +69,7 @@ class PostShow extends React.Component {
                                     <ul className="comments-ul">
                                     <div className="owner-caption">
                                         <Link className="username" to={`/${this.props.owner.username}`}><p>{this.props.owner.username} </p></Link>
-                                        <p> {this.props.posts[postId].caption}</p>
+                                        <p> {postCaption}</p>
                                     </div>
                                         {
                                             comments.map ( comment => (

@@ -5,11 +5,11 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SignupFormContainer from "./signup_form_container";
 import LoginFormContainer from "./login_form_container";
 import FeedContainer from "./feed_container";
-import ProfileContainer from "./profile_container";
-import PostFormContainer from "./post_form_container";
+import ProfileContainer from "./profile/profile_container";
+import PostFormContainer from "./posts/post_form_container";
 import Modal from "./modal";
-import PostShowContainer from "./post_show_container";
-import EditProfileContainer from "./edit_profile_container";
+import PostShowContainer from "./posts/post_show_container";
+import EditProfileContainer from "./profile/edit_profile_container";
 
 
 

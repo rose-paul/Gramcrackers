@@ -1,11 +1,11 @@
 import React from 'react';
 import PostShow from './post_show';
 import { connect } from "react-redux";
-import { fetchOnePost, deletePhoto } from '../actions/post_actions';
-import { fetchOwner } from '../actions/user_actions';
-import { openModal, closeModal } from '../actions/modal_actions';
-import { fetchAllComments, addComment, deleteComment } from '../actions/comment_actions';
-import { fetchPostLikes, addPostLike, removePostLike, fetchUserLike } from '../actions/like_actions';
+import { fetchOnePost, deletePhoto } from '../../actions/post_actions';
+import { fetchOwner } from '../../actions/user_actions';
+import { openModal, closeModal } from '../../actions/modal_actions';
+import { fetchAllComments, addComment, deleteComment } from '../../actions/comment_actions';
+import { fetchPostLikes, addPostLike, removePostLike, fetchUserLike } from '../../actions/like_actions';
 
 
 

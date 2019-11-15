@@ -1,16 +1,14 @@
 import { connect } from "react-redux";
-import { closeModal, openModal } from "../actions/modal_actions";
-import { deletePhoto } from "../actions/post_actions";
+import { closeModal, openModal } from "../../actions/modal_actions";
+import { deletePhoto } from "../../actions/post_actions";
 import PostOptions from "./post_options";
 import { withRouter } from 'react-router-dom';
 
 
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = state => ({
         currentUser: state.entities.users[state.session.id],
-    }
-}
+})
 
 const mapDispatchToProps = dispatch => ({
     closeModal: () => dispatch(closeModal()),

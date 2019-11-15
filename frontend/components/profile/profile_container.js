@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from "react-redux";
 import Profile from "./profile";
-import { logoutUser, receiveLocationChange } from "../actions/session_actions";
-import { fetchAllPosts, deletePhoto } from "../actions/post_actions";
-import { closeModal, openModal } from "../actions/modal_actions";
-import { fetchOwnerByUsername } from '../actions/user_actions';
+import { logoutUser, receiveLocationChange } from "../../actions/session_actions";
+import { fetchAllPosts, deletePhoto } from "../../actions/post_actions";
+import { closeModal, openModal } from "../../actions/modal_actions";
+import { fetchOwnerByUsername } from '../../actions/user_actions';
 
 const mapStateToProps = (state) => {
     return {
