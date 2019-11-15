@@ -31,7 +31,7 @@ class EditUserForm extends React.Component {
                     <input type="text" value={this.state.display_name} onChange={this.handleInput('display_name')}/>
                 </label>
                 <label>Bio
-                    <input type="text" value={this.state.bio} onChange={this.handleInput('bio')}/>
+                    <textarea type="text" value={this.state.bio} onChange={this.handleInput('bio')}/>
                 </label>
                 </div>
                 <input type="submit" value="Update Info"/>
