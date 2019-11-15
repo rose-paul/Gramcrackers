@@ -5,7 +5,8 @@ class Feed extends React.Component{
     render() {
         return (
             <div className="feed-main">
-                <h2>feed</h2>
+                <h2>feed coming soon</h2>
+                <img src="/russia.png" alt=""/>
             </div>
         )
     }
