@@ -15,7 +15,8 @@
     display: flex;
     list-style: none;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    padding: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 .comment > div {
@@ -69,6 +70,13 @@
 
 .comments-ul div:first-child {
     align-items: flex-start;
+}
+
+.comment-link {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding-right: 6px;
 }
 
 // .post-show-comments {
