@@ -27,7 +27,7 @@ class EditPostForm extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-    posts: state.entities.posts, //[ownProps.match.params.id]
+    posts: state.entities.posts, 
     formType: "Update Post"
 }}
 
