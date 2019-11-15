@@ -11,6 +11,7 @@ class PostForm extends React.Component {
     }
 
     handleSubmit(e) {
+        debugger
         e.preventDefault();
         const formData = new FormData();
         if (this.props.formType === "Update Post") {
@@ -20,9 +21,9 @@ class PostForm extends React.Component {
         if (this.props.formType === "New Post") {
             formData.append('post[photo]', this.state.photoFile);
         }
-        this.props.action(formData).then(
-            () => this.props.closeModal()
-        )
+        this.props.action(formData)
+            .then( () => this.props.closeModal())
+            .then( () => this.props.history.push(`/${this.props.currentUser.username}`))
     }
 
     handleFile(e) {
