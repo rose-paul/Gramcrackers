@@ -12,7 +12,7 @@ Gramcrackers, an Instagram clone, is a social media app that allows users to pos
 ## Features
 * Secure user authentication using BCrypt library
 * CRUD operations for posts, profiles, comments and likes
-* UPCOMING: Follows, feed, search, image sizing.
+* UPCOMING: Follows/feed, search, image sizing.
 
 ## CRUD Operations
 Logged in users can create a new post from the top right of the navbar. On submission the modal will close and their image will be displayed on their profile page. Users can edit captions of posts, but to keep post/comment content relevant to each other, photos on posts cannot be changed or edited -- only deleted.
