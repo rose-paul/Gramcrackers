@@ -69,7 +69,7 @@ class Profile extends React.Component {
             
             const userposts = Object.values(this.props.posts);  
             
-            const profilePic = this.props.owner.photoUrl ? <img className="profile-pic" src={this.props.owner.photoUrl} /> 
+        const profilePic = this.props.owner.photoUrl ? <img className="profile-pic" src={this.props.owner.photoUrl} /> 
                 : <img className="profile-pic" src="/user.png"/>;
 
             const bio = this.props.owner.bio;
@@ -106,7 +106,7 @@ class Profile extends React.Component {
                             {
                                 userposts.reverse().map( post => (
                                     <li key={post.id}>
-                                        <Link to={`/posts/${post.id}`}><img src={post.photoUrl} width="300" height="300" /></Link>
+                                        <Link to={`/posts/${post.id}`}><img src={post.photoUrl} className="profile-feed-img" /></Link>
                                     </li>
                                 ))
                             }

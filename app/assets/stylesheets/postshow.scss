@@ -75,3 +75,11 @@
     height: 40px;
     border-radius: 100px;
 }
+
+.profile-feed-img {
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 300px;
+    min-height: 300px;
+    object-fit: cover;
+}
