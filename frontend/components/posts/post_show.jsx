@@ -56,7 +56,7 @@ class PostShow extends React.Component {
             <div className="post-show-wrap">
             <div className="post-show-main">
                 <div className="post-show-row">
-                <img src={postPhoto} height="450" width="450"/>
+                <img src={postPhoto} className="post-show-img"/>
                     <div className="post-show-right">
                         <div>
                                 <div className="post-show-user">
