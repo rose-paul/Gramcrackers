@@ -44,7 +44,7 @@ class PostShow extends React.Component {
 
         const profilePic = this.props.owner.photoUrl ? 
             <img className="profile-pic-small" src={this.props.owner.photoUrl}/> : 
-            <img className="profile-pic" src="/user.png" />
+            <img className="profile-pic-small" src="/user.png" />
 
         const comments = Object.values(this.props.comments)
         
