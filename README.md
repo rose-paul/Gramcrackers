@@ -12,12 +12,13 @@ Gramcrackers, an Instagram clone, is a social media app that allows users to pos
 ## Features
 * Secure user authentication using BCrypt library
 * CRUD operations for posts, profiles, comments and likes
+* UPCOMING: Follows, feed, search.
 
 ## Post CRUD Operations
 Logged in users can create a new post from the top right of the navbar. On submission the modal will close and their image will be displayed on their profile page. Users can edit captions of posts, but to keep post/comment content relevant to each other, photos on posts cannot be changed or edited -- only deleted.
 
 ### Post Form
-The same `PostForm` component is rendered for creating and editing posts dependent on the `formType` passed down from containers. The render function displays a photo upload button accordingly. 
+The same `PostForm` component is rendered for creating and editing posts dependent on the `formType` passed down from containers. The `PostForm` `handleSubmit` and `render` behave accordingly. 
 
 ```js
     handleSubmit(e) {
@@ -52,3 +53,5 @@ The same `PostForm` component is rendered for creating and editing posts depende
 ```
 
 ## Main Feed
+
+### In progress
