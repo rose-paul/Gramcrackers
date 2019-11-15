@@ -195,8 +195,8 @@ post28.photo.attach(io: file28, filename: "saundersong.jpg")
 post28.save!
 
 post29 = Post.new(user_id: 7)
-file29 = open("awslink")
-post29.photo.attach(io: file29, filename: "https://gramcrackers-seeds.s3-us-west-1.amazonaws.com/saunderson/tresor_linter.jpg")
+file29 = open("https://gramcrackers-seeds.s3-us-west-1.amazonaws.com/saunderson/tresor_linter.jpg")
+post29.photo.attach(io: file29, filename: "tresor_linter.jpg")
 post29.save!
 
 post30 = Post.new(user_id: 7)
