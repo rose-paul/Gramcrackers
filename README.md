@@ -19,7 +19,8 @@ Logged in users can create a new post from the top right of the navbar. On submi
 ### Post Form
 The same `PostForm` component is rendered for creating and editing posts dependent on the `formType` passed down from containers. The render function displays a photo upload button accordingly. 
 
- `  handleSubmit(e) {
+```js
+    handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
         if (this.props.formType === "Update Post") {
@@ -33,6 +34,21 @@ The same `PostForm` component is rendered for creating and editing posts depende
             () => this.props.closeModal()
         )
     }
- `
+    
+    render() {
+        const photoUpload = this.props.formType === "New Post" ? (
+            <div className="upload-outer">
+                <div className="upload-btn-wrapper">
+                    <button className="btn">Choose File
+                        </button>
+                    <input type="file"
+                        name="myfile"
+                        onChange={this.handleFile}
+                    />
+                </div>
+            </div>
+        ) : null
+
+```
 
 ## Main Feed
