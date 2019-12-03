@@ -44,6 +44,7 @@ class CreateUserForm extends React.Component {
         )
 
         return (
+            <div className="signup-wrapper">
             <div className="signup-form-div">
                 
                 
@@ -105,6 +106,11 @@ class CreateUserForm extends React.Component {
                 </form>
 
                 <footer>{footer}</footer>
+                <div className="links">
+                    <a href="https://www.linkedin.com/in/paul-rose-72626952/"><img src="linkedin-logo.png" /></a>
+                    <a href="https://github.com/rose-paul"><img src="002-cat.png" /></a>
+                </div>
+            </div>
             </div>
         )
     }
