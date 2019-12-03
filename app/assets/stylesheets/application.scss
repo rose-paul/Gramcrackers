@@ -120,6 +120,7 @@ footer div {
     justify-content: space-around;
     margin-top: 15px;
     margin-bottom: 5px;
+    width: inherit;
 
 }
 
@@ -127,14 +128,14 @@ footer div {
     height: 38px;
     width: 38px;
 }
-
- .signup-form-div {
+.signup-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-top: 8%;
-    margin-bottom: 8%;
+}
+
+ .signup-form-div {
+    margin-top: 5%;
  }
 
  .signup-form-div form {
@@ -178,6 +179,9 @@ footer div {
      border: none;
  }
 
+ .signup-form-div h1 {
+     font-family: 'Cookie', cursive;
+ }
 
   .errors {
     display: flex;
