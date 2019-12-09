@@ -15,7 +15,23 @@ class User < ApplicationRecord
 
   has_many :likes
 
-  has_many :followers
+  # has_many :follows
+
+  has_many :follower_people, ##joins to set up has_many followers through/source.
+    foreign_key: :following_id,
+    class_name: :Follow
+
+  has_many :followers, ## those who follow them.
+    through: :follower_people,
+    source: :follower
+
+  has_many :follows_people, ##joins to set up has_many follows. 
+    foreign_key: :user_id,
+    class_name: :Follow
+
+  has_many :follows,
+    through: :follows_people,
+    source: :following
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
