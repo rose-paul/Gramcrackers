@@ -6,9 +6,7 @@ import { loginUser } from "./actions/session_actions";
 import { fetchAllPosts } from "./actions/post_actions";
 import { fetchPosts } from "./util/post_api_util";
 import { fetchAllComments } from "./actions/comment_actions";
-
-
-
+import { fetchFollows, createFollow } from "./util/follow_api_util";
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -31,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.fetchPosts = fetchPosts;
     window.fetchAllPosts = fetchAllPosts;
     window.fetchAllComments = fetchAllComments;
+    window.fetchFollows = fetchFollows;
+    window.createFollow = createFollow;
     //end test
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store} currentUser={window.currentUser}/>, root);

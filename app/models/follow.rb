@@ -9,4 +9,10 @@ class Follow < ApplicationRecord
     belongs_to :following,  ##Belongs to person who was clicked on. 
         foreign_key: :following_id,
         class_name: :User
+
+    def find_username(user_id)
+     user = User.find_by(id: user_id)
+     return user.username
+    end
+    
 end
