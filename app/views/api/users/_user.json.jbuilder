@@ -3,3 +3,4 @@ json.extract! user, :id, :username, :email, :first_name,
 if user.photo.attached?
     json.photoUrl url_for(user.photo) 
 end
+json.user_follows user.find_following(user)

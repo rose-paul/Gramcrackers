@@ -5,6 +5,7 @@ import { logoutUser, receiveLocationChange } from "../../actions/session_actions
 import { fetchAllPosts, deletePhoto } from "../../actions/post_actions";
 import { closeModal, openModal } from "../../actions/modal_actions";
 import { fetchOwnerByUsername } from '../../actions/user_actions';
+import { createFollow, deleteFollow, fetchFollows } from '../../actions/follow_actions';
 
 const mapStateToProps = (state) => {
     return {
@@ -12,6 +13,7 @@ const mapStateToProps = (state) => {
     currentUser: state.entities.users[state.session.id],
     owner: state.entities.owner,
     posts: state.entities.posts,
+    follows: state.entities.follows,
     errors: state.errors.userErrors
 
 }};
@@ -29,6 +31,9 @@ const mapDispatchToProps = dispatch => ({
     <button onClick={() => dispatch(openModal('editprofile'))}>Edit Profile</button>
     ),
     closeModal: () => dispatch(closeModal()),
+    createFollow: followingId => dispatch(createFollow(followingId)),
+    deleteFollow: followId => dispatch(deleteFollow(followId)),
+    fetchFollows: type => dispatch(fetchFollows(type))
     // noErrors: () => dispatch(receiveLocationChange())
    
 });

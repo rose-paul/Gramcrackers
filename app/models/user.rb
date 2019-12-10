@@ -15,6 +15,24 @@ class User < ApplicationRecord
 
   has_many :likes
 
+  has_many :follows
+
+  has_many :follower_people, ##joins to set up has_many followers through/source.
+    foreign_key: :following_id,
+    class_name: :Follow
+
+  has_many :followers, ## those who follow them.
+    through: :follower_people,
+    source: :follower
+
+  has_many :follows_people, ##joins to set up has_many follows. 
+    foreign_key: :user_id,
+    class_name: :Follow
+
+  has_many :followings,
+    through: :follows_people,
+    source: :following
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     user && user.is_password?(password) ? user : nil 
@@ -36,6 +54,14 @@ class User < ApplicationRecord
   def reset_session_token!
     self.update!(session_token: self.class.generate_session_token)
     self.session_token
+  end
+
+  def find_following(user)
+    hash = {}
+      user.follows.each do |following|
+        hash[following.following_id] = following.id;
+      end
+    return hash
   end
 
   private
