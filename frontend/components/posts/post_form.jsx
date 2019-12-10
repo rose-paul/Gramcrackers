@@ -11,7 +11,6 @@ class PostForm extends React.Component {
     }
 
     handleSubmit(e) {
-        debugger
         e.preventDefault();
         const formData = new FormData();
         if (this.props.formType === "Update Post") {
