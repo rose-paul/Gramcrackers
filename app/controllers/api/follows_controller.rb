@@ -1,8 +1,15 @@
 class Api::FollowsController < ApplicationController
 
     def index
-        @followers = Follow.where(following_id: current_user.id)
-        render :index
+        if params["type"] == 'followers'
+            @follows = Follow.where(following_id: current_user.id)
+            ##current_user.followers
+            render :index
+        elsif params["type"] == 'following'
+            @follows = Follow.where(user_id: current_user.id)
+            ##current_user.follows 
+            render :index 
+        end
     end
 
     def create

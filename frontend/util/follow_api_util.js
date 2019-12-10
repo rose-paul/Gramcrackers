@@ -1,7 +1,8 @@
-export const fetchFollows = () => (
+export const fetchFollows = type => ( // user's followers
     $.ajax({
         method: 'GET',
-        url: '/api/follows'
+        url: '/api/follows',
+        data: { type }
     })
 )
 
@@ -14,3 +15,10 @@ export const createFollow = followingId => {
         })
     
 } 
+
+export const deleteFollow = followId => {
+    return $.ajax({
+        method: 'DELETE',
+        url: `/api/follows/${followId}`
+    })
+}
