@@ -57,7 +57,6 @@ class Profile extends React.Component {
     handleFollow(e) {
         e.preventDefault();
         if (this.state.followed) {
-            debugger
             this.props.deleteFollow(this.props.follows[this.props.owner.id].id)
             // .then(this.props.fetchFollows('following'))
             .then(this.setState({ followed: false }) )
