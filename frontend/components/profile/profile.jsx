@@ -29,6 +29,7 @@ class Profile extends React.Component {
                 this.setState({ followed: false })
             
                 )
+                
         // Promise.all([this.props.fetchUserPosts(this.props.match.params.username), this.props.fetchOwnerByUsername(this.props.match.params.username)])
     }
 
@@ -106,7 +107,6 @@ class Profile extends React.Component {
             const bio = this.props.owner.bio;
 
             const name = this.props.owner.display_name;
-            
              return ( 
                  <div className="profile-page">
                      <div className="profile-nav-wrapper">
