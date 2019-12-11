@@ -7,7 +7,7 @@ import { fetchAllPosts } from "./actions/post_actions";
 import { fetchPosts } from "./util/post_api_util";
 import { fetchAllComments } from "./actions/comment_actions";
 import { fetchFollows, createFollow, deleteFollow } from "./actions/follow_actions";
-import { fetchFeedPosts } from "./util/feed_api_util";
+import { fetchFeedPosts } from "./actions/feed_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
