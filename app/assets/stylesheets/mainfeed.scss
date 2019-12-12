@@ -10,14 +10,14 @@
  }
 
  .feed-main > header > img {
-     height: 50px;
+    height: 50px;
     width: 50px;
     padding-left: 10px;
  }
 
  .feed-main > header {
      display: flex;
-        align-items: center;
+    align-items: center;
  }
 
  .feed-list {
@@ -26,10 +26,12 @@
  }
 
  .feed-list li {
-     margin: 10px;
+     margin-bottom: 35px;
      background-color: white;
      border: 1px solid rgb(189, 189, 189);
  }
+
+ //feedindexitem
 
  .feed-item-whole {
      display: flex;
@@ -42,6 +44,20 @@
     padding: 12px;
  }
 
- .feed-item-whole > span > img {
+ .feed-item-whole a {
      margin-right: 8px;
+     text-decoration: none;
+     color: black;
+     font-weight: bold;
+ }
+
+ caption {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0px 0px 12px;
+    align-items: flex-start;
+ }
+
+ caption p {
+     margin-top: 6px;
  }

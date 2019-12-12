@@ -23,9 +23,10 @@ class Comment extends React.Component {
     }
 
     render() {
+        let klass = this.props.feedItem ? "add-comment-feed" : "add-comment"
         return  (
         <div>
-            <form className="add-comment" onSubmit={this.handleSubmit} >
+            <form className={klass} onSubmit={this.handleSubmit} >
                 <input type="text" placeholder="Add a comment..." onChange={this.handleInput()}/>
                 <input type="submit" value="Post"/>
             </form>

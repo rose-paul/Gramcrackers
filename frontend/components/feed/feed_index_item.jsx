@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Comment from '../comments/comment';
 
 
@@ -7,10 +8,20 @@ const FeedIndexItem = props => {
     return (
         <div className="feed-item-whole">
             <span>
-                {userPhoto} <b>{props.post.username}</b>
+                <Link to={`/${props.post.username}`}>{userPhoto}</Link> <Link to={`/${props.post.username}`}>{props.post.username}</Link>
             </span>
             <img className="post" src={props.post.photoUrl} alt=""/>
-            <p>{props.post.caption}</p>
+            
+            <div>
+                <Link to={`/${props.post.username}`}><b>{props.post.username}</b></Link>
+                <p>{props.post.caption}</p>
+            </div>
+            <Comment
+                feedItem="true"
+                postId={props.post.id}
+                currentUser={props.currentUser}
+                addComment={props.addComment}
+            />
         </div>
     )
 }

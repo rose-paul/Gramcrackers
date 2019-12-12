@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import FeedIndexItem from './feed_index_item';
+import FeedIndexItemContainer from './feed_index_item_container';
 
 
 const Feed = props => {
@@ -22,7 +22,7 @@ const Feed = props => {
             <ul className="feed-list">
             {
                 Object.values(posts).map( post => {
-                    return (<li><FeedIndexItem post={post} /></li>)
+                    return (<li><FeedIndexItemContainer post={post} /></li>)
                 })
             }
             </ul>
