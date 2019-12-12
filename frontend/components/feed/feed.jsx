@@ -14,7 +14,7 @@ const Feed = props => {
         .then( res => props.fetchFeedPosts(Object.keys(res.follows)))
         .then( res => setPosts(res.posts))
         .then( () => setLoaded(true))
-    }, [currentUser])
+    }, [])
 
     return loaded ? (
         <div className="feed-main">

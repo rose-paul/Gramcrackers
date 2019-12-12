@@ -1,27 +1,32 @@
 import React, { useState, useEffect } from 'react';
 
 const LikeHook = props => {
-    debugger
     let initial = props.likes.length
+    let initialLiked = props.likes[props.currentUser.id] ? true : false
     const [likeCount, setCount] = useState(initial)
-    const [liked, setLiked] = useState(false)
-    
-    useEffect(() => {
-        if (liked) {
-            setCount(likeCount + 1)
-        } else {
-            if (likeCount < 0) {
-                setCount(0)
-            } else {
-                likeCount === 0 ? setCount(0) : setCount(likeCount - 1) 
-                // fix initial render 
+    const [liked, setLiked] = useState(initialLiked)
+
+    const updateLikes = bool => {
+        if (bool) {
+            let like = {
+                user_id: props.currentUser.id,
+                likeable_id: props.postId,
+                likeable_type: "Post"
             }
-        } 
-    }, [liked])
+            setLiked(true)
+            setCount(likeCount + 1)
+            props.addLike(like)
+        } else {
+            setLiked(false)
+            setCount(likeCount - 1)
+            props.removeLike(props.postId, props.currentUser.id)
+        }
+    }
+
 
     let likeIcon = liked ?
-        <img onClick={() => setLiked(false)} src="/002-like.png" />
-        : <img onClick={() => setLiked(true)} src="/001-like-1.png" />
+        <img onClick={() => updateLikes(false)} src="/002-like.png" />
+        : <img onClick={() => updateLikes(true)} src="/001-like-1.png" />
 
         return (
         <div className="likes-div">

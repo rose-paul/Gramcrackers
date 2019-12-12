@@ -5,7 +5,6 @@ import Comment from '../comments/comment';
 
 
 const FeedIndexItem = props => {
-    debugger
     let userPhoto = props.post.userPhoto ? <img className="profile-pic-small" src={props.post.userPhoto} /> : <img className="profile-pic-small" src="/user.png" />
     return (
         <div className="feed-item-whole">
@@ -20,7 +19,10 @@ const FeedIndexItem = props => {
             </div>
             <LikeHook 
                 likes={props.post.likes}
+                addLike={props.addLike}
+                removeLike={props.removeLike}
                 currentUser={props.currentUser}
+                postId={props.post.id}
             />
             
             <Comment
