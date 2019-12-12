@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import LikeHook from '../likes/like_hook'
 import Comment from '../comments/comment';
 
 
 const FeedIndexItem = props => {
+    debugger
     let userPhoto = props.post.userPhoto ? <img className="profile-pic-small" src={props.post.userPhoto} /> : <img className="profile-pic-small" src="/user.png" />
     return (
         <div className="feed-item-whole">
@@ -16,6 +18,11 @@ const FeedIndexItem = props => {
                 <Link to={`/${props.post.username}`}><b>{props.post.username}</b></Link>
                 <p>{props.post.caption}</p>
             </div>
+            <LikeHook 
+                likes={props.post.likes}
+                currentUser={props.currentUser}
+            />
+            
             <Comment
                 feedItem="true"
                 postId={props.post.id}
