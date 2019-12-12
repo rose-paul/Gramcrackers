@@ -15,15 +15,18 @@ const Feed = props => {
 
     return (
         <div className="feed-main">
-            <h2>feed coming soon, {currentUser.username}</h2>
-            <ul>
+            <header>
+                <h2>Here you are {currentUser.username}! </h2>
+                <img src="/russia.png" alt="" />
+            </header>
+            <ul className="feed-list">
             {
                 Object.values(posts).map( post => {
                     return (<li><FeedIndexItem post={post} /></li>)
                 })
             }
             </ul>
-            <img src="/russia.png" alt=""/>
+            
         </div>
     )
 }

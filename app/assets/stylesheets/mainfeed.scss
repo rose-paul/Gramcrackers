@@ -5,6 +5,21 @@
  }
 
  .feed-main img {
-     height: 110px;
-     width: 100px;
+     height: 500px;
+     width: 600px;
+ }
+
+ .feed-main > header > img {
+     height: 50px;
+    width: 50px;
+    padding-left: 10px;
+ }
+
+ .feed-main > header {
+     display: flex;
+        align-items: center;
+ }
+
+ .feed-list {
+    list-style: none;
  }
