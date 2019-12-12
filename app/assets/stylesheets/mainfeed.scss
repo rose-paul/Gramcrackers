@@ -4,7 +4,7 @@
      align-items: center;
  }
 
- .feed-main img {
+ .feed-main .post {
      height: 500px;
      width: 600px;
  }
@@ -22,4 +22,26 @@
 
  .feed-list {
     list-style: none;
+    margin-top: 0;
+ }
+
+ .feed-list li {
+     margin: 10px;
+     background-color: white;
+     border: 1px solid rgb(189, 189, 189);
+ }
+
+ .feed-item-whole {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .feed-item-whole > span {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+ }
+
+ .feed-item-whole > span > img {
+     margin-right: 8px;
  }
