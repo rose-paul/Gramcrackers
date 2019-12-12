@@ -12,7 +12,7 @@ const FeedIndexItem = props => {
             </span>
             <img className="post" src={props.post.photoUrl} alt=""/>
             
-            <div>
+            <div className="caption">
                 <Link to={`/${props.post.username}`}><b>{props.post.username}</b></Link>
                 <p>{props.post.caption}</p>
             </div>

@@ -21,7 +21,7 @@ const Feed = props => {
             </header>
             <ul className="feed-list">
             {
-                Object.values(posts).map( post => {
+                Object.values(posts).reverse().map( post => {
                     return (<li><FeedIndexItemContainer post={post} /></li>)
                 })
             }
