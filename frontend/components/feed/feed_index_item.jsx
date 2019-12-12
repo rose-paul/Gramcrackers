@@ -29,6 +29,7 @@ const FeedIndexItem = props => {
                 {
                     props.post.comments.map(comment => (
                         <CommentIndexItem
+                            feedItem="true"
                             comment={comment}
                             currentUser={props.currentUser}
                             commentOptionsModal={props.commentOptionsModal}

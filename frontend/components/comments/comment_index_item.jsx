@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-const CommentIndexItem = ({ comment, currentUser, commentOptionsModal, postUser  }) => (
-        <div className="comment">
+const CommentIndexItem = ({ comment, currentUser, commentOptionsModal, postUser, feedItem  }) => {
+        let klass = feedItem ? 'comment-feed' : 'comment'
+       return ( 
+       <div className={klass}>
             <Link className="comment-link" to={`/${comment.username}`}>{comment.username}</Link>
             {comment.body}
             {comment.user_id === currentUser.id || postUser === currentUser.id ?
@@ -12,5 +14,7 @@ const CommentIndexItem = ({ comment, currentUser, commentOptionsModal, postUser 
                 </div> : null }
         </div>
         )
+}
+
         
 export default CommentIndexItem;

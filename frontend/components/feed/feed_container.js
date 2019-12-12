@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import Feed from "./feed";
 import { fetchFollows } from "../../actions/follow_actions";
 import { fetchFeedPosts } from "../../actions/feed_actions";
-import { openModal } from "../../actions/modal_actions";
+
 
 
 const mapStateToProps = state => ({
@@ -12,8 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     fetchFollows: type => dispatch(fetchFollows(type)),
-    fetchFeedPosts: userIds => dispatch(fetchFeedPosts(userIds)),
-    commentOptionsModal: (type, comment) => dispatch(openModal(type, comment))
+    fetchFeedPosts: userIds => dispatch(fetchFeedPosts(userIds))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Feed);
