@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import FeedIndexItem from './feed_index_item';
+
+
 const Feed = props => {
 
     const [posts, setPosts] = useState(props.posts)
@@ -17,7 +19,7 @@ const Feed = props => {
             <ul>
             {
                 Object.values(posts).map( post => {
-                    return <li key={post.id}>{post.caption}</li>
+                    return (<li><FeedIndexItem post={post} /></li>)
                 })
             }
             </ul>
