@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
 const LikeHook = props => {
-    let initial = props.likes.length
-    let initialLiked = props.likes[props.currentUser.id] ? true : false
-    const [likeCount, setCount] = useState(initial)
+    const initialCount = props.likes.length
+    const initialLiked = props.likes.includes(props.currentUser.id) ? true : false
+    const [likeCount, setCount] = useState(initialCount)
     const [liked, setLiked] = useState(initialLiked)
 
     const updateLikes = bool => {
         if (bool) {
+            setLiked(true)
+            setCount(likeCount + 1)
             let like = {
                 user_id: props.currentUser.id,
                 likeable_id: props.postId,
                 likeable_type: "Post"
             }
-            setLiked(true)
-            setCount(likeCount + 1)
             props.addLike(like)
         } else {
             setLiked(false)
@@ -28,10 +28,12 @@ const LikeHook = props => {
         <img onClick={() => updateLikes(false)} src="/002-like.png" />
         : <img onClick={() => updateLikes(true)} src="/001-like-1.png" />
 
+        let like = likeCount === 1 ? 'like' : 'likes';
+        debugger
         return (
-        <div className="likes-div">
+        <div className="likes-div-feed">
             {likeIcon}
-            <p>{likeCount} likes</p>
+            <p>{likeCount} {like}</p>
         </div>
         )
 }
