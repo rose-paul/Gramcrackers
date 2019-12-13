@@ -107,6 +107,7 @@ class Profile extends React.Component {
             const bio = this.props.owner.bio;
 
             const name = this.props.owner.display_name;
+
              return ( 
                  <div className="profile-page">
                      <div className="profile-nav-wrapper">
@@ -121,9 +122,9 @@ class Profile extends React.Component {
                             </div>
                             <div className="profile-stats">
                                  <p>{userposts.length} posts </p>
-                                 <p>x followers</p> 
+                                 <p>{this.props.owner.num_followers} followers</p> 
                                  <br/>
-                                 <p>x following</p>
+                                 <p>{this.props.owner.num_following} following</p>
                             </div>
                             <div className="profile-info">
                                 <p>{name}</p>
