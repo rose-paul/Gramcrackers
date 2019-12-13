@@ -19,7 +19,9 @@ class Comment extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         const comment = Object.assign({}, {comment: this.state})
-        this.props.addComment(comment).then( () => this.props.clickHandler())
+        this.props.addComment(comment).then( () => {
+            this.props.clickHandler ? this.props.clickHandler() : null
+        })
         // .then( () => this.props.fetchPost(this.props.postId))
         //     .then( () => window.location.reload(true))
     }
