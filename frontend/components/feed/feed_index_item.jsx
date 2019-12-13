@@ -50,6 +50,7 @@ const FeedIndexItem = props => {
                             commentOptionsModal={props.commentOptionsModal}
                             postUser={props.post.user_id}
                             key={comment.id}
+                            clickHandler={clickHandler}
                             
                         />
                     ))
