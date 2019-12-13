@@ -7,7 +7,7 @@ import PostOptionsContainer from './posts/post_options_container';
 import EditCommentContainer from './comments/edit_comment_container';
 
 function Modal({ modal, closeModal }) {
-    debugger
+
     if (!modal) {
         return null;
     }

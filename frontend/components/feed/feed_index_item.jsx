@@ -10,9 +10,7 @@ const FeedIndexItem = props => {
     const [comments, setComments] = useState()
     
     useEffect( () => {
-        // props.fetchComments(props.post.id).then(res => {
             setComments(props.post.comments)
-        // })
     }, [])
 
     const clickHandler = () => {

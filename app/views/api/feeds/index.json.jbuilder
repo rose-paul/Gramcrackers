@@ -7,11 +7,6 @@
                 json.username comment.user.username
         end
             if post.likes.length > 0
-                # json.likes post.likes.each do |like|
-                #         json.set! like.user_id do    
-                #             json.extract! like, :user_id, :likeable_id
-                #         end
-                #     end
                 json.likes post.find_user_likes 
             else 
                 json.likes post.likes
