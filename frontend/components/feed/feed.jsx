@@ -17,7 +17,7 @@ const Feed = props => {
         .then( () => setLoaded(true))
     }, [])
 
-
+    const reversedPosts = Object.values(posts).reverse()
 
     return loaded ? (
         <div className="feed-main">
@@ -27,7 +27,7 @@ const Feed = props => {
             </header>
             <ul className="feed-list">
             {
-                Object.values(posts).reverse().map( post => {
+                reversedPosts.map( post => {
                     return (<li><FeedIndexItemContainer post={post} /></li>)
                 })
             }

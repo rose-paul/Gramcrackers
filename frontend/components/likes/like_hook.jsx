@@ -29,7 +29,7 @@ const LikeHook = props => {
         : <img onClick={() => updateLikes(true)} src="/001-like-1.png" />
 
         let like = likeCount === 1 ? 'like' : 'likes';
-        debugger
+
         return (
         <div className="likes-div-feed">
             {likeIcon}
