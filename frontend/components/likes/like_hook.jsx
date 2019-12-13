@@ -31,7 +31,7 @@ const LikeHook = props => {
         return (
         <div className="likes-div">
             {likeIcon}
-            <p>liked by {likeCount} others</p>
+            <p>{likeCount} likes</p>
         </div>
         )
 }

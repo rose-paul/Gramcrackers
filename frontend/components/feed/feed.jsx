@@ -8,6 +8,7 @@ const Feed = props => {
     const [posts, setPosts] = useState(props.posts)
     const [currentUser] = useState(props.currentUser)
     const [loaded, setLoaded] = useState(false)
+    
 
     useEffect( () => {
         props.fetchFollows('following')
@@ -15,6 +16,8 @@ const Feed = props => {
         .then( res => setPosts(res.posts))
         .then( () => setLoaded(true))
     }, [])
+
+
 
     return loaded ? (
         <div className="feed-main">

@@ -102,6 +102,7 @@ class PostShow extends React.Component {
                             postId={postId} 
                             currentUser={this.props.currentUser}
                             addComment={this.props.addComment}
+                            fetchPost={this.props.fetchPost}
                             />
                     </div>
                 </div>

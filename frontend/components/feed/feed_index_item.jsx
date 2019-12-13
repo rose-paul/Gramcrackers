@@ -6,7 +6,22 @@ import CommentIndexItem from '../comments/comment_index_item';
 
 const FeedIndexItem = props => {
     let userPhoto = props.post.userPhoto ? <img className="profile-pic-small" src={props.post.userPhoto} /> : <img className="profile-pic-small" src="/user.png" />
-    return (
+
+    const [comments, setComments] = useState()
+    
+    useEffect( () => {
+        props.fetchComments(props.post.id).then(res => {
+            setComments(res.comments)
+        })
+    }, [])
+
+    const clickHandler = () => {
+        props.fetchComments(props.post.id).then(res => {
+            setComments(res.comments)
+        })
+    }
+
+    return comments ? (
         <div className="feed-item-whole">
             <span>
                 <Link to={`/${props.post.username}`}>{userPhoto}</Link> <Link to={`/${props.post.username}`}>{props.post.username}</Link>
@@ -25,9 +40,9 @@ const FeedIndexItem = props => {
                 <p>{props.post.caption}</p>
             </div>
 
-            <div>
+            <div className="feed-comments-div">
                 {
-                    props.post.comments.map(comment => (
+                    Object.values(comments).map(comment => (
                         <CommentIndexItem
                             feedItem="true"
                             comment={comment}
@@ -35,6 +50,7 @@ const FeedIndexItem = props => {
                             commentOptionsModal={props.commentOptionsModal}
                             postUser={props.post.user_id}
                             key={comment.id}
+                            
                         />
                     ))
                 }
@@ -46,9 +62,11 @@ const FeedIndexItem = props => {
                 postId={props.post.id}
                 currentUser={props.currentUser}
                 addComment={props.addComment}
+                fetchPost={props.fetchPost}
+                clickHandler={clickHandler}
             />
         </div>
-    )
+    ) : null
 }
 
 export default FeedIndexItem;

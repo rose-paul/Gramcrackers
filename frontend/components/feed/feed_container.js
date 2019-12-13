@@ -7,7 +7,8 @@ import { fetchFeedPosts } from "../../actions/feed_actions";
 
 const mapStateToProps = state => ({
     currentUser: state.entities.users[state.session.id],
-    posts: state.entities.posts
+    posts: state.entities.posts,
+    
 });
 
 const mapDispatchToProps = dispatch => ({
