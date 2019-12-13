@@ -29,6 +29,7 @@ class Profile extends React.Component {
                 this.setState({ followed: false })
             
                 )
+                
         // Promise.all([this.props.fetchUserPosts(this.props.match.params.username), this.props.fetchOwnerByUsername(this.props.match.params.username)])
     }
 
@@ -57,7 +58,6 @@ class Profile extends React.Component {
     handleFollow(e) {
         e.preventDefault();
         if (this.state.followed) {
-            debugger
             this.props.deleteFollow(this.props.follows[this.props.owner.id].id)
             // .then(this.props.fetchFollows('following'))
             .then(this.setState({ followed: false }) )
@@ -107,7 +107,6 @@ class Profile extends React.Component {
             const bio = this.props.owner.bio;
 
             const name = this.props.owner.display_name;
-            
              return ( 
                  <div className="profile-page">
                      <div className="profile-nav-wrapper">

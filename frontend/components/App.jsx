@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import SignupFormContainer from "./signup_form_container";
 import LoginFormContainer from "./login_form_container";
-import FeedContainer from "./feed_container";
+import FeedContainer from "./feed/feed_container";
 import ProfileContainer from "./profile/profile_container";
 import PostFormContainer from "./posts/post_form_container";
 import Modal from "./modal";

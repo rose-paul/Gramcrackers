@@ -24,6 +24,14 @@
  button {
     cursor: pointer;
 }
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+a {
+    cursor: pointer;
+}
  
  .login-form-div {
     display: flex;

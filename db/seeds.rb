@@ -272,3 +272,14 @@ Like.create!(user_id:6 , likeable_id: 23, likeable_type: 'Post')
 Like.create!(user_id:6 , likeable_id: 14, likeable_type: 'Post')
 
 
+Follow.create!(user_id: 1, following_id: 2)
+Follow.create!(user_id: 1, following_id: 3)
+Follow.create!(user_id: 1, following_id: 4)
+Follow.create!(user_id: 1, following_id: 5)
+Follow.create!(user_id: 1, following_id: 6)
+Follow.create!(user_id: 2, following_id: 1)
+Follow.create!(user_id: 2, following_id: 4)
+Follow.create!(user_id: 3, following_id: 1)
+Follow.create!(user_id: 4, following_id: 2)
+
+

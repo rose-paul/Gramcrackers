@@ -25,11 +25,11 @@ class Likes extends React.Component {
 
     updateLikes() {
         if (!this.state.updated) {
-            let like = {like: {
+            let like =  {
                 user_id: this.props.currentUser.id,
                 likeable_id: this.props.postId,
                 likeable_type: "Post"
-            }}
+            }
             this.props.addLike(like)
                 .then( () => this.setState((prevState, props) => {
                     return {

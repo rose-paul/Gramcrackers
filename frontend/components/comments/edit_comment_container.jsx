@@ -3,8 +3,15 @@ import { deleteComment } from '../../actions/comment_actions';
 import { connect } from 'react-redux'
 import { closeModal } from '../../actions/modal_actions'
 
-const EditComment = ({comment, deleteComment, closeModal}) => (
-    <div className="delete-comment" onClick={() => deleteComment(comment).then(() => closeModal())}>
+const EditComment = (props) => (
+    <div className="delete-comment" onClick={
+        () => props.deleteComment(props.comment)
+        .then(() => {
+            debugger
+            props.clickHandler ? props.clickHandler() : null
+            props.closeModal()
+        })
+    }>
         Delete
     </div>
 )

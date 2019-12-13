@@ -19,13 +19,18 @@ class Comment extends React.Component {
     handleSubmit(e) {
         e.preventDefault()
         const comment = Object.assign({}, {comment: this.state})
-        this.props.addComment(comment)
+        this.props.addComment(comment).then( () => {
+            this.props.clickHandler ? this.props.clickHandler() : null
+        })
+        // .then( () => this.props.fetchPost(this.props.postId))
+        //     .then( () => window.location.reload(true))
     }
 
     render() {
+        let klass = this.props.feedItem ? "add-comment-feed" : "add-comment"
         return  (
         <div>
-            <form className="add-comment" onSubmit={this.handleSubmit} >
+            <form className={klass} onSubmit={this.handleSubmit} >
                 <input type="text" placeholder="Add a comment..." onChange={this.handleInput()}/>
                 <input type="submit" value="Post"/>
             </form>
@@ -34,3 +39,4 @@ class Comment extends React.Component {
 }
 
 export default Comment;
+

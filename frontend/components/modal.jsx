@@ -7,7 +7,7 @@ import PostOptionsContainer from './posts/post_options_container';
 import EditCommentContainer from './comments/edit_comment_container';
 
 function Modal({ modal, closeModal }) {
-    
+    debugger
     if (!modal) {
         return null;
     }
@@ -17,7 +17,7 @@ function Modal({ modal, closeModal }) {
             component = <PostFormContainer />;
             break;
         case 'commentoptions':
-            component = <EditCommentContainer comment={modal.id} />
+            component = <EditCommentContainer comment={modal.id} clickHandler={modal.clickHandler}/>
             break;
         case 'editpost':
             component = <EditPostFormContainer id={modal.id}/>;
