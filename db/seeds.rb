@@ -49,12 +49,12 @@ user7.photo.attach(io: profilepic7, filename: "saunderson.jpg")
 user7.save!
 
 
-post1 = Post.new(user_id: 1, caption: "They fixed the bridge in Vorontsovsky!")
+post1 = Post.new(user_id: 1, caption: "They fixed the bridge in Vorontsovsky Park! Haven't been here in ages, would love to go.")
 file1 = open("https://gramcrackers-seeds.s3-us-west-1.amazonaws.com/gus/vorontsovsky2.jpg")
 post1.photo.attach(io: file1, filename: "vorontsovsky2.jpg")
 post1.save!
 
-post2 = Post.new(user_id: 1, caption: "Beast")
+post2 = Post.new(user_id: 1, caption: "Superstar")
 file2 = open("https://gramcrackers-seeds.s3-us-west-1.amazonaws.com/gus/tretiak.jpg")
 post2.photo.attach(io: file2, filename: "tretiak.jpg")
 post2.save!
