@@ -8,7 +8,7 @@
 
 require 'open-uri'
 
-user1 = User.new(email: 'gus.a@aa.io', first_name: 'Gus', last_name: 'Alexander', username: 'gusa', gender: 'unspecified', 
+user1 = User.new(email: 'gus.a@aa.io', first_name: 'Gus', last_name: 'Alexander', username: 'vorontsovsky', gender: 'unspecified', 
     birthday: 'unspecified', password: 'password', display_name: "Nadezhda", bio: "This site makes me want s'mores!")
 profilepic1 = open("https://gramcrackers-seeds.s3-us-west-1.amazonaws.com/gus2.jpg")
 user1.photo.attach(io: profilepic1, filename: "gus2.jpg")
