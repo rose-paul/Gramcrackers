@@ -204,6 +204,26 @@ file30 = open("https://gramcrackers-seeds.s3-us-west-1.amazonaws.com/saunderson/
 post30.photo.attach(io: file30, filename: "performance.jpg")
 post30.save!
 
+post31 = Post.new(user_id: 1)
+file31 = open("")
+post31.photo.attach(io: file31, filename: "performance.jpg")
+post31.save!
+
+post32 = Post.new(user_id: 1)
+file32 = open("")
+post32.photo.attach(io: file32, filename: "performance.jpg")
+post32.save!
+
+post33 = Post.new(user_id: 1)
+file33 = open("")
+post33.photo.attach(io: file33, filename: "performance.jpg")
+post33.save!
+
+post34 = Post.new(user_id: 2)
+file34 = open("")
+post34.photo.attach(io: file34, filename: "performance.jpg")
+post34.save!
+
 
 
 Comment.create!(body: "Glad to hear", post_id: 1, user_id: 4)
@@ -277,6 +297,7 @@ Follow.create!(user_id: 1, following_id: 3)
 Follow.create!(user_id: 1, following_id: 4)
 Follow.create!(user_id: 1, following_id: 5)
 Follow.create!(user_id: 1, following_id: 6)
+Follow.create!(user_id: 1, following_id: 7)
 Follow.create!(user_id: 2, following_id: 1)
 Follow.create!(user_id: 2, following_id: 4)
 Follow.create!(user_id: 3, following_id: 1)
