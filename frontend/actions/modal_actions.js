@@ -1,12 +1,12 @@
 export const OPEN_MODAL = 'OPEN_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
 
-export const openModal = (modal, id, clickHandler) => {
+export const openModal = (modal, id, func) => {
     return {
         type: OPEN_MODAL,
         modal,
         id,
-        clickHandler
+        func
     };
 };
 

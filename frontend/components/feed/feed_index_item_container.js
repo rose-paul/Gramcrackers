@@ -7,8 +7,7 @@ import { fetchOnePost } from "../../actions/post_actions";
 
 
 const mapStateToProps = state => ({
-    currentUser: state.entities.users[state.session.id],
-    // comments: state.entities.comments
+    currentUser: state.entities.users[state.session.id]
 });
 
 const mapDispatchToProps = dispatch => ({

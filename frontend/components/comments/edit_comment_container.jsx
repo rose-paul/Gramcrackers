@@ -7,8 +7,7 @@ const EditComment = (props) => (
     <div className="delete-comment" onClick={
         () => props.deleteComment(props.comment)
         .then(() => {
-            debugger
-            props.clickHandler ? props.clickHandler() : null
+            props.updateComments ? props.updateComments() : null
             props.closeModal()
         })
     }>

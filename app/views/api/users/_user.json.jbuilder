@@ -4,3 +4,5 @@ if user.photo.attached?
     json.photoUrl url_for(user.photo) 
 end
 json.user_follows user.find_following(user)
+json.num_followers user.followers.length
+json.num_following  user.followings.length

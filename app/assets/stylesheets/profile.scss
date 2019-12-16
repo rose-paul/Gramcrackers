@@ -95,6 +95,10 @@
      border: none;
 }
 
+.follow-button > p {
+    margin: 0;
+}
+
 .loading {
     display: flex;
     justify-content: center;
@@ -121,7 +125,7 @@
     justify-items: space-evenly;
     align-self: flex-start;
     align-content: flex-start;
-    margin-left: 62px;
+    margin-left: 58px;
 }
 
 .profile-info p {

@@ -20,7 +20,7 @@ class Comment extends React.Component {
         e.preventDefault()
         const comment = Object.assign({}, {comment: this.state})
         this.props.addComment(comment).then( () => {
-            this.props.clickHandler ? this.props.clickHandler() : null
+            this.props.updateComments ? this.props.updateComments() : null
         })
         // .then( () => this.props.fetchPost(this.props.postId))
         //     .then( () => window.location.reload(true))

@@ -23,7 +23,6 @@ const Feed = props => {
         <div className="feed-main">
             <header>
                 <h2>Here you are, {currentUser.username}! </h2>
-                <img src="/russia.png" alt="" />
             </header>
             <ul className="feed-list">
             {

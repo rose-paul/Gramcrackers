@@ -14,7 +14,7 @@ class Api::PostsController < ApplicationController
         @post = Post.new(post_params)
         @post.user_id = current_user.id 
         if @post.save 
-            render :show ## ideally, it'll put the post on the feed. 
+            render :show 
         else
             render json: @post.errors.full_messages, status: 422
         end
