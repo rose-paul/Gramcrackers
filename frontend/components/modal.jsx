@@ -17,7 +17,7 @@ function Modal({ modal, closeModal }) {
             component = <PostFormContainer />;
             break;
         case 'commentoptions':
-            component = <EditCommentContainer comment={modal.id} clickHandler={modal.clickHandler}/>
+            component = <EditCommentContainer comment={modal.id} updateComments={modal.func}/>
             break;
         case 'editpost':
             component = <EditPostFormContainer id={modal.id}/>;

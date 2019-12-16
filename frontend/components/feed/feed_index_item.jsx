@@ -13,7 +13,7 @@ const FeedIndexItem = props => {
             setComments(props.post.comments)
     }, [])
 
-    const clickHandler = () => {
+    const updateComments = () => {
         props.fetchComments(props.post.id).then(res => {
             setComments(res.comments)
         })
@@ -24,7 +24,7 @@ const FeedIndexItem = props => {
             <span>
                 <Link to={`/${props.post.username}`}>{userPhoto}</Link> <Link to={`/${props.post.username}`}>{props.post.username}</Link>
             </span>
-            <img className="post" src={props.post.photoUrl} alt=""/>
+            <Link to={`/posts/${props.post.id}`}><img className="post" src={props.post.photoUrl} alt="" /></Link>
             <LikeHook 
                 likes={props.post.likes}
                 addLike={props.addLike}
@@ -35,7 +35,7 @@ const FeedIndexItem = props => {
             
             <div className="caption">
                 <Link to={`/${props.post.username}`}><b>{props.post.username}</b></Link>
-                <p>{props.post.caption}</p>
+                <Link to={`/posts/${props.post.id}`}><p>{props.post.caption}</p></Link>
             </div>
 
             <div className="feed-comments-div">
@@ -48,7 +48,7 @@ const FeedIndexItem = props => {
                             commentOptionsModal={props.commentOptionsModal}
                             postUser={props.post.user_id}
                             key={comment.id}
-                            clickHandler={clickHandler}
+                            updateComments={updateComments}
                             
                         />
                     ))
@@ -62,7 +62,7 @@ const FeedIndexItem = props => {
                 currentUser={props.currentUser}
                 addComment={props.addComment}
                 fetchPost={props.fetchPost}
-                clickHandler={clickHandler}
+                updateComments={updateComments}
             />
         </div>
     ) : null

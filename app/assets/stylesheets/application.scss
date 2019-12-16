@@ -15,6 +15,10 @@
  */
 
 
+ html {
+     --lh: 1.3rem;
+  line-height: var(--lh);
+ }
 
  body {
     margin: 0;
