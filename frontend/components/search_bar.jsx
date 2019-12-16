@@ -7,32 +7,59 @@ const searchBar = ({users, searchUsers}) => {
 
     const filter = (e) => {
         let searchValue = e.currentTarget.value
-        searchUsers(searchValue)
-            .then(res => {
-                setRes(res.users)
-            })
+        if (searchValue === "") {
+            setRes({})
+        } else {
+            searchUsers(searchValue)
+                .then(res => {
+                    setRes(res.users)
+                })
+        }
     }
 
     let displayedUsers = Object.values(searchRes)
 
     let render = displayedUsers.length ? (
-        <ul>
+        <ul className="users-search">
             {
                 displayedUsers.map( user => {
-                    return <Link to={`/${user.username}`}><li>{user.username}</li></Link>
+                    return (
+                      <Link to={`/${user.value}`}>
+                        <li>
+                          {
+                          user.photo ?
+                          <img
+                            className="profile-pic-search"
+                            src={user.photo}
+                          />
+                          :
+                          <img className="profile-pic-search" src="/user.png" />
+                          }
+                          {user.value}
+                        </li>
+                      </Link>
+                    );
                 })
             }
         </ul>
     ) : (
-        <p>No users found :(</p>
+        null
     )
 
+
     return (
-        <div>
-            <input className='search' type="text" placeholder="Search" onChange={filter} />
-            {render}
-        </div>
-    )
+      <div>
+        <input
+          className="search"
+          type="text"
+          placeholder="Search"
+          onChange={filter}
+        />
+        {render}
+      </div>
+    );
+
+   
 }
 
 export default searchBar;

@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
   def search
     @users = User.where('username LIKE ?', "%#{params[:username]}%")
     if @users 
-      render :index 
+      render :search 
     else
       render json: ["No users found :( "], status: 404
     end
