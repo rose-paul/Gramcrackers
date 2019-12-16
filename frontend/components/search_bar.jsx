@@ -1,9 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 
 const searchBar = ({users, searchUsers}) => {
 
     const [searchRes, setRes] = useState(users)
+    const node = useRef();
+
+     useEffect(() => {
+       document.addEventListener("click", handleOutsideClick);
+       return () => {
+         document.removeEventListener("click", handleOutsideClick);
+       };
+     }, []);
+
+     const handleOutsideClick = e => {
+         if (node.current.contains(e.target)) {
+            return;
+         } else {
+             setRes({})
+             const el = document.querySelector('.search');
+             el.value = ""
+         }
+     }
 
     const filter = (e) => {
         let searchValue = e.currentTarget.value
@@ -48,11 +67,13 @@ const searchBar = ({users, searchUsers}) => {
 
 
     return (
-      <div>
+      <div ref={node}>
         <input
           className="search"
           type="text"
+          ref={node}
           placeholder="Search"
+        //   onClick={focusRef}
           onChange={filter}
         />
         {render}
