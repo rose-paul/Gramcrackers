@@ -10,6 +10,10 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def search
+    @users = Users.where('username LIKE ?', "%#{params[:username]}%")
+  end
+
   def create 
     @user = User.new(user_params)
     if @user.save
