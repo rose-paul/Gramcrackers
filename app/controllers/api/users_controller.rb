@@ -11,7 +11,7 @@ class Api::UsersController < ApplicationController
   end
 
   def search
-    @users = Users.where('username LIKE ?', "%#{params[:username]}%")
+    @users = User.where('username LIKE ?', "%#{params[:username]}%")
     if @users 
       render :index 
     else

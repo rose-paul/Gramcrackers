@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, withRouter } from 'react-router-dom';
 import LoginFormContainer from './login_form_container';
+import SearchBarContainer from './search_bar_container'
 class Greeting extends React.Component {
 
     constructor(props) {
@@ -18,7 +19,7 @@ class Greeting extends React.Component {
                     <Link className='home-link' to="/"><h2>Gramcrackers</h2></Link>
                 </div>
                 <div className="middle-nav-div">
-                    <input className='search' type="text" placeholder="Search"/>
+                    <SearchBarContainer />
                 </div>
                 
                 <div className="right-nav-div">
