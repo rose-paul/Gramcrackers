@@ -25,3 +25,11 @@ export const updateUser = formData => {
     })
 }
 
+export const searchUsers = username => {
+    return $.ajax({
+        method: 'GET',
+        url: '/api/search',
+        data: { username }
+    })
+}
+
