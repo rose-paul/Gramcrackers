@@ -7,17 +7,14 @@ import CommentIndexItem from '../comments/comment_index_item';
 const FeedIndexItem = props => {
     let userPhoto = props.post.userPhoto ? <img className="profile-pic-small" src={props.post.userPhoto} /> : <img className="profile-pic-small" src="/user.png" />
 
-    const [comments, setComments] = useState()
-    
-    useEffect( () => {
-            setComments(props.post.comments)
-    }, [])
+    const [comments, setComments] = useState(props.post.comments)
 
     const updateComments = () => {
         props.fetchComments(props.post.id).then(res => {
             setComments(res.comments)
         })
     }
+
 
     return comments ? (
         <div className="feed-item-whole">
