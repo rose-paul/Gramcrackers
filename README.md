@@ -52,6 +52,7 @@ The same `PostForm` component is rendered for creating and editing posts depende
 
 ```
 
+![alt-text](https://github.com/rose-paul/aAFullstack/blob/master/public/post-gramcrackers.gif?raw=true)
 ## Main Feed
 
 ### In progress
