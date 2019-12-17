@@ -8,7 +8,7 @@
 
 require 'open-uri'
 
-user1 = User.new(email: 'gus.a@aa.io', first_name: 'Gus', last_name: 'Alexander', username: 'vorontsovsky', gender: 'unspecified', 
+user1 = User.new(email: 'gus.alexander@aa.io', first_name: 'Gus', last_name: 'Alexander', username: 'vorontsovsky', gender: 'unspecified', 
     birthday: 'unspecified', password: 'password', display_name: "Nadezhda", bio: "This site makes me want s'mores!")
 profilepic1 = open("https://gramcrackers-seeds.s3-us-west-1.amazonaws.com/gus2.jpg")
 user1.photo.attach(io: profilepic1, filename: "gus2.jpg")
@@ -204,24 +204,24 @@ file30 = open("https://gramcrackers-seeds.s3-us-west-1.amazonaws.com/saunderson/
 post30.photo.attach(io: file30, filename: "performance.jpg")
 post30.save!
 
-post31 = Post.new(user_id: 1)
-file31 = open("")
-post31.photo.attach(io: file31, filename: "performance.jpg")
+post31 = Post.new(user_id: 1, caption: "Views from Vladivostok! Some say it's the San Francisco of Russia.")
+file31 = open("https://gramcrackers-seeds.s3-us-west-1.amazonaws.com/additions/vladivostok-3.jpg")
+post31.photo.attach(io: file31, filename: "vladivostok.jpg")
 post31.save!
 
-post32 = Post.new(user_id: 1)
-file32 = open("")
-post32.photo.attach(io: file32, filename: "performance.jpg")
+post32 = Post.new(user_id: 1, caption: "This is Ichinsky Volcano, deep in the Kamchatka backcountry. What a view and what a ride out there!")
+file32 = open("https://gramcrackers-seeds.s3-us-west-1.amazonaws.com/additions/ichinsky.jpg")
+post32.photo.attach(io: file32, filename: "ichinsky.jpg")
 post32.save!
 
-post33 = Post.new(user_id: 1)
-file33 = open("")
-post33.photo.attach(io: file33, filename: "performance.jpg")
+post33 = Post.new(user_id: 2)
+file33 = open("https://gramcrackers-seeds.s3-us-west-1.amazonaws.com/additions/brandenburg.jpg")
+post33.photo.attach(io: file33, filename: "brandenburg.jpg")
 post33.save!
 
-post34 = Post.new(user_id: 2)
-file34 = open("")
-post34.photo.attach(io: file34, filename: "performance.jpg")
+post34 = Post.new(user_id: 1, caption: "Haven't been in Berlin in a while, need to go back! What a great place.")
+file34 = open("https://gramcrackers-seeds.s3-us-west-1.amazonaws.com/additions/berlintower.jpg")
+post34.photo.attach(io: file34, filename: "berlin.jpg")
 post34.save!
 
 
@@ -251,8 +251,12 @@ Comment.create!(body: "Great stuff", post_id: 23, user_id: 4)
 Comment.create!(body: "I COULD EAT THESE ALL DAY", post_id: 20, user_id: 3)
 Comment.create!(body: "Looks so good", post_id: 20, user_id: 1)
 Comment.create!(body: "the maaaan", post_id: 25, user_id: 1)
-Comment.create!(body: "Jaaa", post_id: 25, user_id: 2)
-Comment.create!(body: "cool", post_id: 25, user_id: 3)
+Comment.create!(body: "amazing", post_id: 25, user_id: 2)
+Comment.create!(body: "I've always wanted to go here!", post_id: 31, user_id: 3)
+Comment.create!(body: "This is incredible! What a fun time.", post_id: 32, user_id: 2)
+Comment.create!(body: "I'll be there over the holidays! You?", post_id: 34, user_id: 5)
+Comment.create!(body: "This is home for me", post_id: 34, user_id: 2)
+Comment.create!(body: "good stuff", post_id: 33, user_id: 1)
 
 
 
@@ -289,7 +293,19 @@ Like.create!(user_id:5 , likeable_id: 2, likeable_type: 'Post')
 Like.create!(user_id:6 , likeable_id: 6, likeable_type: 'Post')
 Like.create!(user_id:6 , likeable_id: 22, likeable_type: 'Post')
 Like.create!(user_id:6 , likeable_id: 23, likeable_type: 'Post')
-Like.create!(user_id:6 , likeable_id: 14, likeable_type: 'Post')
+Like.create!(user_id:6 , likeable_id: 31, likeable_type: 'Post')
+Like.create!(user_id:6 , likeable_id: 32, likeable_type: 'Post')
+Like.create!(user_id:6 , likeable_id: 33, likeable_type: 'Post')
+Like.create!(user_id:6 , likeable_id: 34, likeable_type: 'Post')
+Like.create!(user_id:5 , likeable_id: 31, likeable_type: 'Post')
+Like.create!(user_id:5 , likeable_id: 32, likeable_type: 'Post')
+Like.create!(user_id:5 , likeable_id: 33, likeable_type: 'Post')
+Like.create!(user_id:5 , likeable_id: 34, likeable_type: 'Post')
+Like.create!(user_id:4 , likeable_id: 31, likeable_type: 'Post')
+Like.create!(user_id:4 , likeable_id: 33, likeable_type: 'Post')
+Like.create!(user_id:4 , likeable_id: 34, likeable_type: 'Post')
+Like.create!(user_id:3 , likeable_id: 31, likeable_type: 'Post')
+Like.create!(user_id:3 , likeable_id: 32, likeable_type: 'Post')
 
 
 Follow.create!(user_id: 1, following_id: 2)
