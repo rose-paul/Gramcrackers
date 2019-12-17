@@ -54,5 +54,36 @@ The same `PostForm` component is rendered for creating and editing posts depende
 
 ![alt-text](https://github.com/rose-paul/aAFullstack/blob/master/public/post-gramcrackers.gif?raw=true)
 ## Main Feed
+The `Feed` component renders posts via the `FeedIndexItem`. When posts are fetched (`props.fetchFeedPosts`), JBuilder also returns the posts' comments nested in the post. The `FeedIndexItem` is given a post object, from state, as props.
+``` javascript 
+const Feed = props => {
 
-### In progress
+    const [posts, setPosts] = useState(props.posts)
+    const [currentUser] = useState(props.currentUser)
+    const [loaded, setLoaded] = useState(false)
+    
+
+    useEffect( () => {
+        props.fetchFollows('following')
+        .then( res => props.fetchFeedPosts(Object.keys(res.follows)))
+        .then( res => setPosts(res.posts))
+        .then( () => setLoaded(true))
+    }, [])
+```
+The `FeedIndexItem` uses the props passed down as initial state for comments. Only after adding a comment does the component fetch that post's comments and set state to render the updated comments to display the current user's comment. 
+
+``` javascript
+const FeedIndexItem = props => {
+
+    const [comments, setComments] = useState(props.post.comments)
+
+    const updateComments = () => {
+        props.fetchComments(props.post.id).then(res => {
+            setComments(res.comments)
+        })
+    }
+  ```
+  
+  In the return, this `updateComments` function is passed to the `Comment` and `CommentIndexItem` so it can be called upon adding a new comment or deleting a comment. 
+  
+  
