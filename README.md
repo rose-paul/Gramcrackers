@@ -130,6 +130,6 @@ const FeedIndexItem = props => {
                 })
         }
     }
-    ```
-  
+```
+![alt-text](https://github.com/rose-paul/aAFullstack/blob/master/public/gifsearch.gif?raw=true)
   
