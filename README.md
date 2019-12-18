@@ -18,6 +18,8 @@ Gramcrackers, an Instagram clone, is a social media app that allows users to pos
 You can see more about CRUD, feed and search below. 
 
 ## CRUD Operations
+![alt-text](https://github.com/rose-paul/aAFullstack/blob/master/public/post-gramcrackers.gif?raw=true)
+
 Logged in users can create a new post from the top right of the navbar. On submission the modal will close and their image will be displayed on their profile page. Users can edit captions of posts, but to keep post/comment content relevant to each other, photos on posts cannot be changed or edited -- only deleted.
 
 ### Post Form
@@ -55,7 +57,7 @@ The same `PostForm` component is rendered for creating and editing posts depende
 
 ```
 
-![alt-text](https://github.com/rose-paul/aAFullstack/blob/master/public/post-gramcrackers.gif?raw=true)
+
 ## Main Feed
 The `Feed` component renders posts via the `FeedIndexItem`. When posts are fetched (`props.fetchFeedPosts`), JBuilder also returns the posts' comments nested in the post. The `FeedIndexItem` is given a post object, from state, as props.
 ``` javascript 
@@ -90,10 +92,11 @@ const FeedIndexItem = props => {
   In the return, this `updateComments` function is passed to the `Comment` and `CommentIndexItem` so it can be called upon adding a new comment or deleting a comment. 
   
   ## Search
+  ![alt-text](https://github.com/rose-paul/aAFullstack/blob/master/public/gifsearch.gif?raw=true)
   
   Users can view search results for other users on each keystroke. A filter function queries the DB on change to the input field and sets the state based on the result. Additionally, when the component mounts, I add an event listener to detect outside clicks for clearing the input field (and subsequently the search results). 
   
-  For this, I used the `useRef()` and wrapped the return in `<div ref={node}`. On a click, I can check if that div contains the click target, and set state accordingly. 
+  For this, I used the `useRef()` and wrapped the return in `<div ref={node}>`. On a click, I can check if that div contains the click target, and set state accordingly. 
   
   ``` javascript
   
@@ -131,5 +134,5 @@ const FeedIndexItem = props => {
         }
     }
 ```
-![alt-text](https://github.com/rose-paul/aAFullstack/blob/master/public/gifsearch.gif?raw=true)
+
   
