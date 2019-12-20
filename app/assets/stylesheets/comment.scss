@@ -5,7 +5,7 @@
     // height: 250px;
     // width: 375px;
     height: 40vh;
-    width: 28vw;
+    width: 27vw;
     overflow: scroll;
     border-bottom: 1px solid rgb(189, 189, 189);
     // padding-bottom: 15px;
@@ -49,14 +49,15 @@
     border-top: 1px solid #bdbdbd;
     /* margin-top: 10px; */
     height: 9vh;
-    width: 28vw;
+    width: 27vw;
     display: flex;
     align-items: center;
 
 }
 
 .add-comment input:first-child {
-    width: 320px;
+    // width: 320px;
+    width: 20vw;
     border: none;
     background-color: inherit;
     font-size: 17px;
@@ -67,6 +68,7 @@
 
 }
 .add-comment input:last-child {
+    width: 8vw;
     background-color: inherit;
     border: none;
     font-weight: bold;
