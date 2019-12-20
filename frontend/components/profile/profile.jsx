@@ -90,7 +90,7 @@ class Profile extends React.Component {
         if (this.props.currentUser && this.props.match.params.username === this.props.currentUser.username) {
             logout = <button className="profile-user-options" onClick={this.handleLogout}>Logout</button>
             editprofile = <Link to="/accounts/edit">
-                <button className="profile-user-options">Edit Profile</button>
+                <button className="profile-user-options" id="edit">Edit Profile</button>
             </Link>
             follow = null;
         } else {

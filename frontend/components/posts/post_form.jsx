@@ -46,7 +46,7 @@ class PostForm extends React.Component {
         const photoUpload = this.props.formType === "New Post" ? (
             <div className="upload-outer">
                 <div className="upload-btn-wrapper">
-                    <button className="btn">Choose File
+                    <button className="btn" id="postbtn">Choose File
                         </button>
                     <input type="file"
                         name="myfile"
