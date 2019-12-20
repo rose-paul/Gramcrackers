@@ -37,9 +37,9 @@
     border-bottom: 1px solid rgb(189, 189, 189);
     // width: 375px;
     width: 27vw;
-    height: 9vh;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    height: 12vh;
+    // padding-top: 10px;
+    // padding-bottom: 10px;
 }
 
 .post-options {
@@ -103,9 +103,9 @@
 }
 
 .post-show-img {
-    max-width: 450px;
-    max-height: 450px;
-    min-width: 450px;
-    min-height: 450px;
+    max-width: 36vw;
+    max-height: 71.3vh;
+    min-width: 36vw;
+    min-height: 71.3vh;
     object-fit: cover;
 }
