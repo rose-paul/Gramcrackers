@@ -21,6 +21,13 @@ class Comment extends React.Component {
         const comment = Object.assign({}, {comment: this.state})
         this.props.addComment(comment).then( () => {
             this.props.updateComments ? this.props.updateComments() : null
+        }).then(() => {
+            this.setState({ body: "" })
+            let fields = document.getElementsByClassName('comment-input');
+            for (let i = 0; i < fields.length; i++) {
+                fields[i].value = "";
+            }
+
         })
         // .then( () => this.props.fetchPost(this.props.postId))
         //     .then( () => window.location.reload(true))
@@ -31,7 +38,7 @@ class Comment extends React.Component {
         return  (
         <div>
             <form className={klass} onSubmit={this.handleSubmit} >
-                <input type="text" placeholder="Add a comment..." onChange={this.handleInput()}/>
+                <input className="comment-input" type="text" placeholder="Add a comment..." onChange={this.handleInput()}/>
                 <input type="submit" value="Post"/>
             </form>
         </div>
