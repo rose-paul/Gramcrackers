@@ -38,35 +38,38 @@ const Feed = props => {
     console.log(posts)
 
     return loaded ? (
-        <div className="feed-main">
-            <header>
-                <h2>Here you are, {currentUser.username}! </h2>
-            </header>
-            <ul className="feed-list">
-                <InfiniteScroll
+      <div className="feed-main">
+        <header>
+          <h2>Here you are, {currentUser.username}! </h2>
+        </header>
+        <ul className="feed-list">
+          <InfiniteScroll
             id="feed-infinite"
             dataLength={Object.keys(posts).length}
             next={fetchMorePosts}
             hasMore={morePosts}
             loader={
-            <div className="feed-fetching-more">
-              <p>Fetching more posts!</p>
-            </div>}
-            endMessage={
-              <div>
-                No more posts.
-            </div>
-            }>
-            {
-                reversedPosts.map( post => {
-                    return (<li><FeedIndexItemContainer key={post.id} post={post} /></li>)
-                })
+                <Loader
+                  type="Grid"
+                  color="rgb(98, 150, 209)"
+                  className="loading"
+                />
             }
-            </InfiniteScroll>
-            </ul>
-            
-        </div>
-    ) : <Loader type="Grid" color="rgb(98, 150, 209)" className="loading" />
+            endMessage={<div className="feed-end">No more posts.</div>}
+          >
+            {reversedPosts.map(post => {
+              return (
+                <li>
+                  <FeedIndexItemContainer key={post.id} post={post} />
+                </li>
+              );
+            })}
+          </InfiniteScroll>
+        </ul>
+      </div>
+    ) : (
+      <Loader type="Grid" color="rgb(98, 150, 209)" className="loading" />
+    );
 }
 export default Feed;
 
