@@ -11,6 +11,7 @@ const Feed = props => {
     const [currentUser] = useState(props.currentUser)
     const [loaded, setLoaded] = useState(false)
     const [offset, setOffset] = useState(0)
+    const [morePosts, setNoMore] = useState(true)
     
     useEffect(() => {
       props
@@ -25,7 +26,10 @@ const Feed = props => {
         props.fetchFollows("following").then( res =>
             props.fetchFeedPosts(Object.keys(res.follows), offset)
         )
-        .then(res => setPosts({...posts, ...res.posts}))
+        .then(res => {
+            if (Object.keys(res.posts).length < 5) setNoMore(false);
+            setPosts({...posts, ...res.posts})
+        })
         .then( () => setOffset(offset + 5))
     }
 
@@ -43,10 +47,10 @@ const Feed = props => {
             id="feed-infinite"
             dataLength={Object.keys(posts).length}
             next={fetchMorePosts}
-            hasMore={true}
+            hasMore={morePosts}
             loader={
             <div className="feed-fetching-more">
-              <img src='001-camera.png' />
+              <p>Fetching more posts!</p>
             </div>}
             endMessage={
               <div>
