@@ -3,8 +3,12 @@ class Api::FeedsController < ApplicationController
         user_ids = []
         user_ids.concat(params[:user_ids]) if params[:user_ids]
         user_ids.push(current_user.id)
-        @posts = Post.where(user_id: user_ids)
-        render :index
+        if !params[:margin]
+            @posts = Post.where(user_id: user_ids).limit(5)
+            render :index
+        else
+            @posts = Post.where(user_id: user_ids).offset(params[:margin]).limit(5)
+        end
     end
 
 end
