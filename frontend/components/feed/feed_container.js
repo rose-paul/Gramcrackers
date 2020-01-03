@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     fetchFollows: type => dispatch(fetchFollows(type)),
-    fetchFeedPosts: userIds => dispatch(fetchFeedPosts(userIds))
+    fetchFeedPosts: (userIds, margin) => dispatch(fetchFeedPosts(userIds, margin))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Feed);

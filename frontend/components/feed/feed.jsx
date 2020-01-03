@@ -12,7 +12,7 @@ const Feed = props => {
 
     useEffect( () => {
         props.fetchFollows('following')
-        .then( res => props.fetchFeedPosts(Object.keys(res.follows)))
+        .then( res => props.fetchFeedPosts(Object.keys(res.follows), 5))
         .then( res => setPosts(res.posts))
         .then( () => setLoaded(true))
     }, [])
@@ -27,7 +27,7 @@ const Feed = props => {
             <ul className="feed-list">
             {
                 reversedPosts.map( post => {
-                    return (<li><FeedIndexItemContainer post={post} /></li>)
+                    return (<li><FeedIndexItemContainer key={post.id} post={post} /></li>)
                 })
             }
             </ul>
