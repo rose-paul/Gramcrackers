@@ -57,7 +57,7 @@ const Feed = props => {
             }
             endMessage={<div className="feed-end">No more posts.</div>}
           >
-            {reversedPosts.map(post => {
+            {Object.values(posts).map(post => {
               return (
                 <li>
                   <FeedIndexItemContainer key={post.id} post={post} />
