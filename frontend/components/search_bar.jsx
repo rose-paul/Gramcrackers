@@ -8,20 +8,16 @@ const searchBar = ({users, searchUsers}) => {
     const node = useRef();
 
      useEffect(() => {
-       document.addEventListener("click", handleOutsideClick);
+       document.addEventListener("click", handleClick);
        return () => {
-         document.removeEventListener("click", handleOutsideClick);
+         document.removeEventListener("click", handleClick);
        };
      }, []);
 
-     const handleOutsideClick = e => {
-         if (node.current.contains(e.target)) {
-            return;
-         } else {
+     const handleClick = () => {
+       const el = document.querySelector('.search');
              setRes({})
-             const el = document.querySelector('.search');
              el.value = ""
-         }
      }
 
     const filter = (e) => {
@@ -43,7 +39,7 @@ const searchBar = ({users, searchUsers}) => {
             {
                 displayedUsers.map( user => {
                     return (
-                      <Link to={`/${user.value}`}>
+                      <Link to={`/${user.value}`} onClick={handleClick}>
                         <li>
                           {
                           user.photo ?
