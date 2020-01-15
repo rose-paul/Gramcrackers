@@ -7,7 +7,6 @@ const searchBar = ({users, searchUsers}) => {
 
     const [searchRes, setRes] = useState(users)
     const node = useRef();
-    console.log(searchRes)
      useEffect(() => {
        document.addEventListener("click", handleClick);
        return () => {
@@ -28,7 +27,6 @@ const searchBar = ({users, searchUsers}) => {
         } else {
             APIUtil.searchUsers(searchValue)
                 .then(res => {
-                  console.log(res)
                     setRes(res)
                 })
         }

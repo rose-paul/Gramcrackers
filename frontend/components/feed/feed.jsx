@@ -33,9 +33,7 @@ const Feed = props => {
         .then( () => setOffset(offset + 5))
     }
 
-    const reversedPosts = Object.values(posts).reverse()
-
-    console.log(posts)
+    const display = Object.values(posts).reverse()
 
     return loaded ? (
       <div className="feed-main">
@@ -57,9 +55,9 @@ const Feed = props => {
             }
             endMessage={<div className="feed-end">No more posts.</div>}
           >
-            {Object.values(posts).map(post => {
+            {display.map(post => {
               return (
-                <li>
+                <li key={post.id}>
                   <FeedIndexItemContainer key={post.id} post={post} />
                 </li>
               );
