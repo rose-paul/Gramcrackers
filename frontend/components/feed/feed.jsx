@@ -55,7 +55,7 @@ const Feed = props => {
           >
             {Object.values(posts).map(post => {
               return (
-                <li>
+                <li key={post.id}>
                   <FeedIndexItemContainer key={post.id} post={post} />
                 </li>
               );
