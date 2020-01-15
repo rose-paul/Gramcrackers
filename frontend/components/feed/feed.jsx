@@ -33,10 +33,6 @@ const Feed = props => {
         .then( () => setOffset(offset + 5))
     }
 
-    const reversedPosts = Object.values(posts).reverse()
-
-    console.log(posts)
-
     return loaded ? (
       <div className="feed-main">
         <header>

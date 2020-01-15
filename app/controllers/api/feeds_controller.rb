@@ -7,7 +7,7 @@ class Api::FeedsController < ApplicationController
             @posts = Post.where(user_id: user_ids).limit(5)
             render :index
         else
-            @posts = Post.where(user_id: user_ids).offset(params[:margin]).limit(5).order("updated_at desc")
+            @posts = Post.where(user_id: user_ids).offset(params[:margin]).limit(5)
         end
     end
 
