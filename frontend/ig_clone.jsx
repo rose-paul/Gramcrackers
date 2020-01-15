@@ -8,6 +8,7 @@ import { fetchPosts } from "./util/post_api_util";
 import { fetchAllComments } from "./actions/comment_actions";
 import { fetchFollows, createFollow, deleteFollow } from "./actions/follow_actions";
 import { fetchFeedPosts } from "./actions/feed_actions";
+import { searchUsers } from "./util/user_api_util"
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -26,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //test
     window.fetchFeedPosts = fetchFeedPosts;
+    window.searchUsers = searchUsers;
     //end test
 
     const root = document.getElementById("root");

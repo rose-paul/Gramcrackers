@@ -1,12 +1,13 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import * as APIUtil from '../util/user_api_util'
 
 
 const searchBar = ({users, searchUsers}) => {
 
     const [searchRes, setRes] = useState(users)
     const node = useRef();
-
+    console.log(searchRes)
      useEffect(() => {
        document.addEventListener("click", handleClick);
        return () => {
@@ -25,16 +26,21 @@ const searchBar = ({users, searchUsers}) => {
         if (searchValue === "") {
             setRes({})
         } else {
-            searchUsers(searchValue)
+            APIUtil.searchUsers(searchValue)
                 .then(res => {
-                    setRes(res.users)
+                  console.log(res)
+                    setRes(res)
                 })
         }
     }
 
-    let displayedUsers = Object.values(searchRes)
+    let displayedUsers = null;
+    
+    if (searchRes) {
+      displayedUsers = Object.values(searchRes)
+    }
 
-    let render = displayedUsers.length ? (
+    let render = displayedUsers ? (
         <ul className="users-search">
             {
                 displayedUsers.map( user => {
