@@ -25,11 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
         store = configureStore();
     }
 
-    //test
-    window.fetchFeedPosts = fetchFeedPosts;
-    window.searchUsers = searchUsers;
-    //end test
-
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store} currentUser={window.currentUser}/>, root);
 });
