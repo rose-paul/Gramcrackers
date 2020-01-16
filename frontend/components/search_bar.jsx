@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import * as APIUtil from '../util/user_api_util'
 
 
-const searchBar = ({users, searchUsers}) => {
+const searchBar = () => {
 
-    const [searchRes, setRes] = useState(users)
+    const [searchRes, setRes] = useState()
     const node = useRef();
      useEffect(() => {
        document.addEventListener("click", handleClick);
@@ -73,7 +73,6 @@ const searchBar = ({users, searchUsers}) => {
           type="text"
           ref={node}
           placeholder="Search"
-        //   onClick={focusRef}
           onChange={filter}
         />
         {render}
