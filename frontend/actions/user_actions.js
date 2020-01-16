@@ -13,13 +13,6 @@ const receiveUserErrors = errors => ({
     errors
 })
 
-const receiveSearchRes = users => ({
-    type: RECEIVE_SEARCH_RES,
-    users
-})
-
-
-
 export const fetchOwner = userId => dispatch => APIUtil.fetchUser(userId)
     .then( user => dispatch(receiveUser(user)), 
     errors => dispatch(receiveUserErrors(errors.responseJSON)))
@@ -30,8 +23,4 @@ export const fetchOwnerByUsername = username => dispatch => APIUtil.fetchUserByU
 
 export const updateUser = user => dispatch => APIUtil.updateUser(user)
     .then( user => dispatch(receiveUser(user)),
-        errors => dispatch(receiveUserErrors(errors.responseJSON)))
-
-export const searchUsers = username => dispatch => APIUtil.searchUsers(username)
-    .then( users => dispatch(receiveSearchRes(users)),
         errors => dispatch(receiveUserErrors(errors.responseJSON)))

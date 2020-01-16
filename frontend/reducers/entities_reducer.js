@@ -7,7 +7,6 @@ import userPostReducer from './user_post_reducer';
 import comments from './comments_reducer';
 import likes from './likes_reducer';
 import follows from './follows_reducer';
-import search from './search_reducer';
 
 export default combineReducers({
     users,
@@ -16,5 +15,4 @@ export default combineReducers({
     comments,
     likes,
     follows,
-    search
 });
