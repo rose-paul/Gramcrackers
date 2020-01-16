@@ -24,11 +24,11 @@ class Greeting extends React.Component {
             this.setState({
                 collapsed: "nav-wrapper"
             })
-            console.log("up")
+
         } else if (this.pos < window.scrollY) {
-            this.setState({
-                collapsed: "nav-wrapper-hidden"
-            })
+                this.setState({
+                    collapsed: "nav-wrapper-hidden"
+                })
         }
         this.pos = window.scrollY;
     }
