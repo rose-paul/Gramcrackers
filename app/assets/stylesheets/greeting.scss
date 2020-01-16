@@ -20,6 +20,10 @@
     transition: 1s all;
  }
 
+
+ .hidden {
+     display: none;
+ }
  @keyframes fade {
      from {
          opacity: 1;

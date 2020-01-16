@@ -22,13 +22,23 @@ class Greeting extends React.Component {
 
         if (this.pos > window.scrollY) {
             this.setState({
+                collapsed: "nav-wrapper-hidden"
+            })
+
+            this.setState({
                 collapsed: "nav-wrapper"
             })
 
         } else if (this.pos < window.scrollY) {
+            this.setState({
+                collapsed: "nav-wrapper-hidden"
+            })
+
+            setTimeout( () => {
                 this.setState({
-                    collapsed: "nav-wrapper-hidden"
+                    collapsed: "hidden"
                 })
+            }, 1000)
         }
         this.pos = window.scrollY;
     }
@@ -42,16 +52,16 @@ class Greeting extends React.Component {
            
             <div className="nav-bar">
                 <div className="home-links-div">
-                    <Link className='home-link' to="/"> <img src="/001-camera.png"/></Link>
-                    <Link className='home-link' to="/"><h2>Gramcrackers</h2></Link>
+                        <Link className='home-link' to="/"> <img src="/001-camera.png"/></Link>
+                        <Link className='home-link' to="/"><h2>Gramcrackers</h2></Link>
                 </div>
-                <div className="middle-nav-div">
+                <div className="middle-nav-div" >
                     <SearchBar />
                 </div>
                 
                 <div className="right-nav-div">
                     {this.props.createFormModal}
-                    <Link className='profile-link' to={`/${this.props.currentUser.username}`}><img className="right-button-prof" src="/user.png"/></Link>
+                        <Link className='profile-link' to={`/${this.props.currentUser.username}`}><img className="right-button-prof" src="/user.png"/></Link>
                 </div>
 
             </div>
