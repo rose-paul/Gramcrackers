@@ -12,6 +12,9 @@ class Greeting extends React.Component {
     render() {
 
         let display = this.props.currentUser  ? (
+            <div className="nav-wrapper">
+                
+           
             <div className="nav-bar">
                 <div className="home-links-div">
                     <Link className='home-link' to="/"> <img src="/001-camera.png"/></Link>
@@ -26,6 +29,7 @@ class Greeting extends React.Component {
                     <Link className='profile-link' to={`/${this.props.currentUser.username}`}><img className="right-button-prof" src="/user.png"/></Link>
                 </div>
 
+            </div>
             </div>
         ) : (
             
