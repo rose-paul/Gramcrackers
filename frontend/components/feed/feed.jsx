@@ -37,9 +37,6 @@ const Feed = props => {
 
     return loaded ? (
       <div className="feed-main">
-        <header>
-          <h2>Here you are, {currentUser.username}! </h2>
-        </header>
         <ul className="feed-list">
           <InfiniteScroll
             id="feed-infinite"
