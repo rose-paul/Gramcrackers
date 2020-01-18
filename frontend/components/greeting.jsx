@@ -6,48 +6,13 @@ class Greeting extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            collapsed: "nav-wrapper"
-        }
-        this.handleScroll = this.handleScroll.bind(this)
-    }
-
-    componentDidMount() {
-        this.pos = window.scrollY
-        window.addEventListener("scroll", e => this.handleScroll(e))
-    }
-
-    handleScroll(e) {
-        const window = e.currentTarget;
-
-        if (this.pos > window.scrollY) {
-            this.setState({
-                collapsed: "nav-wrapper-hidden"
-            })
-
-            this.setState({
-                collapsed: "nav-wrapper"
-            })
-
-        } else if (this.pos < window.scrollY) {
-            this.setState({
-                collapsed: "nav-wrapper-hidden"
-            })
-
-            setTimeout( () => {
-                this.setState({
-                    collapsed: "hidden"
-                })
-            }, 1000)
-        }
-        this.pos = window.scrollY;
     }
 
    
     render() {
 
         let display = this.props.currentUser  ? (
-            <div className={this.state.collapsed}>
+            <div className="nav-wrapper">
                 
            
             <div className="nav-bar">
