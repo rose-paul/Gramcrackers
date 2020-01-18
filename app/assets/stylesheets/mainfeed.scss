@@ -21,17 +21,13 @@
     align-items: center;
  }
 
- .feed-main h2 {
-    font-weight: bold;
-    font-size: 25px;
-    padding: 10px 0px 10px 0px;
-    margin-bottom: 5%;
-    margin-top: 34%;
- }
-
  .feed-list {
     list-style: none;
     margin-top: 0;
+ }
+
+ .feed-list li:first-child {
+     margin-top: 15%;
  }
 
  .feed-list li {

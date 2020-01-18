@@ -6,7 +6,9 @@ import * as APIUtil from '../util/user_api_util'
 const searchBar = () => {
 
     const [searchRes, setRes] = useState()
+    const [searchVal, setVal] = useState()
     const node = useRef();
+
      useEffect(() => {
        document.addEventListener("click", handleClick);
        return () => {
@@ -21,7 +23,11 @@ const searchBar = () => {
      }
 
     const filter = (e) => {
+
+        setVal(e.currentTarget.value)
+
         let searchValue = e.currentTarget.value
+
         if (searchValue === "") {
             setRes({})
         } else {
@@ -38,32 +44,73 @@ const searchBar = () => {
       displayedUsers = Object.values(searchRes)
     }
 
-    let render = displayedUsers ? (
+    let render;
+
+    if (searchRes && displayedUsers && displayedUsers.length) {
+      render = (
         <ul className="users-search">
-            {
-                displayedUsers.map( user => {
-                    return (
-                      <Link to={`/${user.value}`} onClick={handleClick}>
-                        <li>
-                          {
-                          user.photo ?
-                          <img
-                            className="profile-pic-search"
-                            src={user.photo}
-                          />
-                          :
-                          <img className="profile-pic-search" src="/user.png" />
-                          }
-                          {user.value}
-                        </li>
-                      </Link>
-                    );
-                })
-            }
+          {
+            displayedUsers.map(user => {
+              return (
+                <Link to={`/${user.value}`} onClick={handleClick}>
+                  <li>
+                    {
+                      user.photo ?
+                        <img
+                          className="profile-pic-search"
+                          src={user.photo}
+                        />
+                        :
+                        <img className="profile-pic-search" src="/user.png" />
+                    }
+                    {user.value}
+                  </li>
+                </Link>
+              );
+            })
+          }
         </ul>
-    ) : (
-        null
-    )
+      )
+     } 
+    //else if (displayedUsers && !displayedUsers.length && searchVal) {
+
+    //       render = (
+    //       <ul className="users-search">
+    //         <li>No users found.</li>
+    //       </ul>
+    //       )
+
+    // } 
+    else {
+      render = null;
+    }
+
+    // let render = displayedUsers ? (
+    //     <ul className="users-search">
+    //         {
+    //             displayedUsers.map( user => {
+    //                 return (
+    //                   <Link to={`/${user.value}`} onClick={handleClick}>
+    //                     <li>
+    //                       {
+    //                       user.photo ?
+    //                       <img
+    //                         className="profile-pic-search"
+    //                         src={user.photo}
+    //                       />
+    //                       :
+    //                       <img className="profile-pic-search" src="/user.png" />
+    //                       }
+    //                       {user.value}
+    //                     </li>
+    //                   </Link>
+    //                 );
+    //             })
+    //         }
+    //     </ul>
+    // ) : (
+        // null
+    // )
 
 
     return (
@@ -72,7 +119,7 @@ const searchBar = () => {
           className="search"
           type="text"
           ref={node}
-          placeholder="Search"
+          placeholder="User Search"
           onChange={filter}
         />
         {render}

@@ -6,20 +6,11 @@
     width: 100%;
     z-index: 10;
     opacity: 1;
-    transition: 1s all;
 }
 
-.nav-wrapper-hidden {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding-bottom: 40px;
-    width: 100%;
-    z-index: 10;
-    opacity: 0;
-    transition: 1s all;
+ .hidden {
+     display: none;
  }
-
  @keyframes fade {
      from {
          opacity: 1;

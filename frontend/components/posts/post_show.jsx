@@ -87,7 +87,7 @@ class PostShow extends React.Component {
                                     </ul>
                                 </div>
                         </div>
-                        <div className="likes-div">
+                        <div>
                             <Likes
                             postId={postId}
                             fetchLikes={this.props.fetchLikes}
