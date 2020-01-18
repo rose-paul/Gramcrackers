@@ -71,15 +71,17 @@ const searchBar = () => {
           }
         </ul>
       )
-    } else if (displayedUsers && !displayedUsers.length && searchVal) {
+     } 
+    //else if (displayedUsers && !displayedUsers.length && searchVal) {
 
-          render = (
-          <ul className="users-search">
-            <li>No users found.</li>
-          </ul>
-          )
+    //       render = (
+    //       <ul className="users-search">
+    //         <li>No users found.</li>
+    //       </ul>
+    //       )
 
-    } else {
+    // } 
+    else {
       render = null;
     }
 
