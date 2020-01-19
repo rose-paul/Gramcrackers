@@ -8,7 +8,6 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 const Feed = props => {
 
     const [posts, setPosts] = useState(props.posts)
-    const [currentUser] = useState(props.currentUser)
     const [loaded, setLoaded] = useState(false)
     const [offset, setOffset] = useState(0)
     const [morePosts, setNoMore] = useState(true)

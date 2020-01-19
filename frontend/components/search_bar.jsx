@@ -6,7 +6,6 @@ import * as APIUtil from '../util/user_api_util'
 const searchBar = () => {
 
     const [searchRes, setRes] = useState()
-    const [searchVal, setVal] = useState()
     const node = useRef();
 
      useEffect(() => {
