@@ -30,7 +30,11 @@ const searchBar = () => {
         } else {
             APIUtil.searchUsers(searchValue)
                 .then(res => {
-                    setRes(res)
+                    if (Object.values(res).length) {
+                      setRes(res)
+                    } else {
+                      setRes({1 : {value: "No Users Found."}})
+                    }
                 })
         }
     }
@@ -41,73 +45,46 @@ const searchBar = () => {
       displayedUsers = Object.values(searchRes)
     }
 
+
     let render;
+    
+    if (displayedUsers) {
+      if (displayedUsers[0] && displayedUsers[0].value === "No Users Found.") {
+        render = (
+          <ul className="users-search">
+            <li id="none-found">No users found :(</li>
+          </ul>
+        )
+      } else {
+        render = (
+          <ul className="users-search">
+              {
+                  displayedUsers.map( user => {
+                      return (
+                        <Link to={`/${user.value}`} onClick={handleClick} key={user.key}>
+                          <li>
+                            {
+                            user.photo ?
+                            <img
+                              className="profile-pic-search"
+                              src={user.photo}
+                            />
+                            :
+                            <img className="profile-pic-search" src="/user.png" />
+                            }
+                            {user.value}
+                          </li>
+                        </Link>
+                      );
+                  })
+              }
+          </ul>
+      ) }
+      } else {
+        
+        render = null
 
-    if (searchRes && displayedUsers && displayedUsers.length) {
-      render = (
-        <ul className="users-search">
-          {
-            displayedUsers.map(user => {
-              return (
-                <Link to={`/${user.value}`} onClick={handleClick} key={user.key}>
-                  <li key={user.key}>
-                    {
-                      user.photo ?
-                        <img
-                          className="profile-pic-search"
-                          src={user.photo}
-                        />
-                        :
-                        <img className="profile-pic-search" src="/user.png" />
-                    }
-                    {user.value}
-                  </li>
-                </Link>
-              );
-            })
-          }
-        </ul>
-      )
-     } 
-    //else if (displayedUsers && !displayedUsers.length && searchVal) {
-
-    //       render = (
-    //       <ul className="users-search">
-    //         <li>No users found.</li>
-    //       </ul>
-    //       )
-
-    // } 
-    else {
-      render = null;
-    }
-
-    // let render = displayedUsers ? (
-    //     <ul className="users-search">
-    //         {
-    //             displayedUsers.map( user => {
-    //                 return (
-    //                   <Link to={`/${user.value}`} onClick={handleClick}>
-    //                     <li>
-    //                       {
-    //                       user.photo ?
-    //                       <img
-    //                         className="profile-pic-search"
-    //                         src={user.photo}
-    //                       />
-    //                       :
-    //                       <img className="profile-pic-search" src="/user.png" />
-    //                       }
-    //                       {user.value}
-    //                     </li>
-    //                   </Link>
-    //                 );
-    //             })
-    //         }
-    //     </ul>
-    // ) : (
-        // null
-    // )
+      }
 
 
     return (
