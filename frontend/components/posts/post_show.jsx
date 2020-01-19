@@ -70,8 +70,8 @@ class PostShow extends React.Component {
                                    
                                     <ul className="comments-ul">
                                     <div className="owner-caption">
-                                        <Link className="username" to={`/${this.props.owner.username}`}><p>{this.props.owner.username} </p></Link>
-                                        <p> {postCaption}</p>
+                                            <span> <Link className="username" to={`/${this.props.owner.username}`}>{this.props.owner.username}</Link> 
+                                            {postCaption}</span>
                                     </div>
                                         {
                                             comments.map ( comment => (
