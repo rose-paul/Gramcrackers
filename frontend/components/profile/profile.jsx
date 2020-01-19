@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Loader from 'react-loader-spinner'
 
 class Profile extends React.Component {
@@ -93,6 +93,10 @@ class Profile extends React.Component {
                 <button className="profile-user-options" id="edit">Edit Profile</button>
             </Link>
             follow = null;
+        } else if (!this.props.currentUser) {
+            logout = null;
+            editprofile = null;
+            follow = <button className="follow-button" onClick={() => { this.props.history.push("/signup") }}>{followText}</button>
         } else {
             logout = null;
             editprofile = null;

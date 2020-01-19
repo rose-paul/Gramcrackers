@@ -32,7 +32,7 @@ class Greeting extends React.Component {
             </div>
             </div>
         ) : (
-            
+                <div className="nav-wrapper">
                     <div className="nav-bar">
                         <div className="home-links-div">
                         <Link className='home-link' to="/"> <img src="/001-camera.png" /></Link>
@@ -46,6 +46,7 @@ class Greeting extends React.Component {
                             <Link className='nav-login' to="/login">Log In</Link>
                             <Link className='nav-signup' to="/signup">Sign Up</Link>
                         </div>
+                    </div>
                     </div>
             )
 
