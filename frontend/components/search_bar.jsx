@@ -23,8 +23,6 @@ const searchBar = () => {
 
     const filter = (e) => {
 
-        setVal(e.currentTarget.value)
-
         let searchValue = e.currentTarget.value
 
         if (searchValue === "") {
@@ -51,8 +49,8 @@ const searchBar = () => {
           {
             displayedUsers.map(user => {
               return (
-                <Link to={`/${user.value}`} onClick={handleClick}>
-                  <li>
+                <Link to={`/${user.value}`} onClick={handleClick} key={user.key}>
+                  <li key={user.key}>
                     {
                       user.photo ?
                         <img
