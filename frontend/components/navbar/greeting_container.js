@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from "react-redux";
 import Greeting from "./greeting";
-import { logoutUser } from "../actions/session_actions";
+import { logoutUser } from "../../actions/session_actions";
 import { Link, withRouter } from 'react-router-dom';
-import { openModal, closeModal } from "../actions/modal_actions";
+import { openModal, closeModal } from "../../actions/modal_actions";
 
-const mapStateToProps = (state, ownprops) => {
+const mapStateToProps = (state) => {
     return {
     currentUser: state.entities.users[state.session.id]
 }};

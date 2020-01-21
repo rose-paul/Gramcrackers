@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import * as APIUtil from '../util/user_api_util'
+import * as APIUtil from '../../util/user_api_util'
 
 
 const searchBar = () => {

@@ -21,14 +21,15 @@ const FeedIndexItem = props => {
             <span>
                 <Link to={`/${props.post.username}`}>{userPhoto}</Link> <Link to={`/${props.post.username}`}>{props.post.username}</Link>
             </span>
-            <Link to={`/posts/${props.post.id}`}><img className="post" src={props.post.photoUrl} alt="" /></Link>
-            <LikeHook 
-                likes={props.post.likes}
-                addLike={props.addLike}
-                removeLike={props.removeLike}
-                currentUser={props.currentUser}
-                postId={props.post.id}
-            />
+                <Link to={`/posts/${props.post.id}`}><img className="post" src={props.post.photoUrl} alt="" /></Link>
+                
+                <LikeHook 
+                    likes={props.post.likes}
+                    addLike={props.addLike}
+                    removeLike={props.removeLike}
+                    currentUser={props.currentUser}
+                    postId={props.post.id}
+                />
             
             <div className="caption">
                 <Link to={`/${props.post.username}`}><b>{props.post.username}</b></Link>

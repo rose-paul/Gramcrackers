@@ -26,8 +26,6 @@ class Comment extends React.Component {
             let field = document.getElementById(`comment-input-${this.props.postId}`);
             field.value = ""
         })
-        // .then( () => this.props.fetchPost(this.props.postId))
-        //     .then( () => window.location.reload(true))
     }
 
     render() {
