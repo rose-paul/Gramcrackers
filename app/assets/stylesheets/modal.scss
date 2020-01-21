@@ -11,14 +11,10 @@
 .modal-child {
   position: absolute;
   background-color: rgb(247, 247, 247);
-  // max-height: 600px;
-  // min-height: 600px;
-  // min-width: 400px;
-  // max-width: 400px;
-        max-height: 60vh;
-    min-height: 86vh;
-    min-width: 30vw;
-    max-width: 30vw;
+  max-height: 60vh;
+  min-height: 86vh;
+  min-width: 30vw;
+  max-width: 30vw;
   top: 55%;
   left: 50%;
   border-radius: 10px;
@@ -37,10 +33,6 @@
 .modal-child-options {
   position: absolute;
   background-color: rgb(247, 247, 247);
-  // max-width: 390px;
-  // max-height: 270px;
-  // min-width: 390px;
-  // min-height: 270px;
   min-width: 40vw;
   min-height: 30vh;
   max-width: 35vw;
@@ -50,6 +42,7 @@
   border-radius: 10px;
   transform: translate(-50%, -50%);
 }
+
 .modal-background-comments {
   position: fixed;
   top: 0;

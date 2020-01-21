@@ -2,14 +2,9 @@
     padding-left: 10px;
     display: flex;
     flex-direction: column;
-    // height: 250px;
-    // width: 375px;
     height: 44vh;
     width: 25vw;
     overflow: auto;
-    // border-bottom: 1px solid rgb(189, 189, 189);
-    // padding-bottom: 15px;
-    // margin-bottom: 2px;
     padding-top: 5px;
 
 }
@@ -40,22 +35,14 @@
 }
 
 .add-comment {
-    // border-top: 1px solid rgb(189, 189, 189);
-    // height: 43px;
-    // width: 375px;
-    // display: flex;
-    // align-items: center;
     border-top: 1px solid #bdbdbd;
-    /* margin-top: 10px; */
     height: 9vh;
     width: 28vw;
     display: flex;
     align-items: center;
-
 }
 
 .add-comment input:first-child {
-    // width: 320px;
     width: 20vw;
     border: none;
     background-color: inherit;
@@ -89,4 +76,4 @@
     padding-right: 6px;
 }
 
-// 
+
