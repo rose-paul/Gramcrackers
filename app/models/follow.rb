@@ -11,8 +11,8 @@ class Follow < ApplicationRecord
         class_name: :User
 
     def find_username(user_id)
-     user = User.find_by(id: user_id)
-     return user.username
+        user = User.find_by(id: user_id)
+        return user.username
     end
     
 end

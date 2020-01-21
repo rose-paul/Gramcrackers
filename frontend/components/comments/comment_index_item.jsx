@@ -8,13 +8,16 @@ const CommentIndexItem = ({ comment, currentUser, commentOptionsModal, postUser,
        return ( 
        <div className={klass}>
             <span>
-                   <Link className="comment-link" to={`/${comment.username}`}>{comment.username}</Link>
-                    {comment.body}
+                <Link className="comment-link" to={`/${comment.username}`}>{comment.username}</Link>
+                 {comment.body}
             </span>
-            {comment.user_id === currentUser.id || postUser === currentUser.id ?
-                <div onClick={() => commentOptionsModal('commentoptions', comment, updateComments)}>
-                    <img src="./three-dots-more-indicator.png" width="15" height="15" />
-                </div> : null }
+
+                {
+                comment.user_id === currentUser.id || postUser === currentUser.id ?
+            <div onClick={() => commentOptionsModal('commentoptions', comment, updateComments)}>
+                <img src="./three-dots-more-indicator.png" width="15" height="15" />
+            </div> : null 
+            }
         </div>
         )
 }

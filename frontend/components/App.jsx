@@ -1,9 +1,9 @@
 import React from "react";
-import GreetingContainer from "./greeting_container";
+import GreetingContainer from "./navbar/greeting_container";
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import SignupFormContainer from "./signup_form_container";
-import LoginFormContainer from "./login_form_container";
+import SignupFormContainer from "./login_signup/signup_form_container";
+import LoginFormContainer from "./login_signup/login_form_container";
 import FeedContainer from "./feed/feed_container";
 import ProfileContainer from "./profile/profile_container";
 import PostFormContainer from "./posts/post_form_container";
@@ -14,7 +14,7 @@ import EditProfileContainer from "./profile/edit_profile_container";
 
 
 
-const App = (props) => {
+const App = () => {
     return (
     <div>
         <Modal />
@@ -31,11 +31,6 @@ const App = (props) => {
             <Route exact path="/:username" component={ProfileContainer} />
             <Redirect to="/signup"/>
         </Switch>  
-        {/* {
-            props.currentUser ? <ProtectedRoute path={`/${props.currentUser.username}`} component={ProfileContainer} />
-            : null
-        }  */}
-        {/* :username */}
         
     </div>
 

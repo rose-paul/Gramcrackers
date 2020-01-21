@@ -29,8 +29,6 @@ class Profile extends React.Component {
                 this.setState({ followed: false })
             
                 )
-                
-        // Promise.all([this.props.fetchUserPosts(this.props.match.params.username), this.props.fetchOwnerByUsername(this.props.match.params.username)])
     }
 
     componentDidUpdate(prevProps) {
@@ -59,11 +57,9 @@ class Profile extends React.Component {
         e.preventDefault();
         if (this.state.followed) {
             this.props.deleteFollow(this.props.follows[this.props.owner.id].id)
-            // .then(this.props.fetchFollows('following'))
             .then(this.setState({ followed: false }) )
         } else {
             this.props.createFollow(this.props.owner.id)
-            // .then(this.props.fetchFollows('following'))
             .then(this.setState({ followed: true }))
         }
     }

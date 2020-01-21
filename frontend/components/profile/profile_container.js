@@ -34,7 +34,6 @@ const mapDispatchToProps = dispatch => ({
     createFollow: followingId => dispatch(createFollow(followingId)),
     deleteFollow: followId => dispatch(deleteFollow(followId)),
     fetchFollows: type => dispatch(fetchFollows(type))
-    // noErrors: () => dispatch(receiveLocationChange())
    
 });
 

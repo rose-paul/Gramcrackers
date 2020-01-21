@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import SessionForm from './session_form';
-// import { HashRouter } from "react-router-dom";
-import { loginUser, RECEIVE_SESSION_ERRORS, receiveLocationChange } from "../actions/session_actions";
+import { loginUser, receiveLocationChange } from "../../actions/session_actions";
 
 
 const mapStateToProps = (state) => ({

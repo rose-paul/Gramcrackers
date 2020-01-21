@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import App from './App';
-const mapStateToProps = (state, ownProps) => ({
+
+const mapStateToProps = (state) => ({
     currentUser: state.entities.users[state.session.id]
 });
 
