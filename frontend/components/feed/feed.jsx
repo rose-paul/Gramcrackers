@@ -33,7 +33,6 @@ const Feed = props => {
     }
 
     const display = Object.values(posts).reverse()
-
     return loaded ? (
       <div className="feed-main">
         <ul className="feed-list">
