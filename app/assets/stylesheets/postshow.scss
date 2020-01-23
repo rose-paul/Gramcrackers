@@ -25,15 +25,16 @@
     flex-direction: column;
     width: 28vw;
     height: 71vh;
-    border-bottom: 1px solid rgb(189, 189, 189);
-    border-top: 1px solid rgb(189, 189, 189);
-    border-right: 1px solid rgb(189, 189, 189);
+    border-bottom: 0.8px solid #d8d8d8d7;
+    border-top: 0.8px solid #d8d8d8d7;
+    border-right: 0.8px solid #d8d8d8d7;
+    font-size: 15px;
 }
 
 .post-show-user {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgb(189, 189, 189);
+    border-bottom: 0.8px solid #d8d8d8d7;
     width: 28vw;
     height: 9vh;
 }

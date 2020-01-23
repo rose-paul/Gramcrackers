@@ -32,8 +32,10 @@ const FeedIndexItem = props => {
                 />
             
             <div className="caption">
-                <Link to={`/${props.post.username}`}><b>{props.post.username}</b></Link>
-                <Link to={`/posts/${props.post.id}`}><p>{props.post.caption}</p></Link>
+                <span>
+                  <Link to={`/${props.post.username}`}><b>{props.post.username}</b></Link>
+                  <Link to={`/posts/${props.post.id}`}>{props.post.caption}</Link>
+                </span>
             </div>
 
             <div className="feed-comments-div">
