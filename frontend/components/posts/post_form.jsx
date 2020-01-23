@@ -60,7 +60,7 @@ class PostForm extends React.Component {
         
         return(
             <div className="post-form">
-                <h3>{this.props.formType}</h3>
+                    <h3>{this.props.formType}</h3>
                 <form onSubmit={this.handleSubmit}>
                     <div className="preview">
                         {preview}
