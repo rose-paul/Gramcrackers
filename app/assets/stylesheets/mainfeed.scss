@@ -6,8 +6,10 @@
  }
 
  .feed-main .post {
-     height: 500px;
-     width: 600px;
+    //  height: 500px;
+    min-height: 400px;
+    width: 600px;
+    object-fit: cover;
  }
 
  .feed-main > header > img {
