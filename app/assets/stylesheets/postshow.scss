@@ -24,7 +24,7 @@
     display: flex;
     flex-direction: column;
     width: 28vw;
-    height: 71vh;
+    height: 71.3vh;
     border-bottom: 0.8px solid #d8d8d8d7;
     border-top: 0.8px solid #d8d8d8d7;
     border-right: 0.8px solid #d8d8d8d7;
@@ -98,9 +98,16 @@
 }
 
 .post-show-img {
+   height: 100%;
+   width: 100%;
+   object-fit: contain;
+}
+
+.post-photo-container {
     max-width: 36vw;
     max-height: 71.3vh;
     min-width: 36vw;
     min-height: 71.3vh;
-    // object-fit: cover;
+    border: 0.8px solid #d8d8d8d7;
+    background-color: white;
 }
