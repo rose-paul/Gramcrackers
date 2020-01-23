@@ -30,24 +30,39 @@ function Modal({ modal, closeModal }) {
     }
     let display; 
         if (modal.modal === "postoptions" ) {
-            display = (<div className="modal-background-options" onClick={closeModal}>
-                            <div className="modal-child-options" onClick={e => e.stopPropagation()}>
-                                {component}
-                            </div>
-                        </div>) 
-        } else if (modal.modal === "commentoptions") {
-            display = (<div className="modal-background-comments" onClick={closeModal}>
-                <div className="modal-child-comments" onClick={e => e.stopPropagation()}>
-                    {component}
+            display = (
+              <div className="modal-background-options" onClick={closeModal}>
+                <div
+                  className="modal-child-options"
+                  onClick={e => e.stopPropagation()}
+                >
+                  <div className="close-button" onClick={closeModal}>
+                    X
+                  </div>
+                  {component}
                 </div>
-            </div>) 
+              </div>
+            ); 
+        } else if (modal.modal === "commentoptions") {
+            display = (
+              <div className="modal-background-comments" onClick={closeModal}>
+                <div
+                  className="modal-child-comments"
+                  onClick={e => e.stopPropagation()}
+                >
+                  {component}
+                </div>
+              </div>
+            ); 
         } else {
-            display =
-                 (<div className="modal-background" onClick={closeModal}>
-                     <div className="modal-child" onClick={e => e.stopPropagation()}>
-                         {component}
-                     </div>
-                 </div>)
+            display = (
+              <div className="modal-background" onClick={closeModal}>
+                <div className="modal-child" onClick={e => e.stopPropagation()}>
+                  <div className="close-button" onClick={closeModal}>X</div>
+                  {component}
+                </div>
+              </div>
+            );
         }
    
     return (
