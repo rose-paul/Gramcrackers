@@ -5,7 +5,7 @@ import { logoutUser } from "../../actions/session_actions";
 import { Link, withRouter } from 'react-router-dom';
 import { openModal, closeModal } from "../../actions/modal_actions";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     return {
     currentUser: state.entities.users[state.session.id]
 }};
